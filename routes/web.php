@@ -20,3 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/artworks/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
+
+
+//artist 
+Route::get('/artist/{id}/{artist}', 'ArtistController@index')->name('artist.index');
+Route::get('user/profile', 'UserController@index');

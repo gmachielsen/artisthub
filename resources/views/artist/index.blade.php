@@ -1,10 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        @foreach($artworks as $artwork)
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+        <div class="artist profile col-xs-12 col-md-3">
+            <div class="avatar">
+                <img src="{{ asset('avatar/Gijs.jpg')}}" alt="">
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <h1>{{ $artist->artist_name }} ({{ $artist->YearOfBirth}})</h1>
+            <h3>{{ $artist->shorttext }}</h3>
+            <p>{{ $artist->description }}</p>
+        </div>
+    </div>
+    
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        @foreach($artist->artworks as $artwork)
+        
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
             <a href="{{ route('artworks.show', [$artwork->id, $artwork->slug])}}">
                 <div class="card" style="">
                     <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">

@@ -10,4 +10,9 @@ class Artwork extends Model
     {
         return 'slug';
     }
+
+    public function artist()
+    {
+        return $this->belongsTo('App\Artist');
+    }
 }
