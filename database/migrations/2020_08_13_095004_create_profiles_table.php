@@ -17,9 +17,21 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('gender');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('phone');
+            $table->string('cell_phone');
             $table->string('email');
-            $table->string('address');
+            $table->string('full_name');
+            $table->string('postal_code');
+            $table->string('street_name');
+            $table->string('house_number');
+            $table->string('further_address_information');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+
+
             $table->timestamps();
         });
     }
