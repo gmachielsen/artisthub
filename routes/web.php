@@ -28,3 +28,4 @@ Route::get('/artist/{id}/{artist}', 'ArtistController@index')->name('artist.inde
 //user
 Route::get('user/profile', 'UserController@index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
+Route::post('user/profile/address', 'UserController@saveaddress')->name('profile.create.address');
