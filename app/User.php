@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Profile;
+use App\Artist;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -39,5 +40,9 @@ class User extends Authenticatable
 
     public function profile(){
         return $this->hasOne(Profile::class);
+    }
+
+    public function artist(){
+        return $this->hasOne(Artist::class);
     }
 }
