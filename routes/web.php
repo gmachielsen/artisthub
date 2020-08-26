@@ -27,7 +27,9 @@ Route::view('artist/register', 'auth.artist-register')->name('register.as.artist
 Route::post('artist/register', 'ArtistRegisterController@artistRegister')->name('artist.register');
 Route::get('/artist/{id}/{artist}', 'ArtistController@index')->name('artist.index');
 Route::get('artist/create', 'ArtistController@create');
-
+Route::post('artist/createpersonalinformation', 'ArtistController@savePersonalInformation')->name('create.personal.information');
+Route::post('artist/createcompanyinformation', 'ArtistController@saveCompanyInformation')->name('create.company.information');
+Route::post('artist/createbiography', 'ArtistController@saveStoryAboutArtist')->name('create.story.artist');
 //user
 Route::get('user/profile', 'UserController@index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');

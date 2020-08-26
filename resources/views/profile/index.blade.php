@@ -142,10 +142,10 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-2">
-                            <label class="control-label required" for="city">Stad of dorp</label>
+                            <label class="control-label required" for="city">Plaatsnaam</label>
                         </div>
                         <div class="col-sm-10">
-                            <input type="text" placeholder="uw stad of dorp" name="city" class="form-control" value="{{ $profile->city }}">
+                            <input type="text" placeholder="plaatsnaam" name="city" class="form-control" value="{{ $profile->city }}">
                         </div>
                     </div>
                 </div>

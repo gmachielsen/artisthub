@@ -44,7 +44,7 @@ $factory->define(App\Artist::class, function (Faker $faker) {
         'description' => $faker->paragraph(rand(2, 10)), 
         'website' => $faker->domainName,
         'phone' => $faker->phoneNumber,
-        'GSM' => $faker->cellPhoneNumber,
+        'GSM' => $faker->phoneNumber,
         'full_name' => $name=$faker->name, 
         'postal_code' => $faker->postcode,
         'street_name' => $faker->streetName,
