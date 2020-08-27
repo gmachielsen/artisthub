@@ -23,13 +23,13 @@
     </div>
     <div class="row profile_image_row" style="display: flex; justify-content: center">
         <div class="col-xs-12 content-center">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('profile.photo')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="profile_image">
-                    @if(empty(Auth::user()->company->logo))
+                    @if(empty(Auth::user()->artist->profile_photo))
                     <img src="{{ asset('avatar/avatar.jpg') }}" width="100" alt="" style="width: 100%; border-radius: 50% 50% 50% 50%;" data-toggle="modal" data-target="#changeProfileImage">
                     @else
-                    <img src="{{ asset('uploads/logo') }}/{{Auth::user()->company->logo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
+                    <img src="{{ asset('uploads/profilephoto') }}/{{Auth::user()->artist->profile_photo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
                     @endif
                 </div>
                     <!-- Modal -->
@@ -86,13 +86,13 @@
                     <form action="{{ route('create.personal.information')}}" name="profile" method="POST" class="form-global form-horizontal">
                     @csrf
                         <div id="artist" class="form-global">
-                        <div class="form-group">
+                            <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-2">
                                         <label class="control-label required" for="first_name">Artiestnaam</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="uw naam als kunstenaar" name="artist_name" class="form-control" value="">    
+                                        <input type="text" placeholder="uw naam als kunstenaar" name="artist_name" class="form-control" value="{{ Auth::user()->artist->artist_name }}">    
                                                     
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                         <label class="control-label required" for="first_name">Voornaam</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="voornaam" name="first_name" class="form-control" value="">    
+                                        <input type="text" placeholder="voornaam" name="first_name" class="form-control" value="{{ Auth::user()->artist->first_name }}">    
                                                     
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                                         <label class="control-label required" for="last_name">Achternaam</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="achternaam" name="last_name" class="form-control" value="">
+                                        <input type="text" placeholder="achternaam" name="last_name" class="form-control" value="{{ Auth::user()->artist->last_name }}">
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                         <label class="control-label required" for="YearOfBirth">Geboortejaar</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="Uw geboortejaar" name="YearOfBirth" class="form-control" value="">
+                                        <input type="text" placeholder="Uw geboortejaar" name="YearOfBirth" class="form-control" value="{{ Auth::user()->artist->YearOfBirth }}">
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                         <label class="control-label required" for="e-mail">e-mail</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="email" placeholder="email" name="email" class="form-control" value="">
+                                        <input type="email" placeholder="email" name="email" class="form-control" value="{{ Auth::user()->artist->email }}">
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                                         <label class="control-label required" for="GSM">GSM</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="mobiel-nummer" name="GSM" class="form-control" value="">
+                                        <input type="text" placeholder="mobiel-nummer" name="GSM" class="form-control" value="{{ Auth::user()->artist->GSM }}">
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@
                                         <label class="control-label required" for="phone">Telefoon</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="telefoon-nummer" name="phone" class="form-control" value="">
+                                        <input type="text" placeholder="telefoon-nummer" name="phone" class="form-control" value="{{ Auth::user()->artist->phone }}">
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                                         <label class="control-label required" for="website">Uw website</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="uw website" name="website" class="form-control" value="">
+                                        <input type="text" placeholder="uw website" name="website" class="form-control" value="{{ Auth::user()->artist->website }}">
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@
                                         <label class="control-label required" for="company_name">Uw bedrijfsnaam</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="uw bedrijfsnaam" name="company_name" class="form-control" value="">
+                                        <input type="text" placeholder="uw bedrijfsnaam" name="company_name" class="form-control" value="{{ Auth::user()->artist->company_name }}">
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@
                                         <label class="control-label required" for="businessnumber">Uw kvk-nummer</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="uw kvk-nummer" name="businessnumber" class="form-control" value="">
+                                        <input type="text" placeholder="uw kvk-nummer" name="businessnumber" class="form-control" value="{{ Auth::user()->artist->businessnumber }}">
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@
                                         <label class="control-label required" for="taxnumber">Uw btw indificatienummer</label>
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="Uw btw indificatienummer" name="taxnumber" class="form-control" value="">
+                                        <input type="text" placeholder="Uw btw indificatienummer" name="taxnumber" class="form-control" value="{{ Auth::user()->artist->taxnumber }}">
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                                     <label class="control-label required" for="street_name">Straatnaam</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="uw straatnaam" name="street_name" class="form-control" value="">    
+                                    <input type="text" placeholder="uw straatnaam" name="street_name" class="form-control" value="{{ Auth::user()->artist->street_name }}">    
                                 </div>
                             </div>
                         </div>
@@ -248,7 +248,7 @@
                                     <label class="control-label required" for="first_name">Postcode</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="uw postcode" name="postal_code" class="form-control" value="">    
+                                    <input type="text" placeholder="uw postcode" name="postal_code" class="form-control" value="{{ Auth::user()->artist->postal_code }}">    
                                 </div>
                             </div>
                         </div>
@@ -258,7 +258,7 @@
                                     <label class="control-label required" for="house_number">Huisnummer (met toevoeging)</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="Huisnumber (Met eventueel gebouwnummer en toevoeging indien nodig)" name="house_number" class="form-control" value="">
+                                    <input type="text" placeholder="Huisnumber (Met eventueel gebouwnummer en toevoeging indien nodig)" name="house_number" class="form-control" value="{{ Auth::user()->artist->house_number }}">
                                 </div>
                             </div>
                         </div>
@@ -268,7 +268,7 @@
                                     <label class="control-label required" for="city">Plaatsnaam</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="Uw plaatsnaam" name="city" class="form-control" value="">
+                                    <input type="text" placeholder="Uw plaatsnaam" name="city" class="form-control" value="{{ Auth::user()->artist->city }}">
                                 </div>
                             </div>
                         </div>
@@ -278,7 +278,7 @@
                                     <label class="control-label required" for="country">Land</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" placeholder="land" name="country" class="form-control" value="">
+                                    <input type="text" placeholder="land" name="country" class="form-control" value="{{ Auth::user()->artist->country }}">
                                 </div>
                             </div>
                         </div>
@@ -319,10 +319,10 @@
                         <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <label class="control-label required" for="street_name">Korte beschrijving</label>
+                                        <label class="control-label required" for="shorttext">Korte beschrijving / intro</label>
                                     </div>
                                     <div class="col-sm-12">
-                                    <textarea name="description" id="" cols="30" rows="10" class="form-control" value=""></textarea>
+                                    <textarea name="shorttext" id="" cols="30" rows="10" class="form-control">{{ Auth::user()->artist->shorttext }}</textarea>
                                                     
                                     </div>
                                 </div>
@@ -333,7 +333,7 @@
                                         <label class="control-label required" for="description">Uw biografie als kunstenaar</label>
                                     </div>
                                     <div class="col-sm-12">
-                                    <textarea name="description" id="" cols="30" rows="10" class="form-control" value=""></textarea>
+                                    <textarea name="description" id="" cols="30" rows="10" class="form-control">{{ Auth::user()->artist->description }}</textarea>
                                                     
                                     </div>
                                 </div>
@@ -345,18 +345,35 @@
                         </div>
                     </form>
                     <br><br>
+
+
                     <!-- @if(Session::has('message'))
                             <div class="alert alert-success">
                                 {{ Session::get('message')}}
                             </div>
                     @endif -->
                 </div>
-            </div>      
+
+            </div>  
+ 
         </div>
+
+        
+ 
     </div>
+
+
   </div>
+
 </div>
-    
+<br><br>
+<hr>
+<br><br>
+<div class="row">
+    <div class="website_url">
+        <a href="company/{{ Auth::user()->artist->slug }}">Bekijk uw profiel op dit platform</a>
+    </div>
+</div>  
 
 
         

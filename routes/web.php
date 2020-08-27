@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// artworks
 Route::get('/', 'ArtworkController@index');
-
+Route::get('/artworks/create', 'ArtworkController@create')->name('create.artwork');
 
 Auth::routes();
 
@@ -30,6 +31,7 @@ Route::get('artist/create', 'ArtistController@create');
 Route::post('artist/createpersonalinformation', 'ArtistController@savePersonalInformation')->name('create.personal.information');
 Route::post('artist/createcompanyinformation', 'ArtistController@saveCompanyInformation')->name('create.company.information');
 Route::post('artist/createbiography', 'ArtistController@saveStoryAboutArtist')->name('create.story.artist');
+Route::post('artist/profilephoto', 'ArtistController@profilePhoto')->name('profile.photo');
 //user
 Route::get('user/profile', 'UserController@index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');

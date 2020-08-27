@@ -16,4 +16,15 @@ class ArtworkController extends Controller
     {
         return view('artworks.show', compact('artwork'));
     }
+
+    public function artist()
+    {
+        return view('artist.index');
+    }
+
+    public function create()
+    {
+        return view('artworks.create');
+    }
+
 }

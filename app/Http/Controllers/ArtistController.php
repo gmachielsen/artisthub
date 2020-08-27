@@ -60,4 +60,21 @@ class ArtistController extends Controller
         ]);
         return redirect()->back()->with('message', 'Dank voor het invullen van uw biografiegegevens, uw gegevens zijn nu opgeslagen');
     }
+
+    public function profilePhoto(Request $request) 
+    {
+        $user_id = auth()->user()->id;
+        if($request->hasfile('profile_photo'))
+        {
+            $file = $request->file('profile_photo');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('uploads/profilephoto/',$filename);
+            Artist::where('user_id', $user_id)->update([
+                'profile_photo'=>$filename
+            ]);
+
+            return redirect()->back()->with('message', 'Uw profielfoto is met succes opgeslagen!');
+        }
+    }
 }
