@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Artwork;
 use App\Artist;
-use App\Http\Requests\ArtworkPostRequest;
 
 use Illuminate\Http\Request;
 
@@ -38,6 +37,15 @@ class ArtworkController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'title'=>'required|min:2',
+            'picture' => 'required|mimes:jpeg,jpg,png',
+            'description' => 'required|string|min:20',
+            'width' => 'required',
+            'height' => 'required',
+            'year' => 'required',
+            'price' => 'required',
+        ]);
         $user_id = auth()->user()->id;
         $artist = Artist::where('user_id', $user_id)->first();
         $artist_id = $artist->id;
