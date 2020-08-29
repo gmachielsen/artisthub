@@ -29,7 +29,6 @@ class CreateArtworksTable extends Migration
             $table->string('technic_id');
             $table->string('style_id');
             $table->string('category_id');
-            $table->string('type_id');
             $table->integer('status');
             $table->integer('year');
             $table->string('framed');

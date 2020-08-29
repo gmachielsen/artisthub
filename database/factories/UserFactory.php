@@ -70,7 +70,6 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
         'picture' => 'artworks/Paard.jpg',
         'status' => rand(0, 1),
         'style_id' => rand(1,5),
-        'type_id'=> rand(1, 7),
         'category_id' => rand(1,8),
         'technic_id' => rand(1,5),
         'rent' => rand(10, 250),
@@ -79,8 +78,9 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
         'slug' => str_slug($title),
         'width' => rand(10, 200),
         'height' => rand(10, 200), 
-        'orientation' => rand(1, 3), 
+        'orientation' => 'staand', 
         'description' => $faker->paragraph(rand(2, 10)),
+        'framed' => 'yes',
         'year' => rand(1600, 2020),
     ];
 });

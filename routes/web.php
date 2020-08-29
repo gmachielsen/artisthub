@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 // artworks
 Route::get('/', 'ArtworkController@index');
 Route::get('/artworks/create', 'ArtworkController@create')->name('create.artwork');
+Route::post('/artworks/store', 'ArtworkController@store')->name('artwork.store');
+Route::get('/artworks/{id}/edit', 'ArtworkController@edit')->name('artwork.edit');
+Route::get('artworks/my-artworks', 'ArtworkController@myArtwork');
+
 
 Auth::routes();
 

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Profile;
 use App\Artist;
+use App\Artwork;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -45,4 +46,6 @@ class User extends Authenticatable
     public function artist(){
         return $this->hasOne(Artist::class);
     }
+
+
 }

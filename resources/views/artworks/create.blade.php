@@ -1,16 +1,44 @@
-@extends('layouts.app')
+@push('styles')
+    <link href="{{ asset('css/create_artwork.css') }}" rel="stylesheet">
+@endpush
 
+@extends('layouts.app')
 @section('content')
 <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+                @if(Session::has('create.artwork'))
+                        <div class="alert alert-success">
+                            {{ Session::get('create.artwork')}}
+                        </div>
+                @endif
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-sm-12">
+        <form action="{{ route('artwork.store')}}" name="profile" method="POST" class="form-global form-horizontal" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label for="title">titel</label>
-                <input type="text" name="title" class="form-control">
+                <input type="text" name="title" class="form-control
+                {{ $errors->has('title') ? ' is-invalid' : '' }}" 
+                value="{{ old('title') }}"
+                placeholder="Vul de naam of titel in van het kunstobject">
+                @if ($errors->has('title'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('title') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="form-group">
                 <label for="year">Jaar van werk</label>
-                <input type="text" name="year" class="form-control">
+                <input type="text" name="year" class="form-control {{ $errors->has('year') ? ' is-invalid' : '' }}" 
+                value="{{ old('year') }}" placeholder="Vul in jaar waarin kunstobject voltooid is">
+                @if ($errors->has('year'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('year') }}</strong>
+                    </span>
+                @endif
             </div>
 
             
@@ -40,178 +68,121 @@
             </div>
             <div class="form-group">
                 <label for="description">Beschrijving</label>
-                <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                <textarea name="description" id="" cols="30" rows="10" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" 
+                value="{{ old('description') }}" placeholder="Geef een beschrijving van het kunstobject"></textarea>
+                @if ($errors->has('description'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('description') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="form-group">
                 <label for="width">Breedte in centimeters</label>
-                <input type="number" name="width" class="form-control">
+                <input type="number" name="width" placeholder="Vul in breedte in centimeters" class="form-control {{ $errors->has('width') ? ' is-invalid' : '' }}" 
+                value="{{ old('width') }}">
+                @if ($errors->has('width'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('width') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="form-group">
                 <label for="height">Hoogte in centimeters</label>
-                <input type="number" name="height" class="form-control">
+                <input type="number" name="height" placeholder="Vul in hoogte in centimeters" class="form-control {{ $errors->has('height') ? ' is-invalid' : '' }}" 
+                value="{{ old('height') }}">
+                @if ($errors->has('height'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('height') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="form-group">
-                <label for="orentation">Orientatie</label>
-                <select name="orentation" class="form-control">
+                <label for="orientation">Orientatie</label>
+                <select name="orientation" class="form-control">
+                    <option value="choose">kies optie...</option>
                     <option value="horizontal">Liggend / horizontaal</option>
                     <option value="vertical">Staand / verticaal</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="orentation">Ingelijst</label>
-                <select name="orentation" class="form-control">
+                <label for="framed">Ingelijst</label>
+                <select name="framed" class="form-control">
+                    <option value="choose">kies optie...</option>
                     <option value="yes">Ja, met lijst</option>
                     <option value="no">Nee, zonder lijst</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="price">Prijs</label>
-                <input type="number" name="price" class="form-control">
+                <input type="number" name="price" placeholder="Vul bedrag in euro in" class="form-control {{ $errors->has('price') ? ' is-invalid' : '' }}" 
+                value="{{ old('price') }}">
+                @if ($errors->has('price'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('price') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="form-group">
                 <label for="rent">Huurprijs per maand</label>
-                <input type="number" name="rent" class="form-control">
+                <input type="number" name="rent" placeholder="Vul bedrag euro in" class="form-control">
             </div> 
             <div class="form-group">
-                <label for="orentation">Status</label>
-                <select name="orentation" class="form-control">
+                <label for="status">Status</label>
+                <select name="status" class="form-control">
+                    <option value="choose">kies optie...</option>
                     <option value="1">Online, actief op de website</option>
                     <option value="0">Offline, niet actief op de website</option>
                 </select>
             </div>
-        <div class="form-group">
-            <label for="photos">foto's</label>
-            <div class="row profile_image_row" style="">
-            <div class="col-sm-12 col-md-3">
-            <form action="{{ route('profile.photo')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="profile_image">
-                    @if(empty(Auth::user()->artist->profile_photo))
-                    <img src="{{ asset('avatar/avatar.jpg') }}" width="100" alt="" style="width: 100%; border-radius: 50% 50% 50% 50%;" data-toggle="modal" data-target="#changeProfileImage">
-                    @else
-                    <img src="{{ asset('uploads/profilephoto') }}/{{Auth::user()->artist->profile_photo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
-                    @endif
+            <div class="form-group">
+                <label for="photos">foto's</label>
+                <div class="row profile_image_row" style="">
+                <div class="col-sm-12 col-md-3">
+                    <div class="artwork_image">
+                        
+                        <label style="margin-bottom: 0px;">Add Photo</label>
+                        <div class="">
+                            <a class="addphoto" style="width: 50%;" >
+                                <!-- <i class="fas fa-plus fa-9x"></i> -->
+                                    <input id="" type="file" class="form-control foo {{ $errors->has('picture') ? ' is-invalid' : '' }}" 
+                                    value="{{ old('picture') }}" name="picture" onchange="readURL(this);" >
+                                    @if ($errors->has('picture'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('picture') }}</strong>
+                                        </span>
+                                    @endif
+                                    <script>
+                                    function readURL(input) {
+                                        if (input.files && input.files[0]) {
+                                            var reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                $('#blah')
+                                                    .attr('src', e.target.result)
+                                                    .width(250)
+                                                    .height(250)
+                                                    .css('object-fit', 'cover');
+                                            };
+
+                                            reader.readAsDataURL(input.files[0]);
+                                        }
+                                    }
+                                </script>                            
+                            </a>
+
+                        </div>
+                    </div>
                 </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="changeProfileImage" tabindex="-1" role="dialog" aria-labelledby="changeProfileImageTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changeProfileImageTitle">Kies ander profielfoto</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input id="" type="file" class="form-control" name="profile_photo">
-                            <br>
-                            <button class="btn btn-dark float-right" type="submit">Update</button>
-                        </div>
-                        @if($errors->has('avatar'))
-                            <div class="error" style="color: red;">{{ $errors->first('avatar') }}</div>
-                        @endif
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> -->
-                        </div>
-                    </div>
-                    </div>
-                <script>
-                    $('#myModal').on('shown.bs.modal', function () {
-                    $('#myInput').trigger('focus')
-                    })
-                </script>
-            </form>
-            </div>
-            <div class="col-sm-12 col-md-3">
-            <form action="{{ route('profile.photo')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="profile_image">
-                    @if(empty(Auth::user()->artist->profile_photo))
-                    <img src="{{ asset('avatar/avatar.jpg') }}" width="100" alt="" style="width: 100%; border-radius: 50% 50% 50% 50%;" data-toggle="modal" data-target="#changeProfileImage">
-                    @else
-                    <img src="{{ asset('uploads/profilephoto') }}/{{Auth::user()->artist->profile_photo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
-                    @endif
+
                 </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="changeProfileImage" tabindex="-1" role="dialog" aria-labelledby="changeProfileImageTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changeProfileImageTitle">Kies ander profielfoto</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input id="" type="file" class="form-control" name="profile_photo">
-                            <br>
-                            <button class="btn btn-dark float-right" type="submit">Update</button>
-                        </div>
-                        @if($errors->has('avatar'))
-                            <div class="error" style="color: red;">{{ $errors->first('avatar') }}</div>
-                        @endif
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> -->
-                        </div>
-                    </div>
-                    </div>
-                <script>
-                    $('#myModal').on('shown.bs.modal', function () {
-                    $('#myInput').trigger('focus')
-                    })
-                </script>
-            </form>
             </div>
-            <div class="col-sm-12 col-md-3">
-            <form action="{{ route('profile.photo')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="profile_image">
-                    @if(empty(Auth::user()->artist->profile_photo))
-                    <img src="{{ asset('avatar/avatar.jpg') }}" width="100" alt="" style="width: 100%; border-radius: 50% 50% 50% 50%;" data-toggle="modal" data-target="#changeProfileImage">
-                    @else
-                    <img src="{{ asset('uploads/profilephoto') }}/{{Auth::user()->artist->profile_photo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
-                    @endif
-                </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="changeProfileImage" tabindex="-1" role="dialog" aria-labelledby="changeProfileImageTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changeProfileImageTitle">Kies ander profielfoto</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input id="" type="file" class="form-control" name="profile_photo">
-                            <br>
-                            <button class="btn btn-dark float-right" type="submit">Update</button>
-                        </div>
-                        @if($errors->has('avatar'))
-                            <div class="error" style="color: red;">{{ $errors->first('avatar') }}</div>
-                        @endif
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> -->
-                        </div>
-                    </div>
-                    </div>
-                <script>
-                    $('#myModal').on('shown.bs.modal', function () {
-                    $('#myInput').trigger('focus')
-                    })
-                </script>
-            </form>
+                <br><br><br>
+                    <img id="blah" src="#" alt="your image" />
+            <div class="form-group">
+                <button class="btn btn-success float-right" type="submit">Opslaan</button>
             </div>
-            </div>
-        </div>
-    </div>        
-        </div>
+        </form>
+        </div>        
     </div>
 </div>
 @endsection
