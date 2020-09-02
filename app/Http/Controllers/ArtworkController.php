@@ -73,7 +73,11 @@ class ArtworkController extends Controller
         }
         return redirect()->back()->with('create.artwork','Artwork created successfully');
         
+    }
 
-        
+    public function edit($id)
+    {
+        $artwork = Artwork::findOrFail($id);
+        return view('artworks.edit', compact('artwork'));
     }
 }
