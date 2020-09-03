@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container">
+<div class="row">
+        <div class="col-sm-12">
+        <h1>Pas dit werk aan.</h1>
+                @if(Session::has('message'))
+                        <div class="alert alert-success">
+                            {{ Session::get('message')}}
+                        </div>
+                @endif
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">
@@ -22,8 +32,19 @@
                     </div>
                 </div>
                 <br>
-                @if(Auth::check()&&Auth::user()->user_type='customer')
-                    <button class="btn btn-success"></button>
+
+                @if(Auth::check()&&Auth::user()->user_type=='customer')
+                    @if(!$artwork->checkApplication())
+                    <form action="{{ route('artwork.request', [$artwork->id, $artwork->artist_id])}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Ik heb interesse</button>
+                    </form>
+                    @else 
+                    <form action="" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger" style="width: 100%;">Ik heb geen interesse meer</button>
+                    </form>
+                    @endif
                 @endif
             </div>
         </div>

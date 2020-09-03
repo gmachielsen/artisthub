@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\Artworkrequest;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('customer');
+    }
+
     public function index()
     {
         $user_id = auth()->user()->id;
@@ -40,5 +46,33 @@ class UserController extends Controller
             'country' => request('country'),
         ]);
         return redirect()->back()->with('message', 'Dank voor het invullen van uw adresgegevens, uw gegevens zijn nu opgeslagen');
+    }
+
+    public function artworkrequest(Request $request, $id, $artist)
+    {
+        $artist_id = $artist; 
+        $artwork_id = $id;
+        $user_id = auth()->user()->id;
+        
+        Artworkrequest::create([
+            'user_id' => $user_id,
+            'artist_id' => $artist_id,
+            'artwork_id' => $artwork_id,
+        ]);
+        return redirect('/');
+
+
+        // public function artworkrequest(Request $request, $id, $artist)
+        // {
+        //     $artist_user_id = $artist; 
+        //     $artwork_id = $id;
+        //     $user_id = auth()->user()->id;
+            
+        //     Artworkrequest::create([
+        //         'user_id' => $user_id,
+        //         'artist_user_id' => $artist_user_id,
+        //         'artwork_id' => $artwork_id,
+        //     ]);
+        //     return redirect('/');
     }
 }

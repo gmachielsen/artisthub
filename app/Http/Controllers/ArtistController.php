@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ArtistController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('artist', ['except'=>array('index')]);
+    }
+
     public function index($id, Artist $artist)
     {
         return view('artist.index', compact('artist'));
@@ -15,8 +20,6 @@ class ArtistController extends Controller
     public function create()
     {
         return view('artist.create');
-
-
     }
 
     public function savePersonalInformation(Request $request)

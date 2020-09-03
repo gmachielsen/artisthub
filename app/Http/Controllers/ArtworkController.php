@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 use App\Artwork;
 use App\Artist;
+use App\Artworkrequest;
+use Auth;
 
 use Illuminate\Http\Request;
 
 class ArtworkController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'artworkrequest' )]);
+    }
+
     public function index()
     {
         $artworks = Artwork::all();
@@ -71,13 +78,59 @@ class ArtworkController extends Controller
                 'picture'=> $filename,
             ]);
         }
-        return redirect()->back()->with('create.artwork','Artwork created successfully');
-        
+        return redirect()->back()->with('create.artwork','Artwork created successfully');       
     }
 
     public function edit($id)
     {
         $artwork = Artwork::findOrFail($id);
         return view('artworks.edit', compact('artwork'));
+    }
+
+    public function update(Request $request, $id)
+    {
+    	$this->validate($request,[
+    		'title'=>'required|min:3',
+    	]);
+        if($request->hasFile('picture')){
+            $file = $request->file('picture');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('uploads/artworks/',$filename);
+   			Artwork::where('id',$id)->update([
+                'title' => request('title'),
+                'slug' => str_slug(request('title')),
+                'width' => request('title'),
+                'height' => request('height'),
+                'orientation' => request('orientation'),
+                'description' => request('description'),
+                'year' => request('year'),
+                'price' => request('price'),
+                'rent' => request('rent'), 
+                'picture'=> $filename,
+   			]);
+   		}
+        return redirect()->back()->with('message','Kunstwerk succesvol aangepast!');
+    }
+
+    public function apply(Request $request, $id)
+    {
+        $artworkId = Artwork::find($id);
+        $artworkId->users()->attach(Auth::user()->id);
+        return redirect()->back()->width('message', 'Interesse in dit kunstwerk met succes getoond!');
+    }
+
+
+
+
+
+    public function lead()
+    {
+        
+        $user_id = Auth::user()->id;
+        $x = Artwork::find('artist')->where('user_id', $user_id);
+        $leads = Artworkrequest::where('artist_id', $x)->get();
+
+        return view('artworks.leads', compact('leads'));
     }
 }

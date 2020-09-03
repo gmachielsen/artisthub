@@ -8,16 +8,16 @@
     <div class="row">
         <div class="col-sm-12">
         <h1>Pas dit werk aan.</h1>
-                @if(Session::has('create.artwork'))
+                @if(Session::has('message'))
                         <div class="alert alert-success">
-                            {{ Session::get('create.artwork')}}
+                            {{ Session::get('message')}}
                         </div>
                 @endif
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-12">
-        <form action="{{ route('artwork.store')}}" name="profile" method="POST" class="form-global form-horizontal" enctype="multipart/form-data">
+        <form action="{{ route('artwork.update', [$artwork->id])}}" name="profile" method="POST" class="form-global form-horizontal" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">titel</label>
@@ -41,8 +41,6 @@
                     </span>
                 @endif
             </div>
-
-            
             <div class="form-group">
                 <label for="category">Categorie</label>
                 <select name="category_id" class="form-control" id="">

@@ -68,17 +68,21 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if(Auth::user()->user_type=='artist')
+                                    @if(Auth::user()->user_type==='customer')
+                                        <a class="dropdown-item" href="{{ route('profile.index')}}">
+                                            {{ __('Profiel') }}
+                                        </a>
+                                        <p>{{ (Auth::user()->user_type==='customer') }}</p>
+                                    @elseif(Auth::user()->user_type==='artist') 
                                         <a class="dropdown-item" href="{{ route('artist.dashboard') }}">
                                             {{ __('Dashboard') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('create.artwork') }}">Voeg kunstwerk toe</a>
                                         <a class="dropdown-item" href="{{ route('artwork.overview') }}">Uw kunstwerken</a>
-                                    @elseif(Auth::user()->user_type=='customer') 
-                                    <a class="dropdown-item" href="{{ route('profile.index')}}">
-                                        {{ __('Profiel') }}
-                                    </a>
+
+                                        <p>{{ (Auth::user()->user_type==='artist') }}</p>
                                     @else
+                                        <p>hallo</p>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -18,9 +18,10 @@ Route::get('/', 'ArtworkController@index');
 Route::get('/artworks/create', 'ArtworkController@create')->name('create.artwork');
 Route::post('/artworks/store', 'ArtworkController@store')->name('artwork.store');
 Route::get('/artworks/{id}/edit', 'ArtworkController@edit')->name('artwork.edit');
+Route::post('/jobs/{id}/edit', 'ArtworkController@update')->name('artwork.update');
 Route::get('artworks/my-artworks', 'ArtworkController@myArtwork')->name('artwork.overview');
 Route::get('/artworks/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
-
+Route::get('/artworks/leads', 'ArtworkController@lead');
 
 Auth::routes();
 
@@ -36,8 +37,12 @@ Route::post('artist/createpersonalinformation', 'ArtistController@savePersonalIn
 Route::post('artist/createcompanyinformation', 'ArtistController@saveCompanyInformation')->name('create.company.information');
 Route::post('artist/createbiography', 'ArtistController@saveStoryAboutArtist')->name('create.story.artist');
 Route::post('artist/profilephoto', 'ArtistController@profilePhoto')->name('profile.photo');
+
+
 //user
 Route::get('user/profile', 'UserController@index')->name('profile.index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
 Route::post('user/profile/address', 'UserController@saveaddress')->name('profile.create.address');
+Route::post('/artworks/{id}/{artist}/interesse', 'UserController@artworkrequest')->name('artwork.request');
+
 

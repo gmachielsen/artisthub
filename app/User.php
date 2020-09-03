@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Profile;
 use App\Artist;
 use App\Artwork;
+use App\Artworkrequest;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -45,6 +46,10 @@ class User extends Authenticatable
 
     public function artist(){
         return $this->hasOne(Artist::class);
+    }
+
+    public function artworkrequest(){
+        return $this->hasMany(Artworkrequest::class);
     }
 
 

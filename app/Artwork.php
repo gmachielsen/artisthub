@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Artwork extends Model
 {
     protected $guarded = [];
+    
     public function getRouteKeyName()
     {
         return 'slug';
@@ -20,5 +21,12 @@ class Artwork extends Model
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimeStamps();
+    }
+
+    
+
+    public function checkApplication()
+    {
+        return \DB::table('artworkrequests')->where('user_id', auth()->user()->id)->where('artwork_id', $this->id)->exists();
     }
 }
