@@ -23,6 +23,11 @@ class Artwork extends Model
         return $this->belongsToMany(User::class)->withTimeStamps();
     }
 
+    public function artworkrequests()
+    {
+        return $this->hasMany(Artworkrequest::class);
+    }
+
     
 
     public function checkApplication()

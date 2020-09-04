@@ -6,7 +6,7 @@
         <div class="col-sm-12">
             <div class="card">
                 @foreach($leads as $lead)
-                <div class="card-header"><p>$lead->id</p></div>
+                <div class="card-header"><p> {{ $lead->user_id }} {{ $lead->artwork_id }} {{ $lead->artist_id }}</p></div>
 
                 <div class="card-body">
                     <table class="table">

@@ -35,7 +35,8 @@
 
                 @if(Auth::check()&&Auth::user()->user_type=='customer')
                     @if(!$artwork->checkApplication())
-                    <form action="{{ route('artwork.request', [$artwork->id, $artwork->artist_id])}}" method="POST">
+                    <form action="{{ route('artwork.request', [$artwork->id, $artwork->user_id])}}" method="POST">
+
                         @csrf
                         <button type="submit" class="btn btn-success" style="width: 100%;">Ik heb interesse</button>
                     </form>

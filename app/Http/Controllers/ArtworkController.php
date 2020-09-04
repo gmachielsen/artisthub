@@ -126,11 +126,7 @@ class ArtworkController extends Controller
 
     public function lead()
     {
-        
-        $user_id = Auth::user()->id;
-        $x = Artwork::find('artist')->where('user_id', $user_id);
-        $leads = Artworkrequest::where('artist_id', $x)->get();
-
+        $leads = Artworkrequest::where('artist_id', auth()->user()->id)->get();
         return view('artworks.leads', compact('leads'));
     }
 }
