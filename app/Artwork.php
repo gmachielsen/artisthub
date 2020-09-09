@@ -3,7 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Category;
+use App\Technic;
+use App\Style;
+use App\User;
+use App\Artworkrequest;
+use App\Artist;
 class Artwork extends Model
 {
     protected $guarded = [];
@@ -13,9 +18,25 @@ class Artwork extends Model
         return 'slug';
     }
 
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function style()
+    {
+        return $this->belongsTo(Style::class);
+    }
+
+    public function technic()
+    {
+        return $this->belongsTo(Technic::class);
+    }
+
     public function artist()
     {
-        return $this->belongsTo('App\Artist');
+        return $this->belongsTo(Artist::class);
     }
 
     public function users()
@@ -27,6 +48,7 @@ class Artwork extends Model
     {
         return $this->hasMany(Artworkrequest::class);
     }
+
 
     
 

@@ -48,15 +48,13 @@ class UserController extends Controller
         return redirect()->back()->with('message', 'Dank voor het invullen van uw adresgegevens, uw gegevens zijn nu opgeslagen');
     }
 
-    public function artworkrequest(Request $request, $id, $artist)
+    public function artworkrequest(Request $request, $artworkid)
     {
-        $artist_id = $artist; 
-        $artwork_id = $id;
+        $artwork_id = $artworkid;
         $user_id = auth()->user()->id;
         
         Artworkrequest::create([
             'user_id' => $user_id,
-            'artist_id' => $artist_id,
             'artwork_id' => $artwork_id,
         ]);
         return redirect('/');

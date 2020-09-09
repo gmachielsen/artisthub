@@ -16,7 +16,6 @@ class CreateArtworkrequestsTable extends Migration
         Schema::create('artworkrequests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('artwork_id');
-            $table->integer('artist_id');
             $table->integer('user_id');
             $table->timestamps();
         });

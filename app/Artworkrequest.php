@@ -3,12 +3,13 @@
 namespace App;
 use App\User;
 use App\Artwork;
+use App\Profile;
 use Illuminate\Database\Eloquent\Model;
 
 class Artworkrequest extends Model
 {
     protected $fillable = [
-        'user_id', 'artwork_id', 'artist_id',
+        'id', 'user_id', 'artwork_id', 'artist_id',
     ];
 
     public function artist()
@@ -18,10 +19,15 @@ class Artworkrequest extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withTimeStamps();
+        return $this->belongsTo(User::class)->withTimeStamps();
+    }
+
+    public function profiles()
+    {
+        return $this->belongsTo(Profile::class);
     }
 
     public function artworks(){
-    	return $this->hasOne(Artwork::class);
+    	return $this->belongsTo(Artwork::class);
     }
 }

@@ -37,12 +37,16 @@ Route::post('artist/createpersonalinformation', 'ArtistController@savePersonalIn
 Route::post('artist/createcompanyinformation', 'ArtistController@saveCompanyInformation')->name('create.company.information');
 Route::post('artist/createbiography', 'ArtistController@saveStoryAboutArtist')->name('create.story.artist');
 Route::post('artist/profilephoto', 'ArtistController@profilePhoto')->name('profile.photo');
-
+Route::get('/lead/{userid}/contactgegevens', 'ArtworkController@viewlead')->name('lead.view');
+Route::post('/lead/destroy', 'ArtworkController@destroylead')->name('lead.delete');
+Route::get('/lead/{id}/vernietig', 'ArtworkController@delete')->name('delete.lead');
 
 //user
 Route::get('user/profile', 'UserController@index')->name('profile.index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
 Route::post('user/profile/address', 'UserController@saveaddress')->name('profile.create.address');
-Route::post('/artworks/{id}/{artist}/interesse', 'UserController@artworkrequest')->name('artwork.request');
+Route::post('/artworks/{artworkid}/interesse', 'UserController@artworkrequest')->name('artwork.request');
+
+
 
 

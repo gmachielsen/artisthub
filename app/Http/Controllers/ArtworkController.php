@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use App\Artwork;
 use App\Artist;
 use App\Artworkrequest;
+use App\User;
 use Auth;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -126,8 +128,28 @@ class ArtworkController extends Controller
 
     public function lead()
     {
-        $leads = Artwork::has('artworkrequests')->where('user_id', auth()->user()->id)->get();
+        $user = auth()->user()->id;
+        $leads = Artworkrequest::join('artworks', 'artwork_id', '=', 'artworks.id')->where('artworks.user_id', auth()->user()->id)->get();
 
         return view('artworks.leads', compact('leads'));
+    }
+
+    public function viewlead($userid, Profile $profile)
+    {        
+        return view('artworks.leadview', compact('profile'));
+    }
+
+    public function destroylead(Request $request){
+
+        $id = request('id');
+
+        $artrequest = Artworkrequest::where('id', $id)->get();
+        $artrequest->delete();
+        return redirect()->back()->with('message','Post deleted successfully');
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $lead = Artworkrequest::find($id)->get();
     }
 }
