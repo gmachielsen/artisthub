@@ -4,6 +4,7 @@ namespace App;
 use App\User;
 use App\Artwork;
 use App\Profile;
+use App\Artworkrequest;
 use Illuminate\Database\Eloquent\Model;
 
 class Artworkrequest extends Model
@@ -17,17 +18,14 @@ class Artworkrequest extends Model
         return $this->belongsTo('App\Artist');
     }
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class)->withTimeStamps();
+        return $this->belongsTo(User::class);
     }
 
-    public function profiles()
-    {
-        return $this->belongsTo(Profile::class);
-    }
 
-    public function artworks(){
+
+    public function artwork(){
     	return $this->belongsTo(Artwork::class);
     }
 }

@@ -9,9 +9,6 @@ class Profile extends Model
 {
     protected $guarded = [];
 
-    public function artworkrequests()
-    {
-        return $this->hasMany(Artworkrequest::class);
-    }
+
 }
 

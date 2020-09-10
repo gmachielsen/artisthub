@@ -118,7 +118,14 @@ class ArtworkController extends Controller
     public function apply(Request $request, $id)
     {
         $artworkId = Artwork::find($id);
-        $artworkId->users()->attach(Auth::user()->id);
+        $userId = auth()->user()->id;
+        $user = Profile::find($userId);
+        Artworkrequest::create([
+            'artwork_id' => $artworkId,
+            'user_id' => $user,
+
+        ]);
+
         return redirect()->back()->width('message', 'Interesse in dit kunstwerk met succes getoond!');
     }
 
@@ -129,8 +136,7 @@ class ArtworkController extends Controller
     public function lead()
     {
         $user = auth()->user()->id;
-        $leads = Artworkrequest::join('artworks', 'artwork_id', '=', 'artworks.id')->where('artworks.user_id', auth()->user()->id)->get();
-
+        $leads = Artworkrequest::with('artwork', 'user')->get();
         return view('artworks.leads', compact('leads'));
     }
 
@@ -143,9 +149,9 @@ class ArtworkController extends Controller
 
         $id = request('id');
 
-        $artrequest = Artworkrequest::where('id', $id)->get();
+        $artrequest = Artworkrequest::where('id', $id);
         $artrequest->delete();
-        return redirect()->back()->with('message','Post deleted successfully');
+        return redirect()->back();
     }
 
     public function delete(Request $request, $id)

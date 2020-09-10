@@ -48,7 +48,7 @@ class User extends Authenticatable
         return $this->hasOne(Artist::class);
     }
 
-    public function artworkrequest(){
+    public function artworkrequests(){
         return $this->hasMany(Artworkrequest::class);
     }
 
