@@ -21,4 +21,17 @@
         @endforeach
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        @foreach($artists as $artist)
+        <div class="col-sm-12 col-md-4 col-lg-3">
+        <p>{{ $artist->artist_name }} </p>
+            {{ $artist->profile_photo }}
+            <div>
+            <img src="{{ asset('uploads/profilephoto') }}/{{$artist->profile_photo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 @endsection

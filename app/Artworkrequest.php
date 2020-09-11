@@ -23,8 +23,6 @@ class Artworkrequest extends Model
         return $this->belongsTo(User::class);
     }
 
-
-
     public function artwork(){
     	return $this->belongsTo(Artwork::class);
     }

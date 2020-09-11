@@ -19,8 +19,10 @@ class ArtworkController extends Controller
 
     public function index()
     {
-        $artworks = Artwork::all();
-        return view('welcome', compact('artworks'));
+        $artworks = Artwork::latest()->limit(12)->where('status', 1)->get();
+        $artists = Artist::latest()->limit(12)->get();
+
+        return view('welcome', compact('artworks', 'artists'));
     }
 
     public function show($id, Artwork $artwork)
@@ -70,14 +72,19 @@ class ArtworkController extends Controller
                 'artist_id' => $artist_id,
                 'title' => request('title'),
                 'slug' => str_slug(request('title')),
-                'width' => request('title'),
+                'width' => request('width'),
                 'height' => request('height'),
                 'orientation' => request('orientation'),
                 'description' => request('description'),
+                'style_id' => request('style_id'),
+                'category_id' => request('category_id'),
+                'technic_id' => request('technic_id'),
                 'year' => request('year'),
                 'price' => request('price'),
                 'rent' => request('rent'), 
                 'picture'=> $filename,
+                'status' => request('status'),
+                'framed' => request('framed'),
             ]);
         }
         return redirect()->back()->with('create.artwork','Artwork created successfully');       
@@ -93,25 +100,61 @@ class ArtworkController extends Controller
     {
     	$this->validate($request,[
     		'title'=>'required|min:3',
-    	]);
+        ]);
+
+        $artwork = Artwork::find($id);
+
+        $artwork->title = request('title');
+        $artwork->slug = str_slug(request('title'));
+        $artwork->width = request('width');
+        $artwork->height = request('height');
+        $artwork->orientation = request('orientation');
+        $artwork->description = request('description');
+        $artwork->style_id = request('style_id');
+        $artwork->category_id = request('category_id');
+        $artwork->technic_id = request('technic_id');
+        $artwork->year = request('year');
+        $artwork->price = request('price');
+        $artwork->rent = request('rent');
+        $artwork->status = request('status');
+        $artwork->framed = request('framed');
+
         if($request->hasFile('picture')){
             $file = $request->file('picture');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
             $file->move('uploads/artworks/',$filename);
-   			Artwork::where('id',$id)->update([
-                'title' => request('title'),
-                'slug' => str_slug(request('title')),
-                'width' => request('title'),
-                'height' => request('height'),
-                'orientation' => request('orientation'),
-                'description' => request('description'),
-                'year' => request('year'),
-                'price' => request('price'),
-                'rent' => request('rent'), 
-                'picture'=> $filename,
-   			]);
-   		}
+            $artwork->picture = $filename;
+            }
+        $artwork->save();
+
+       
+
+   			// Artwork::where('id',$id)->update([
+            //     'title' => request('title'),
+            //     'slug' => str_slug(request('title')),
+            //     'width' => request('title'),
+            //     'height' => request('height'),
+            //     'orientation' => request('orientation'),
+            //     'description' => request('description'),
+            //     'style_id' => request('style_id'),
+            //     'category_id' => request('category_id'),
+            //     'technic_id' => request('technic_id'),
+            //     'year' => request('year'),
+            //     'price' => request('price'),
+            //     'rent' => request('rent'), 
+            //     'status' => request('status'),
+            //     'framed' => request('framed'),
+            //    ]);
+            //    if($request->hasFile('picture')){
+            //     $file = $request->file('picture');
+            //     $ext = $file->getClientOriginalExtension();
+            //     $filename = time().'.'.$ext;
+            //     $file->move('uploads/artworks/',$filename);
+
+
+            //    }
+   		
         return redirect()->back()->with('message','Kunstwerk succesvol aangepast!');
     }
 
