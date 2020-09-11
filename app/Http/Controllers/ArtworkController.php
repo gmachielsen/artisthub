@@ -14,15 +14,27 @@ class ArtworkController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'artworkrequest' )]);
+        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'artworkrequest', 'allartworks', 'allartists' )]);
     }
 
     public function index()
     {
         $artworks = Artwork::latest()->limit(12)->where('status', 1)->get();
-        $artists = Artist::latest()->limit(12)->get();
+        $artists = Artist::latest()->limit(8)->get();
 
         return view('welcome', compact('artworks', 'artists'));
+    }
+
+    public function allartworks()
+    {
+        $artworks = Artwork::paginate(50);
+        return view('artworks.index', compact('artworks'));
+    }
+
+    public function allartists()
+    {
+        $artists = Artist::paginate(50);
+        return view('artist.artists', compact('artists'));
     }
 
     public function show($id, Artwork $artwork)

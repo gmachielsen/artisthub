@@ -22,6 +22,7 @@ Route::post('/jobs/{id}/edit', 'ArtworkController@update')->name('artwork.update
 Route::get('artworks/my-artworks', 'ArtworkController@myArtwork')->name('artwork.overview');
 Route::get('/artworks/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
 Route::get('/artworks/leads', 'ArtworkController@lead');
+Route::get('/kunstwerken/index', 'ArtworkController@allartworks')->name('all.artworks');
 
 Auth::routes();
 
@@ -40,6 +41,7 @@ Route::post('artist/profilephoto', 'ArtistController@profilePhoto')->name('profi
 Route::get('/lead/{userid}/contactgegevens', 'ArtworkController@viewlead')->name('lead.view');
 Route::post('/lead/destroy', 'ArtworkController@destroylead')->name('lead.delete');
 Route::get('/lead/{id}/vernietig', 'ArtworkController@delete')->name('delete.lead');
+Route::get('/kunstenaars/index', 'ArtworkController@allartists')->name('all.artists');
 
 //user
 Route::get('user/profile', 'UserController@index')->name('profile.index');
