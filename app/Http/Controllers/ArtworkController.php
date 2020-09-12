@@ -25,16 +25,34 @@ class ArtworkController extends Controller
         return view('welcome', compact('artworks', 'artists'));
     }
 
-    public function allartworks()
+    public function allartworks(Request $request)
     {
+        $style_id = $request->get('style_id');
+        $category_id = $request->get('category_id');
+        $technic_id = $request->get('technic_id');
+        $framed = $request->get('framed');
+        $orientation = $request->get('orientation');
+
+        if($style_id||$category_id||$technic_id||$framed||$orientation) {
+            $artworks = Artwork::where('style_id', $style_id)
+                        ->orWhere('category_id', $category_id)
+                        ->orWhere('technic_id', $technic_id)
+                        ->orWhere('framed', $framed)
+                        ->orWhere('orientation', $orientation)
+                        ->paginate(12);
+                        return view('artworks.index',compact('artworks'));
+        } else {
         $artworks = Artwork::paginate(50);
         return view('artworks.index', compact('artworks'));
+        }
     }
 
     public function allartists()
     {
+
         $artists = Artist::paginate(50);
         return view('artist.artists', compact('artists'));
+        
     }
 
     public function show($id, Artwork $artwork)
