@@ -9,6 +9,8 @@ use App\Profile;
 use App\Artist;
 use App\Artwork;
 use App\Artworkrequest;
+use App\Message;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -52,5 +54,8 @@ class User extends Authenticatable
         return $this->hasMany(Artworkrequest::class);
     }
 
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 
 }

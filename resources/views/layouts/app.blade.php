@@ -79,8 +79,9 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('create.artwork') }}">Voeg kunstwerk toe</a>
                                         <a class="dropdown-item" href="{{ route('artwork.overview') }}">Uw kunstwerken</a>
+                                        <a class="dropdown-item" href="{{ route('view.leads') }}">Leads</a>
+                                        <a class="dropdown-item" href="{{ route('view.messages') }}">Bekijk uw berichten</a>
 
-                                        <p>{{ (Auth::user()->user_type==='artist') }}</p>
                                     @else
                                         <p>hallo</p>
                                     @endif

@@ -47,6 +47,43 @@
                     </form>
                     @endif
                 @endif
+
+                @if(Auth::check()&&Auth::user()->user_type=='customer')
+                    <form action="{{ route('send.message.profile', [$artwork->id])}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="email" class="form-group">
+                        <div class="form-group">
+                            <label for="phone">Uw telefoonnummer</label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Uw bericht</label>
+                            <input type="text" name="message" class="form-group">
+                        </div>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Vestuur bericht</button>
+                    </form>
+                @else
+                    <form action="{{ route('send.message', [$artwork->id])}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Uw naam</label>
+                            <input type="text" name="name" class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Uw telefoonnummer (niet verplicht)</label>
+                            <input type="text" name="phone" class="form-group">
+                        </div class="form-group">
+                        <div class="form-group">
+                            <label for="email">Uw email</label> 
+                            <input type="email" name="email" class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Uw bericht</label>
+                            <input type="text" name="message" class="form-group">
+                        </div>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Vestuur bericht</button>
+                    </form>
+                @endif
             </div>
         </div>
         <hr>

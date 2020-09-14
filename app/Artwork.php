@@ -8,7 +8,9 @@ use App\Technic;
 use App\Style;
 use App\User;
 use App\Artworkrequest;
+use App\Message;
 use App\Artist;
+
 class Artwork extends Model
 {
     protected $guarded = [];
@@ -49,7 +51,10 @@ class Artwork extends Model
         return $this->hasMany(Artworkrequest::class);
     }
 
-
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
     
 
     public function checkApplication()

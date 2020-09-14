@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\Artwork;
 use App\Artist;
+use App\Message;
 use App\Artworkrequest;
 use App\User;
+use App\Profile;
 use Auth;
 use DB;
 
@@ -14,7 +16,7 @@ class ArtworkController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'artworkrequest', 'allartworks', 'allartists' )]);
+        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'sendmessagewithprofile', 'sendmessage', 'artworkrequest', 'allartworks', 'allartists' )]);
     }
 
     public function index()
@@ -196,14 +198,10 @@ class ArtworkController extends Controller
         Artworkrequest::create([
             'artwork_id' => $artworkId,
             'user_id' => $user,
-
         ]);
 
         return redirect()->back()->width('message', 'Interesse in dit kunstwerk met succes getoond!');
     }
-
-
-
 
 
     public function lead()
@@ -230,5 +228,53 @@ class ArtworkController extends Controller
     public function delete(Request $request, $id)
     {
         $lead = Artworkrequest::find($id)->get();
+    }
+
+    public function sendmessagewithprofile(Request $request, $id)
+    {
+
+        $message = new Message;
+        $message->artwork_id = $id;
+        $message->user_id = auth()->user()->id;
+        $message->email = auth()->user()->email;
+        $message->name = auth()->user()->name;
+        $message->phone = request('phone');
+        $message->message = request('message');
+        $message->save();
+
+        return redirect()->back()->with('send.message', 'Artwork created successfully');       
+
+    }
+
+    public function sendmessage(Request $request, $id)
+    {
+        $artworkId = Artwork::find($id);
+
+        Message::create([
+            'artwork_id' => $artworkId,
+            'message' => request('message'),
+            'phone' => request('phone'),
+            'email' => request('email'),
+            'name' => request('name'),
+        ]);
+        return redirect()->back()->with('send.message', 'Artwork created successfully');       
+
+    }
+
+    public function messages()
+    {
+        $user = auth()->user()->id;
+        $messages = Message::with('artwork', 'user')->get();
+        return view('artworks.messages', compact('messages'));
+    }
+
+
+    public function deletemessage(Request $request){
+
+        $id = request('id');
+
+        $artrequest = Message::where('id', $id);
+        $artrequest->delete();
+        return redirect()->back();
     }
 }

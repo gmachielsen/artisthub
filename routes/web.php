@@ -18,10 +18,11 @@ Route::get('/', 'ArtworkController@index');
 Route::get('/artworks/create', 'ArtworkController@create')->name('create.artwork');
 Route::post('/artworks/store', 'ArtworkController@store')->name('artwork.store');
 Route::get('/artworks/{id}/edit', 'ArtworkController@edit')->name('artwork.edit');
-Route::post('/jobs/{id}/edit', 'ArtworkController@update')->name('artwork.update');
-Route::get('artworks/my-artworks', 'ArtworkController@myArtwork')->name('artwork.overview');
+Route::post('/artworks/{id}/edit', 'ArtworkController@update')->name('artwork.update');
+Route::get('/artworks/my-artworks', 'ArtworkController@myArtwork')->name('artwork.overview');
 Route::get('/artworks/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
-Route::get('/artworks/leads', 'ArtworkController@lead');
+Route::get('/artworks/leads', 'ArtworkController@lead')->name('view.leads');
+Route::get('/artworks/messages', 'ArtworkController@messages')->name('view.messages');
 Route::get('/kunstwerken/index', 'ArtworkController@allartworks')->name('all.artworks');
 
 Auth::routes();
@@ -38,16 +39,18 @@ Route::post('artist/createpersonalinformation', 'ArtistController@savePersonalIn
 Route::post('artist/createcompanyinformation', 'ArtistController@saveCompanyInformation')->name('create.company.information');
 Route::post('artist/createbiography', 'ArtistController@saveStoryAboutArtist')->name('create.story.artist');
 Route::post('artist/profilephoto', 'ArtistController@profilePhoto')->name('profile.photo');
-Route::get('/lead/{userid}/contactgegevens', 'ArtworkController@viewlead')->name('lead.view');
 Route::post('/lead/destroy', 'ArtworkController@destroylead')->name('lead.delete');
-Route::get('/lead/{id}/vernietig', 'ArtworkController@delete')->name('delete.lead');
+Route::post('/message/destroy', 'ArtworkController@deletemessage')->name('message.delete');
+
 Route::get('/kunstenaars/index', 'ArtworkController@allartists')->name('all.artists');
 
 //user
 Route::get('user/profile', 'UserController@index')->name('profile.index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
 Route::post('user/profile/address', 'UserController@saveaddress')->name('profile.create.address');
-Route::post('/artworks/{artworkid}/interesse', 'UserController@artworkrequest')->name('artwork.request');
+Route::post('/kunstwerken/{artworkid}/interesse', 'UserController@artworkrequest')->name('artwork.request');
+Route::post('/kunstwerken/{artwork}/stuur-bericht', 'ArtworkController@sendmessagewithprofile')->name('send.message.profile');
+Route::post('/kunstwerken/{artwork}/bericht-versturen', 'ArtworkController@sendmessage')->name('send.message');
 
 
 
