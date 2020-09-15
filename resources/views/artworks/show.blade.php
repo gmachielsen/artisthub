@@ -62,6 +62,13 @@
                         </div>
                         <button type="submit" class="btn btn-success" style="width: 100%;">Vestuur bericht</button>
                     </form>
+
+                    <favourite-component :artworkid={{ $artwork->id }}></favourite-component></favourite-component>
+                    <form action="{{ route('save.artwork', [$artwork->id])}}" method="POST">
+                        @csrf
+                        <button type="submit">test</button>
+                    </form>
+
                 @else
                     <form action="{{ route('send.message', [$artwork->id])}}" method="POST">
                         @csrf
@@ -84,6 +91,7 @@
                         <button type="submit" class="btn btn-success" style="width: 100%;">Vestuur bericht</button>
                     </form>
                 @endif
+
             </div>
         </div>
         <hr>

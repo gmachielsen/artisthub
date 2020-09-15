@@ -25,6 +25,9 @@ Route::get('/artworks/leads', 'ArtworkController@lead')->name('view.leads');
 Route::get('/artworks/messages', 'ArtworkController@messages')->name('view.messages');
 Route::get('/kunstwerken/index', 'ArtworkController@allartworks')->name('all.artworks');
 
+Route::post('/save/{id}', 'FavouriteController@saveArtwork')->name('save.artwork');
+Route::post('/unsave/{id}', 'FavouriteController@unSaveArtwork');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

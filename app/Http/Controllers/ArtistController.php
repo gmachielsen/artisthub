@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Artist;
-use App\Job;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller

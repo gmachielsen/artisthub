@@ -58,4 +58,8 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function favourites() {
+        return $this->belongsToMany(Artwork::class, 'favourites', 'user_id', 'artwork_id')->withTimeStamps();
+    }
+
 }

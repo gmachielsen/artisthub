@@ -6,10 +6,6 @@
             <form action="{{route('all.artworks')}}" method="GET">
             <div class="form-inline">
                 <div class="form-group">
-                    <label>Position&nbsp;</label>
-                    <input type="text" name="position" class="form-control" placeholder="job position">&nbsp;&nbsp;&nbsp;
-                </div>
-                <div class="form-group">
                 <label for="category">Categorie</label>
                 <select name="category_id" class="form-control" id="">
                     @foreach(App\Category::all() as $cat)

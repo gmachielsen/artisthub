@@ -61,4 +61,12 @@ class Artwork extends Model
     {
         return \DB::table('artworkrequests')->where('user_id', auth()->user()->id)->where('artwork_id', $this->id)->exists();
     }
+
+    public function favourites() {
+        return $this->belongsToMany(Artwork::class, 'favourites', 'artwork_id', 'user_id')->withTimeStamps();
+    }
+
+    public function checkSaved() {
+        return \DB::table('favourites')->where('user_id', auth()->user()->id)->where('artwork_id', $this->id)->exists();
+    }
 }
