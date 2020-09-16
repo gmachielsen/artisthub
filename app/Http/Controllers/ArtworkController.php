@@ -278,11 +278,9 @@ class ArtworkController extends Controller
         return redirect()->back();
     }
 
-    public function searchArtworks(){
+    public function searchArtworks(Request $request){
         $keyword = $request->get('keyword');
-        $artwork = Artwork::where('title', 'like', '%'.$keyword.'$')
-                    ->orWhere('position', 'like', '%'.$keyword.'%')
-                    ->limit(5)->get();
+        $artwork = Artwork::where('title', 'like', '%'.$keyword.'%')->limit(5)->get();
         return response()->json($artwork);
     }
 }

@@ -57,6 +57,6 @@ Route::post('/kunstwerken/{artwork}/bericht-versturen', 'ArtworkController@sendm
 Route::get('/favorieten', 'UserController@favourites')->name('favourites');
 
 //Search
-Route::get('/jobs/search', 'ArtworkController@searchArtworks');
+Route::get('/kunstwerken/zoeken', 'ArtworkController@searchArtworks');
 
 

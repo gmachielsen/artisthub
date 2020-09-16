@@ -2006,12 +2006,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      keyword: '',
+      results: []
+    };
   },
   methods: {
-    Searchartworks: function Searchartworks() {}
+    searchArtworks: function searchArtworks() {
+      var _this = this;
+
+      this.results = [];
+
+      if (this.keyword.length > 1) {
+        axios.get('/kunstwerken/zoeken', {
+          params: {
+            keyword: this.keyword
+          }
+        }).then(function (response) {
+          _this.results = response.data;
+        });
+      }
+    }
   }
 });
 
@@ -37714,9 +37744,7 @@ var render = function() {
       attrs: { type: "text", placeholder: "Zoek naar kunstwerk..." },
       domProps: { value: _vm.keyword },
       on: {
-        keyup: function($event) {
-          return _vm.Searchartworks()
-        },
+        keyup: _vm.searchArtworks,
         input: function($event) {
           if ($event.target.composing) {
             return
@@ -37724,7 +37752,44 @@ var render = function() {
           _vm.keyword = $event.target.value
         }
       }
-    })
+    }),
+    _vm._v(" "),
+    _vm.results.length
+      ? _c("div", { staticClass: "card-footer" }, [
+          _c(
+            "ul",
+            { staticClass: "list-group" },
+            _vm._l(_vm.results, function(result) {
+              return _c("li", { staticClass: "list-group-item" }, [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "/artworks/" + result.id + "/" + result.slug + "/"
+                    }
+                  },
+                  [
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("img", {
+                        attrs: {
+                          src: "/uploads/artworks/" + result.picture,
+                          alt: "image",
+                          width: "100px"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(result.title))])
+                    ])
+                  ]
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
