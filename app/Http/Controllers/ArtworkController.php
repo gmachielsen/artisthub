@@ -16,7 +16,7 @@ class ArtworkController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'sendmessagewithprofile', 'sendmessage', 'artworkrequest', 'allartworks', 'allartists' )]);
+        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'sendmessagewithprofile', 'sendmessage', 'artworkrequest', 'allartworks', 'allartists', 'searchArtworks' )]);
     }
 
     public function index()
@@ -276,5 +276,13 @@ class ArtworkController extends Controller
         $artrequest = Message::where('id', $id);
         $artrequest->delete();
         return redirect()->back();
+    }
+
+    public function searchArtworks(){
+        $keyword = $request->get('keyword');
+        $artwork = Artwork::where('title', 'like', '%'.$keyword.'$')
+                    ->orWhere('position', 'like', '%'.$keyword.'%')
+                    ->limit(5)->get();
+        return response()->json($artwork);
     }
 }

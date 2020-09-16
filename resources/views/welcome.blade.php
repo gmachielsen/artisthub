@@ -3,6 +3,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
+        <div class="col-sm-12">
+            <search-component></search-component>
+            <br>
+        </div>
         @foreach($artworks as $artwork)
         <div class="col-6 col-md-4 col-lg-3 col-xl-2">
             <a href="{{ route('artworks.show', [$artwork->id, $artwork->slug])}}">

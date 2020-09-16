@@ -26,7 +26,7 @@ Route::get('/artworks/messages', 'ArtworkController@messages')->name('view.messa
 Route::get('/kunstwerken/index', 'ArtworkController@allartworks')->name('all.artworks');
 
 Route::post('/save/{id}', 'FavouriteController@saveArtwork')->name('save.artwork');
-Route::post('/unsave/{id}', 'FavouriteController@unSaveArtwork');
+Route::post('/unsave/{id}', 'FavouriteController@unSaveArtwork')->name('unsave.artwork');
 
 Auth::routes();
 
@@ -54,7 +54,9 @@ Route::post('user/profile/address', 'UserController@saveaddress')->name('profile
 Route::post('/kunstwerken/{artworkid}/interesse', 'UserController@artworkrequest')->name('artwork.request');
 Route::post('/kunstwerken/{artwork}/stuur-bericht', 'ArtworkController@sendmessagewithprofile')->name('send.message.profile');
 Route::post('/kunstwerken/{artwork}/bericht-versturen', 'ArtworkController@sendmessage')->name('send.message');
+Route::get('/favorieten', 'UserController@favourites')->name('favourites');
 
-
+//Search
+Route::get('/jobs/search', 'ArtworkController@searchArtworks');
 
 

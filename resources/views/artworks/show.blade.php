@@ -47,6 +47,11 @@
                     </form>
                     @endif
                 @endif
+                @if(Auth::check()&&Auth::user()->user_type='customer')
+                <favourite-component :artworkid={{ $artwork->id }}
+                :favorited={{$artwork->checkSaved()?'true':'false'}}></favourite-component>
+
+                @endif
 
                 @if(Auth::check()&&Auth::user()->user_type=='customer')
                     <form action="{{ route('send.message.profile', [$artwork->id])}}" method="POST">
@@ -63,7 +68,6 @@
                         <button type="submit" class="btn btn-success" style="width: 100%;">Vestuur bericht</button>
                     </form>
 
-                    <favourite-component :artworkid={{ $artwork->id }}></favourite-component></favourite-component>
                     <form action="{{ route('save.artwork', [$artwork->id])}}" method="POST">
                         @csrf
                         <button type="submit">test</button>

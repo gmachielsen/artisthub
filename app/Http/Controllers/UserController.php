@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profile;
 use App\Artworkrequest;
+use Auth;
 
 class UserController extends Controller
 {
     public function __construct()
     {
         $this->middleware('customer');
+    }
+
+    public function favourites()
+    {
+        $artworks = Auth::user()->favourites; 
+        return view('profile.favourites', compact('artworks'));
     }
 
     public function index()

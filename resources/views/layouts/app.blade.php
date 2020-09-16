@@ -72,6 +72,9 @@
                                         <a class="dropdown-item" href="{{ route('profile.index')}}">
                                             {{ __('Profiel') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('favourites')}}">
+                                            {{ __('Favorieten') }}
+                                        </a>
                                         <p>{{ (Auth::user()->user_type==='customer') }}</p>
                                     @elseif(Auth::user()->user_type==='artist') 
                                         <a class="dropdown-item" href="{{ route('artist.dashboard') }}">
