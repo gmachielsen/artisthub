@@ -20,7 +20,7 @@ Route::post('/artworks/store', 'ArtworkController@store')->name('artwork.store')
 Route::get('/artworks/{id}/edit', 'ArtworkController@edit')->name('artwork.edit');
 Route::post('/artworks/{id}/edit', 'ArtworkController@update')->name('artwork.update');
 Route::get('/artworks/my-artworks', 'ArtworkController@myArtwork')->name('artwork.overview');
-Route::get('/artworks/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
+Route::get('/kunstwerk/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
 Route::get('/artworks/leads', 'ArtworkController@lead')->name('view.leads');
 Route::get('/artworks/messages', 'ArtworkController@messages')->name('view.messages');
 Route::get('/kunstwerken/index', 'ArtworkController@allartworks')->name('all.artworks');
@@ -59,4 +59,5 @@ Route::get('/favorieten', 'UserController@favourites')->name('favourites');
 //Search
 Route::get('/kunstwerken/zoeken', 'ArtworkController@searchArtworks');
 
-
+//email
+Route::post('/job/mail', 'EmailController@send')->name('mail');

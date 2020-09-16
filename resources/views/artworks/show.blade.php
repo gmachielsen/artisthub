@@ -17,6 +17,7 @@
             <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">
         </div>
         <div class="col-xs-12 col-md-6">
+        <a href="#"data-toggle="modal" data-target="#exampleModal1"><i class="fa fa-envelope-square" style="font-size: 34px;float:right;color:green;"></i></a>
             <h1>{{$artwork->title}}</h1>
             <p>{{$artwork->description}}</p>
 
@@ -103,5 +104,46 @@
             <a type="button" href="{{ route('artist.index', [$artwork->artist->id, $artwork->artist->slug])}}">Meer over {{  $artwork->artist->artist_name }}</a>
         </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send job to your friend</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{ route('mail') }}" method="POST">@csrf
+        <div class="modal-body">
+          <input type="hidden" name="artwork_id" value="{{$artwork->id}}">
+          <input type="hidden" name="artwork_slug" value="{{$artwork->slug}}">
+          <div class="form-group">
+            <label>Your name *</label>
+            <input type="text" name="your_name" class="form-control" required="">
+          </div>
+          <div class="form-group">
+            <label>Your mail *</label>
+            <input type="email" name="your_email" class="form-control" required="">
+          </div>
+          <div class="form-group">
+            <label>Person name *</label>
+            <input type="text" name="friend_name" class="form-control" required="">
+          </div>
+          <div class="form-group">
+            <label>Person email *</label>
+            <input type="email" name="friend_email" class="form-control" required="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Mail this job</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 @endsection
