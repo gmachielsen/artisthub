@@ -61,3 +61,7 @@ Route::get('/kunstwerken/zoeken', 'ArtworkController@searchArtworks');
 
 //email
 Route::post('/job/mail', 'EmailController@send')->name('mail');
+
+
+//admin
+Route::get('/dashboard', 'AdminController@index')->middleware('admin');

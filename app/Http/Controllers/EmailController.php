@@ -14,12 +14,11 @@ class EmailController extends Controller
         $artworkSlug = $request->get('artwork_slug');
 
         $artworkUrl = $homeUrl.'/'.'kunstwerk/'.$artworkId.'/'.$artworkSlug;
-
         $data = array(
-            'your_name'=>$request->get('your_name'),
-            'your_email'=>$request->get('your_email'),
-            'friend_name'=>$request->get('friend_name'),
-            'artworkUrl'=>$artworkUrl,
+            'your_name'=> $request->get('your_name'),
+            'your_email'=> $request->get('your_email'),
+            'friend_name'=> $request->get('friend_name'),
+            'url'=> $artworkUrl,
         );
     $emailTo = $request->get('friend_email');
     Mail::to($emailTo)->send(new SendArtwork($data));

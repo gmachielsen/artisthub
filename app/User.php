@@ -10,6 +10,7 @@ use App\Artist;
 use App\Artwork;
 use App\Artworkrequest;
 use App\Message;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -60,6 +61,10 @@ class User extends Authenticatable
 
     public function favourites() {
         return $this->belongsToMany(Artwork::class, 'favourites', 'user_id', 'artwork_id')->withTimeStamps();
+    }
+
+    public function roles() {
+        return $this->belongsToMany(Role::class);
     }
 
 }
