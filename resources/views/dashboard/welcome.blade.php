@@ -1,4 +1,3 @@
-Dashboard
 @extends('layouts.dashboard.app')
 
 @section('content')
