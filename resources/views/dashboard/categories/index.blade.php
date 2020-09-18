@@ -34,7 +34,7 @@
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
                                     
-                                        <a href="" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
+                                        <a href="{{ route('admin.categories.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
 
                                 </div>
                             </div><!-- end of row -->
@@ -62,11 +62,11 @@
                                 @foreach ($categories as $index=>$category)
                                     <tr>
                                         <td>{{ $index+1 }}</td>
-                                        <td>{{ $category->image }}</td>
+                                        <td><img src="{{ asset('uploads/categoryImages') }}/{{ $category->image }}" width="100px" style="width: 100px" alt=""></td>
 
                                         <td>{{ $category->name }}</td>
                                         <td>
-                                                <a href="" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                                <a href="{{ route('admin.categories.edit', [$category->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
 
                                                 <form method="post" action="" style="display: inline-block;">
                                                     @csrf

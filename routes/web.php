@@ -64,5 +64,8 @@ Route::post('/job/mail', 'EmailController@send')->name('mail');
 
 
 //admin
-Route::get('/dashboard', 'AdminController@index')->name('admin.index')->middleware('admin');
-Route::get('/dashboard', 'AdminController@categegoryindex')->name('admin.categories.index')->middleware('admin');
+Route::prefix('dashboard')->name('dashboard.')->middleware('admin')->group(function() {
+    Route::get('/index', 'AdminController@index')->name('admin.index');
+    Route::get('/categories', 'AdminController@index')->name('admin.categories.index');
+});
+
