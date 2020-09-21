@@ -21,5 +21,6 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
     Route::post('/categories/store', 'CategoryController@store')->name('categories.store');
     Route::get('/categories/{id}/edit', 'CategoryController@edit')->name('categories.edit');
     Route::post('/categories/{id}/update', 'CategoryController@update')->name('categories.update');
+    Route::post('/categories/{id}/delete', 'CategoryController@delete')->name('categories.delete');
 });
 

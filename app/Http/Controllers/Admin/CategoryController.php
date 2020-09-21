@@ -9,7 +9,7 @@ use App\Category;
 class CategoryController extends Controller
 {
     public function index(){
-        $categories = Category::all();
+        $categories = Category::whenSearch(request()->search)->paginate(2);
         return view('dashboard.categories.index', compact('categories'));
     }
 
@@ -37,7 +37,8 @@ class CategoryController extends Controller
                 'image'=> $filename,
             ]);
         }
-        return redirect()->back()->with('dashboard.categories.create','Artwork created successfully');   
+        session()->flash('success', 'Category saved succesfully');
+        return redirect()->route('admin.categories.index'); 
     }
 
     public function edit($id) {
@@ -63,11 +64,14 @@ class CategoryController extends Controller
             $category->image = $filename;
         }
         $category->save();
-        
-        return redirect()->back()->with('dashboard.categories.create','Artwork created successfully'); 
+        session()->flash('success', 'Data updated successfully');
+        return redirect()->route('admin.categories.index');
     }
 
-    public function delete() {
-        return view('dashboard.categories.index');
+    public function delete($id) {
+        $category = Category::find($id);
+        $category->delete();
+        session()->flash('success', 'Data deleted successfully');
+        return redirect()->route('admin.categories.index');
     }
 }

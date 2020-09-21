@@ -67,19 +67,38 @@
                                         <td>{{ $category->name }}</td>
                                         <td>
                                                 <a href="{{ route('admin.categories.edit', [$category->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
-
-                                                <form method="post" action="" style="display: inline-block;">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"></i> Delete</button>
-                                                </form><!-- end of form -->
+                                                
+                                                <button type="submit" class="btn btn-danger btn-sm delete" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash"></i> Delete</button>
                                         </td>
                                     </tr>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $category->name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>You are going to delete {{ $category->name }}. Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form method="POST" action="{{ route('admin.categories.delete', [ $category->id])}}">
+            @csrf
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
                                 @endforeach
 
                                 </tbody>
                             </table>
-
+                            {{ $categories->appends(request()->query())->links() }}
                         @else
                             <h3 style="font-weight: 400;">Sorry no records found</h3>
                         @endif
@@ -91,4 +110,11 @@
 
     </div><!-- end of row -->
 
+
+
+
 @endsection
+
+
+
+
