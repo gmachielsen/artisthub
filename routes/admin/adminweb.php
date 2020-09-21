@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('index');
+
+    Route::get('/artworks', 'AdminArtworkController@index')->name('artworks.index');
+    Route::get('/artworks/create', 'AdminArtworkController@create')->name('artworks.create');
+    Route::post('/artworks/store', 'AdminArtworkController@store')->name('artworks.store');
+    Route::get('/artworks/{id}/edit', 'AdminArtworkController@edit')->name('artworks.edit');
+    Route::post('/artworks/{id}/update', 'AdminArtworkController@update')->name('artworks.update');
+    Route::post('/artworks/{id}/delete', 'AdminArtworkController@delete')->name('artworks.delete');
+
     Route::get('/categories', 'CategoryController@index')->name('categories.index');
     Route::get('/categories/create', 'CategoryController@create')->name('categories.create');
     Route::post('/categories/store', 'CategoryController@store')->name('categories.store');

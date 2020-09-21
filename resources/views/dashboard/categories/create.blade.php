@@ -12,8 +12,6 @@
     <div class="tile mb-4">
         <form method="POST" action="{{ route('admin.categories.store')}}" enctype="multipart/form-data">
             @csrf
-            @method('post')
-
             @include('dashboard.partials._errors')
 
             <div class="form-group">
