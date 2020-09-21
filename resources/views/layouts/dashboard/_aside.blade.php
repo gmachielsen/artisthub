@@ -8,9 +8,12 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item" href=""><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('admin.techniques.index')}}"><i class="app-menu__icon fa fa-paint-brush"></i><span class="app-menu__label">Artworks</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.categories.index')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Categories</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('admin.styles.index')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Styles</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('admin.techniques.index')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Techniques</span></a></li>
 
 
-
+        
       </ul>
     </aside>
