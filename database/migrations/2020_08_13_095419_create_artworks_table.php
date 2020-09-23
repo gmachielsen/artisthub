@@ -33,6 +33,8 @@ class CreateArtworksTable extends Migration
             $table->integer('year');
             $table->string('framed');
             $table->string('sold');
+            $table->string('viewed');
+            $table->string('liked');
             $table->timestamps();
         });
     }
