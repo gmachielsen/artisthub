@@ -16,7 +16,7 @@ class ArtworkController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'sendmessagewithprofile', 'sendmessage', 'artworkrequest', 'allartworks', 'allartists', 'searchArtworks' )]);
+        $this->middleware('artist', ['except'=>array('index', 'show', 'apply', 'store', 'sendmessagewithprofile', 'sendmessage', 'artworkrequest', 'allartworks', 'allartists', 'searchArtworks' )]);
     }
 
     public function index()

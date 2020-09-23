@@ -65,53 +65,52 @@
                                         <td>{{ $index+1 }}</td>
                                         <td><img src="{{ asset('uploads/artworks') }}/{{ $artwork->picture }}" width="100px" artwork="width: 100px" alt=""></td>
 
-                                        <td>{{ $artwork->title }}</td>
+                                        <td>{{ Str::limit($artwork->title, 30) }}</td>
                                         <td>{{ $artwork->artist->artist_name }}</td>
-
                                         <td>
                                                 <a href="{{ route('admin.artworks.edit', [$artwork->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                                 
                                                 <button type="submit" class="btn btn-danger btn-sm delete" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash"></i> Delete</button>
                                         </td>
                                     </tr>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $artwork->name }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>You are going to delete {{ $artwork->name }}. Are you sure?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form method="POST" action="{{ route('admin.artworks.delete', [ $artwork->id])}}">
-            @csrf
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-                                @endforeach
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $artwork->name }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>You are going to delete {{ $artwork->name }}. Are you sure?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <form method="POST" action="{{ route('admin.artworks.delete', [ $artwork->id])}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            @endforeach
 
-                                </tbody>
-                            </table>
-                            {{ $artworks->appends(request()->query())->links() }}
-                        @else
-                            <h3 artwork="font-weight: 400;">Sorry no records found</h3>
-                        @endif
-                    </div>
+                            </tbody>
+                        </table>
+                        {{ $artworks->appends(request()->query())->links() }}
+                    @else
+                        <h3 artwork="font-weight: 400;">Sorry no records found</h3>
+                    @endif
                 </div>
-            </div><!-- end of tile -->
+            </div>
+        </div><!-- end of tile -->
 
-        </div><!-- end of col -->
+    </div><!-- end of col -->
 
-    </div><!-- end of row -->
+</div><!-- end of row -->
 
 
 

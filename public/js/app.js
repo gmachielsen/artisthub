@@ -37765,7 +37765,7 @@ var render = function() {
                   "a",
                   {
                     attrs: {
-                      href: "/artworks/" + result.id + "/" + result.slug + "/"
+                      href: "/kunstwerk/" + result.id + "/" + result.slug + "/"
                     }
                   },
                   [

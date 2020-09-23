@@ -4,7 +4,7 @@
         <div class="card-footer" v-if="results.length">
             <ul class="list-group">
                 <li class="list-group-item" v-for="result in results">
-                    <a :href=" '/artworks/' + result.id + '/'+result.slug+'/' "> 
+                    <a :href=" '/kunstwerk/' + result.id + '/'+result.slug+'/' "> 
                     <br>
                         <div>
                             <img :src="'/uploads/artworks/'+result.picture" alt="image" width="100px" />

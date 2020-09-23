@@ -1,16 +1,16 @@
 @extends('layouts.dashboard.app')
 
 @section('content')
-    <h2>Techniques</h2>
+    <h2>Artworks</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.techniques.index')}}">Techniques</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.artworks.index')}}">Artworks</a></li>
             <li class="breadcrumb-item active">Add</li>
         </ol>
     </nav>
     <div class="tile mb-4">
-    <form action="{{ route('artwork.store')}}" name="profile" method="POST" class="form-global form-horizontal" enctype="multipart/form-data">
+    <form action="{{ route('admin.artworks.store')}}" name="profile" method="POST" class="form-global form-horizontal" enctype="multipart/form-data">
             @csrf
             @include('dashboard.partials._errors')
 
@@ -36,7 +36,14 @@
                     </span>
                 @endif
             </div>
-
+            <div class="form-group">
+                <label for="category">Artsist</label>
+                <select name="artist_id" class="form-control" id="">
+                    @foreach(App\Artist::all() as $artist)
+                        <option value="{{$artist->user_id}}">{{$artist->artist_name}}</option>
+                    @endforeach
+                </select>
+            </div>
             
             <div class="form-group">
                 <label for="category">Categorie</label>
