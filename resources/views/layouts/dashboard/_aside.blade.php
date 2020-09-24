@@ -13,7 +13,7 @@
         <li><a class="app-menu__item" href="{{ route('admin.leads.index')}}"><i class="app-menu__icon fa fa-envelope-square"></i><span class="app-menu__label">Messages</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.leads.index')}}"><i class="app-menu__icon fa fa-inbox"></i><span class="app-menu__label">Applications</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.users.index')}}"><i class="app-menu__icon fa fa-user-circle"></i><span class="app-menu__label">Users</span></a></li>
-        <li><a class="app-menu__item" href="{{ route('admin.leads.index')}}"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Artists</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('admin.artists.index')}}"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Artists</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.leads.index')}}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Customers</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.leads.index')}}"><i class="app-menu__icon fa fa-chart-line"></i><span class="app-menu__label">Analytics<i class="fas fa-chart-bar"></i></span></a></li>
 

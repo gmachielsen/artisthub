@@ -19,6 +19,13 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
 
     Route::get('/leads', 'LeadController@index')->name('leads.index');
 
+    Route::get('/artists', 'AdminArtistController@index')->name('artists.index');
+    Route::get('/artists/{id}/edit', 'AdminArtistController@edit')->name('artists.edit');
+    Route::post('artist/createpersonalinformation/{id}/update', 'AdminArtistController@savePersonalInformation')->name('create.personal.information');
+    Route::post('artist/createcompanyinformation/{id}/update', 'AdminArtistController@saveCompanyInformation')->name('create.company.information');
+    Route::post('artist/createbiography/{id}/update', 'AdminArtistController@saveStoryAboutArtist')->name('create.story.artist');
+    Route::post('artist/profilephoto/{id}/update', 'AdminArtistController@profilePhoto')->name('profile.photo');
+
     Route::get('/users', 'AdminUserController@index')->name('users.index');
     Route::get('/users/{id}/edit', 'AdminUserController@edit')->name('users.edit');
     Route::post('/users/{id}/update', 'AdminUserController@update')->name('users.update');
