@@ -86,7 +86,7 @@
                                         <a class="dropdown-item" href="{{ route('view.messages') }}">Bekijk uw berichten</a>
 
                                     @else
-                                        <p>hallo</p>
+                                        <a class="dropdown-item" href="/dashboard">Dashboard</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -1,4 +1,4 @@
-<header class="app-header"><a style="font-family: 'lato', sans-serif; !important" class="app-header__logo" href="{{ route('admin.index')}}">Artisthub</a>
+<header class="app-header"><a style="font-family: 'lato', sans-serif; !important" class="app-header__logo" href="/">Artisthub</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">

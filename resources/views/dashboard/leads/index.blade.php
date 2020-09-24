@@ -95,7 +95,7 @@
             <td>{{ $lead->user->profile->cell_phone }}</td>
             <td>{{ $lead->user->profile->phone }}</td>
             <td>                                            
-                <form action="{{ route('lead.delete') }}" method="POST">
+                <form action="{{ route('admin.lead.delete') }}" method="POST">
                 @csrf
                     <input type="hidden" name="id" value="{{$lead->id}}">
                     <button type="submit" class="btn btn-danger">Verwijder</button>

@@ -22,7 +22,7 @@
                     <div class="contact_details">
                         <h3 class="text-center">Contact details</h3>
                         <br>
-                        <form action="{{ route('profile.create.details')}}" name="profile" method="POST" class="form-global form-horizontal">
+                        <form action="{{ route('admin.profiles.contact.details.update', [$profile->id])}}" name="profile" method="POST" class="form-global form-horizontal">
                         @csrf
                             <div id="profile" class="form-global">
                                 <div class="form-group">
@@ -93,7 +93,7 @@
                     <div class="address_information">
                         <h3 class="text-center">Bezorg adress</h3>
                         <br>
-                        <form action="{{ route('profile.create.address')}}" name="profile" method="POST" class="form-global form-horizontal">
+                        <form action="{{ route('admin.profiles.address.update', [$profile->id])}}" name="profile" method="POST" class="form-global form-horizontal">
                         @csrf
                         <div class="form-group">
                             <div class="row">

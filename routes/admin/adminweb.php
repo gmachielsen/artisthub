@@ -17,11 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('index');
 
+    Route::get('/messages', 'MessageController@index')->name('messages.index');
+    Route::post('/message/destroy', 'MessageController@destroymessage')->name('message.delete');
+
     Route::get('/leads', 'LeadController@index')->name('leads.index');
+    Route::post('/lead/destroy', 'LeadController@destroylead')->name('lead.delete');
 
     Route::get('/profiles', 'CustomerController@index')->name('profiles.index');
     Route::get('/profile/{id}/edit', 'CustomerController@edit')->name('profiles.edit');
-    Route::post('/ff', 'CustomerController@contactdetails')->name('');
+    Route::post('/profile/{id}/details', 'CustomerController@contactdetails')->name('profiles.contact.details.update');
+    Route::post('/profile/{id}/address', 'CustomerController@saveaddress')->name('profiles.address.update');
+
 
     Route::get('/artists', 'AdminArtistController@index')->name('artists.index');
     Route::get('/artists/{id}/edit', 'AdminArtistController@edit')->name('artists.edit');
