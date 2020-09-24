@@ -68,5 +68,12 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
     Route::get('/techniques/{id}/edit', 'TechnicController@edit')->name('techniques.edit');
     Route::post('/techniques/{id}/update', 'TechnicController@update')->name('techniques.update');
     Route::post('/techniques/{id}/delete', 'TechnicController@delete')->name('techniques.delete');
+
+    Route::get('/blogs', 'BlogController@index')->name('blogs.index');
+    Route::get('/blogs/create', 'BlogController@create')->name('blogs.create');
+    Route::post('/blogs/store', 'BlogController@store')->name('blogs.store');
+    Route::get('/blogs/{id}/edit', 'BlogController@edit')->name('blogs.edit');
+    Route::post('/blogs/{id}/update', 'BlogController@update')->name('blogs.update');
+    Route::post('/blogs/{id}/delete', 'BlogController@delete')->name('blogs.delete');
 });
 
