@@ -19,6 +19,10 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
 
     Route::get('/leads', 'LeadController@index')->name('leads.index');
 
+    Route::get('/profiles', 'CustomerController@index')->name('profiles.index');
+    Route::get('/profile/{id}/edit', 'CustomerController@edit')->name('profiles.edit');
+    Route::post('/ff', 'CustomerController@contactdetails')->name('');
+
     Route::get('/artists', 'AdminArtistController@index')->name('artists.index');
     Route::get('/artists/{id}/edit', 'AdminArtistController@edit')->name('artists.edit');
     Route::post('artist/createpersonalinformation/{id}/update', 'AdminArtistController@savePersonalInformation')->name('create.personal.information');
