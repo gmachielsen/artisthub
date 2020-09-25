@@ -32,3 +32,5 @@ Vue.component('search-component', require('./components/SearchComponent.vue').de
 const app = new Vue({
     el: '#app',
 });
+
+

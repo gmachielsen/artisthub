@@ -3,12 +3,12 @@
 @section('content')
 
     <div>
-        <h2>Blogs</h2>
+        <h2>News</h2>
     </div>
 
     <ul class="breadcrumb">
         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item active">Blogs</li>
+        <li class="breadcrumb-item active">News</li>
         {{--<li class="breadcrumb-item active">Data</li>--}}
     </ul>
 
@@ -34,7 +34,7 @@
                                 <div class="col-md-4">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
                                     
-                                        <a href="{{ route('admin.blogs.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
+                                        <a href="{{ route('admin.news.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
 
                                 </div>
                             </div><!-- end of row -->
@@ -47,7 +47,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        @if ($blogs->count() > 0)
+                        @if ($newsitems->count() > 0)
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
@@ -59,14 +59,14 @@
                                 </thead>
 
                                 <tbody>
-                                @foreach ($blogs as $index=>$blog)
+                                @foreach ($newsitems as $index=>$news)
                                     <tr>
                                         <td>{{ $index+1 }}</td>
-                                        <td><img src="{{ asset('uploads/blogImages') }}/{{ $blog->image }}" width="100px" style="width: 100px" alt=""></td>
+                                        <td><img src="{{ asset('uploads/newsImages') }}/{{ $news->image }}" width="100px" style="width: 100px" alt=""></td>
 
-                                        <td>{{ $blog->name }}</td>
+                                        <td>{{ $news->name }}</td>
                                         <td>
-                                                <a href="{{ route('admin.blogs.edit', [$blog->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                                <a href="{{ route('admin.news.edit', [$news->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                                 
                                                 <button type="submit" class="btn btn-danger btn-sm delete" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash"></i> Delete</button>
                                         </td>
@@ -76,13 +76,13 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $blog->name }}</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $news->name }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>You are going to delete {{ $blog->name }}. Are you sure?</p>
+        <p>You are going to delete {{ $news->name }}. Are you sure?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,7 +98,7 @@
 
                                 </tbody>
                             </table>
-                            {{ $blogs->appends(request()->query())->links() }}
+                            {{ $newsitems->appends(request()->query())->links() }}
                         @else
                             <h3 style="font-weight: 400;">Sorry no records found</h3>
                         @endif
