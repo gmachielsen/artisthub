@@ -10,14 +10,13 @@
    
      <!-- CSRF Token -->
      <meta name="csrf-token" content="{{ csrf_token() }}">
-
+  @trixassets
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('dashboard_files/css/main.css')}}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
   
-
 
 
 
@@ -64,6 +63,19 @@
     <script src="{{ asset('dashboard_files/js/main.js')}}"></script>
     <script src="{{ asset('dashboard_files/js/custom/movie.js')}}"></script>
 
+
+    <script src="https://cdn.tiny.cloud/1/g8fwlobi2i4dkh20e4xxo6wfsb6yniyyllhnzeor6ucj13bj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+    tinymce.init({
+      selector: '#textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
     <script>
       $.ajaxSetup({
         headers: {

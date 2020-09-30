@@ -44,7 +44,7 @@
                     </div><!-- end of col 12 -->
 
                 </div><!-- end of row -->
-
+        
                 <div class="row">
                     <div class="col-md-12">
                         @if ($blogs->count() > 0)
@@ -53,8 +53,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
                                 </tr>
                                 </thead>
 
@@ -64,7 +64,8 @@
                                         <td>{{ $index+1 }}</td>
                                         <td><img src="{{ asset('uploads/blogImages') }}/{{ $blog->image }}" width="100px" style="width: 100px" alt=""></td>
 
-                                        <td>{{ $blog->name }}</td>
+                                        <td>{{ $blog->title }}</td>
+                                        <td>{!! $blog->content !!}</td>
                                         <td>
                                                 <a href="{{ route('admin.blogs.edit', [$blog->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                                 
@@ -76,17 +77,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $blog->name }}</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $blog->title }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>You are going to delete {{ $blog->name }}. Are you sure?</p>
+        <p>You are going to delete {{ $blog->title }}. Are you sure?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form method="POST" action="{{ route('admin.categories.delete', [ $blog->id])}}">
+        <form method="POST" action="{{ route('admin.blogs.delete', [ $blog->id])}}">
             @csrf
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>

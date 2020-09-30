@@ -53,8 +53,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
                                 </tr>
                                 </thead>
 
@@ -64,7 +64,9 @@
                                         <td>{{ $index+1 }}</td>
                                         <td><img src="{{ asset('uploads/newsImages') }}/{{ $news->image }}" width="100px" style="width: 100px" alt=""></td>
 
-                                        <td>{{ $news->name }}</td>
+                                        <td>{{ $news->title }}</td>
+                                        <td>{!! $news->content !!}</td>
+
                                         <td>
                                                 <a href="{{ route('admin.news.edit', [$news->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit</a>
                                                 
@@ -76,17 +78,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $news->name }}</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Delete {{ $news->title }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>You are going to delete {{ $news->name }}. Are you sure?</p>
+        <p>You are going to delete {{ $news->title }}. Are you sure?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form method="POST" action="{{ route('admin.categories.delete', [ $blog->id])}}">
+        <form method="POST" action="{{ route('admin.news.delete', [ $news->id])}}">
             @csrf
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>

@@ -20,9 +20,27 @@ class NewsController extends Controller
         return view('dashboard.news.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate($request,[
+            'title'=>'required|min:2',
+        ]);
+
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('uploads/newsImages/',$filename);
         
+            News::create([
+                'title' => request('title'),
+                'image'=> $filename,
+                'content' => request('content'),
+            ]);
+        }
+        session()->flash('success', 'Newsitem saved succesfully');
+        return redirect()->back(); 
     }
 
     public function edit($id)
@@ -34,11 +52,32 @@ class NewsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'title'=>'required|min:2',
+        ]);
 
+        $news = News::find($id);
+        $news->title = request('title');
+        $news->content = request('content');
+
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('uploads/newsImages/',$filename);
+            $news->image = $filename;
+        }
+        $news->save();
+        session()->flash('success', 'Newsitem updated succesfully');
+        return redirect()->back(); 
     }
 
     public function delete($id)
     {
-
+        $news = News::find($id);
+        $news->delete();
+        session()->flash('success', 'Newsitem deleted successfully');
+        return redirect()->route('admin.news.index');
     }
 }

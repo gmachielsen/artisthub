@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Blog extends Model
 {
+    use HasTrixRichText;
+
     protected $guarded = [];
 
     public function getNameAttribute($value)

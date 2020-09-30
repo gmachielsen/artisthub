@@ -5,12 +5,12 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.categories.index')}}">Blogs</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.blogs.index')}}">Blogs</a></li>
             <li class="breadcrumb-item active">Add</li>
         </ol>
     </nav>
     <div class="tile mb-4">
-        <form method="POST" action="{{ route('admin.categories.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.blogs.store')}}" enctype="multipart/form-data">
             @csrf
             @include('dashboard.partials._errors')
 
@@ -18,9 +18,12 @@
                 <label>Title</label>
                 <input type="text" name="title" class="form-control" value="{{ old('title')}}">
             </div>
+
             <div class="form-group">
                 <label>Content</label>
-                <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ old('content')}}</textarea>
+                <input type="hidden" name="content" id="content" cols="30" rows="10"></input>
+                <input id="short_desc" type="hidden" name="content">
+                <trix-editor input="short_desc" placeholder="Product short description"></trix-editor>
             </div>
             <div class="form-group">
                 <a class="addphoto" style="width: 50%;" >

@@ -81,7 +81,7 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
     Route::post('/news/store', 'NewsController@store')->name('news.store');
     Route::get('/news/{id}/edit', 'NewsController@edit')->name('news.edit');
     Route::post('/news/{id}/update', 'NewsController@update')->name('news.update');
-    Route::post('/news/{id}/delete', 'NewsController@delete')->name('News.delete');
+    Route::post('/news/{id}/delete', 'NewsController@delete')->name('news.delete');
 
     Route::get('/analytics', 'AnalyticsController@index')->name('analytics.index');
 
