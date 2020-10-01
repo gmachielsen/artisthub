@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/navbar.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,16 +21,46 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="http://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
-
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/06a651c8da.js" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+
 </head>
 <body>
+                    <!-- <div class="topBar">
+                        <div class="logoContainer">
+                            <a href="{{ url('/') }}">
+                                <img src="https://fontmeme.com/permalink/200603/ff9080b74f4b97ae1ff7f2dc64f2f765.png" title="logo" alt="site-logo" />
+                            </a>
+                            </div>
+                            <ul class="navLinks">
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="shows.php">TV Shows</a></li>
+                                <li><a href="movies.php">Movies</a></li>
+                            </ul>
+
+                            <div class="rightItems">
+                            <a href="search.php">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a href="profile.php">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <a href="logout.php">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </a>
+                        </div>
+                    </div> -->
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand logoContainer" href="{{ url('/') }}">
+                    <img src="https://fontmeme.com/permalink/201001/176021b0c6f1e7bc1e3722a9f61be964.png" alt="lettertypes-voor-handtekeningen" border="0">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,6 +71,10 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+
+
+
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -109,5 +144,6 @@
             @yield('content')
         </main>
     </div>
+    @extends('footer')
 </body>
 </html>

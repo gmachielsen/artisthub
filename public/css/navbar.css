@@ -1,0 +1,52 @@
+/* html,
+ body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    box-sizing: border-box;
+}
+
+
+.navbar {
+    z-index: 2;
+}
+
+.seen {
+    color: #2ecc71;
+    font-size: 26px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    height: 70px;
+    box-sizing: border-box;
+    min-width: 1050px;
+    transition: background-color 200ms linear;
+}
+
+.navbar.scrolled {
+    background-color: #141414;
+    transition: background-color 200ms linear;
+} */
+
+.logoContainer {
+    height: 40px;
+}
+
+.logoContainer img {
+    height: 100%;
+}
+
