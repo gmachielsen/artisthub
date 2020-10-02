@@ -37,30 +37,23 @@ class ArtworkController extends Controller
         ];
 
 
-
-
-        foreach ($columns as $column) {
+        $artworks = Artwork::get();
+        $queries = [];
+        // $collection = isset($collection);
+        foreach ($columns as $column)
+        {
             if (request()->has($column)) {
-
-
-
-                $collection = Artwork::get();
-                $queries = [];
-
-                $collection = $collection->where($column, request($column));
-                $queries[$column] = request($column);
-
-                $artworks = $collection->append('queries');
-                return view('index', compact('artworks'));
-
-            } else {
-
-                $artworks = Artwork::paginate(50);
-
-                return view('index', compact('artworks'));
-
+                $queries[$column] = $column;
             }
+
         }
+
+        foreach ($queries as $query) {
+                $artworks  .=  "->where(".$query."," . request($query) . ")";
+        }
+        dd(getType($artworks));
+        // dd($artworks.$collection);
+        return view('index', compact('artworks'));
 
        
     }
