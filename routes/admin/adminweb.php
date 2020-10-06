@@ -83,6 +83,20 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
     Route::post('/news/{id}/update', 'NewsController@update')->name('news.update');
     Route::post('/news/{id}/delete', 'NewsController@delete')->name('news.delete');
 
+    Route::get('/vacancies', 'VacancyController@index')->name('vacancies.index');
+    Route::get('/vacancies/create', 'VacancyController@create')->name('vacancies.create');
+    Route::post('/vacancies/store', 'VacancyController@store')->name('vacancies.store');
+    Route::get('/vacancies/{id}/edit', 'VacancyController@edit')->name('vacancies.edit');
+    Route::post('/vacancies/{id}/update', 'VacancyController@update')->name('vacancies.update');
+    Route::post('/vacancies/{id}/delete', 'VacancyController@delete')->name('vacancies.delete');
+
+    Route::get('/staffmembers', 'StaffMemberController@index')->name('staffmembers.index');
+    Route::get('/staffmembers/create', 'StaffMemberController@create')->name('staffmembers.create');
+    Route::post('/staffmembers/store', 'StaffMemberController@store')->name('staffmembers.store');
+    Route::get('/staffmembers/{id}/edit', 'StaffMemberController@edit')->name('staffmembers.edit');
+    Route::post('/staffmembers/{id}/update', 'StaffMemberController@update')->name('staffmembers.update');
+    Route::post('/staffmembers/{id}/delete', 'StaffMemberController@delete')->name('staffmembers.delete');
+
     Route::get('/analytics', 'AnalyticsController@index')->name('analytics.index');
 
 });
