@@ -1,30 +1,51 @@
 @extends('layouts.dashboard.app')
 
 @section('content')
-    <h2>Blogs</h2>
+    <h2>Staffmembers</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.blogs.index')}}">Blogs</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.staffmembers.index')}}">Staffmembers</a></li>
             <li class="breadcrumb-item active">Add</li>
         </ol>
     </nav>
     <div class="tile mb-4">
-        <form method="POST" action="{{ route('admin.blogs.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.staffmembers.store')}}" enctype="multipart/form-data">
             @csrf
             @include('dashboard.partials._errors')
 
             <div class="form-group">
-                <label>Title</label>
-                <input type="text" name="title" class="form-control" value="{{ old('title')}}">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" value="{{ old('name')}}">
+            </div>
+
+            <div class="form-group">
+                <label>Function</label>
+                <input type="text" name="function" class="form-control" value="{{ old('function')}}">
             </div>
 
             <div class="form-group">
                 <label>Content</label>
-                <input type="hidden" name="content" id="content" cols="30" rows="10"></input>
-                <input id="short_desc" type="hidden" name="content">
+                <input type="hidden" name="description" id="description" cols="30" rows="10"></input>
+                <input id="short_desc" type="hidden" name="description">
                 <trix-editor input="short_desc" placeholder="Product short description"></trix-editor>
             </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="{{ old('email')}}">
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone" class="form-control" value="{{ old('phone')}}">
+            </div>
+
+            <div class="form-group">
+                <label>Phone2</label>
+                <input type="text" name="phone2" class="form-control" value="{{ old('phone2')}}">
+            </div>
+
             <div class="form-group">
                 <a class="addphoto" style="width: 50%;" >
                     <!-- <i class="fas fa-plus fa-9x"></i> -->

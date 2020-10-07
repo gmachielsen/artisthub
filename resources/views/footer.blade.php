@@ -4,14 +4,14 @@
 				<div class="col-md-3">
 					<div class="f-logo hidden-xs hidden-sm">
                         <a href="/">
-                            <img src="https://fontmeme.com/permalink/201001/176021b0c6f1e7bc1e3722a9f61be964.png" alt="lettertypes-voor-handtekeningen" border="0">
+                            <img src="https://fontmeme.com/permalink/201001/176021b0c6f1e7bc1e3722a9f61be964.png" alt="lettertypes-voor-handtekeningen" border="0" width="100%">
                         </a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="f-cat">Klantenservice</div>
 					<ul class="f-links de">
-						<li><a href="#" class="gen-contact">Contacteer ons</a></li>
+						<li><a href="{{ route('contact')}}" class="gen-contact">Contacteer ons</a></li>
 						<!-- <li><a href="https://d17h7hjnfv5s46.cloudfront.net/assets/build/docs/cgu_de.c7176699.pdf" target="_blank" rel="noopener">Impressum &amp; Nutzungbedigungen</a></li> -->
 						<li><a href="https://d17h7hjnfv5s46.cloudfront.net/assets/build/docs/cgv_de.caf4aa23.pdf" target="_blank" rel="noopener">Algemene voorwaarden</a></li>
                         <li><a href="/de/kundenbewertungen">Klantbeoordelingen</a></li>
@@ -27,38 +27,47 @@
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="f-cat">Wie zijn we?</div>
 					<ul class="f-links de">
-						<li><a href="/de/%C3%BCber">Over ons</a></li>
-						<li><a href="/de/zeitgen%C3%B6ssische-k%C3%BCnstler">Onze kunstenaars</a></li>
-                        <li><a href="https://blog.singulart.com/" target="_blank" rel="noopener">Nieuws</a></li>
-                        <li><a href="https://blog.singulart.com/" target="_blank" rel="noopener">Onze blog</a></li>
+						<li><a href="{{ route('frontend.staffmembers')}}">Over ons</a></li>
+						<li><a href="{{ route('all.artists')}}">Onze kunstenaars</a></li>
+                        <li><a href="{{ route('news.index')}}" rel="noopener">Nieuws</a></li>
+                        <li><a href="{{ route('blog.index')}}" rel="noopener">Onze blog</a></li>
 
-						<li><a href="/de/%C3%BCber#teams">Ons team</a></li>
+						<li><a href="{{ route('frontend.staffmembers')}}">Ons team</a></li>
 						<li><a href="/de/selection">Selectieprocedure</a></li>
 						<li><a href="/de/faq">FAQ</a></li>
-                        <li><a href="https://www.welcometothejungle.co/companies/singulart/jobs" target="_blank" rel="noopener">Vacatures</a></li>						
-                        <li><a href="#" class="gen-contact">Contact</a></li>
+                        <li><a href="{{ route('frontend.vacancies')}}" rel="noopener">Vacatures</a></li>						
+                        <li><a href="{{ route('contact')}}" class="gen-contact">Contact</a></li>
 					</ul>
 				</div>
+                
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="f-cat">Bent u een kunstenaar/kunstenares?</div>
 					<ul class="f-links de">
 						<li>
                             <a href="/de/bewerbung">Hoe ook toetreden als kunstenaar op deze website?</a>
                         </li>
-                        						<li><a href="/my-singulart/account/login">Aanmelden (Alleen voor kunstenaars)</a></li>
-                                                                        <!-- <li><a href="/de/kunstgalerie/deutschland">Kunstgaleries</a></li> -->
-                        					</ul>
-				</div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
+                        <li><a href="/my-singulart/account/login">Aanmelden (Alleen voor kunstenaars)</a></li>
+                                                <!-- <li><a href="/de/kunstgalerie/deutschland">Kunstgaleries</a></li> -->
+                    </ul>
                     <div class="f-cat sm">Uitgelichte kunstenaars</div>
 					<ul class="f-links">
-                    						<li><a href="/de/k%C3%BCnstler/anett-m%C3%BCnnich-680">Anett Münnich</a></li>
-                    						<li><a href="/de/k%C3%BCnstler/alessandro-siviglia-1579">Alessandro Siviglia</a></li>
-                    						<li><a href="/de/k%C3%BCnstler/kristin-kossi-1973">Kristin Kossi</a></li>
-                    						<li><a href="/de/k%C3%BCnstler/peter-nottrott-2493">Peter Nottrott</a></li>
-                    						<li><a href="/de/k%C3%BCnstler/carlos-martin-2627">Carlos Martin</a></li>
-                    					</ul>
+                        <li><a href="/de/k%C3%BCnstler/anett-m%C3%BCnnich-680">Anett Münnich</a></li>
+                        <li><a href="/de/k%C3%BCnstler/alessandro-siviglia-1579">Alessandro Siviglia</a></li>
+                        <li><a href="/de/k%C3%BCnstler/kristin-kossi-1973">Kristin Kossi</a></li>
+                        <li><a href="/de/k%C3%BCnstler/peter-nottrott-2493">Peter Nottrott</a></li>
+                        <li><a href="/de/k%C3%BCnstler/carlos-martin-2627">Carlos Martin</a></li>
+                    </ul>
 				</div>
+                <!-- <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="f-cat sm">Uitgelichte kunstenaars</div>
+					<ul class="f-links">
+                        <li><a href="/de/k%C3%BCnstler/anett-m%C3%BCnnich-680">Anett Münnich</a></li>
+                        <li><a href="/de/k%C3%BCnstler/alessandro-siviglia-1579">Alessandro Siviglia</a></li>
+                        <li><a href="/de/k%C3%BCnstler/kristin-kossi-1973">Kristin Kossi</a></li>
+                        <li><a href="/de/k%C3%BCnstler/peter-nottrott-2493">Peter Nottrott</a></li>
+                        <li><a href="/de/k%C3%BCnstler/carlos-martin-2627">Carlos Martin</a></li>
+                    </ul>
+				</div> -->
                 <div class="col-sm-6 col-xs-6 hidden-md hidden-lg">
                     <div class="f-cat sm">Volg ons</div>
                     <ul class="f-socials">
@@ -128,7 +137,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<!-- <div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<hr>
@@ -160,5 +169,5 @@
 					</div>
                 </div>
 			</div>
-		</div>
+		</div> -->
 </footer>

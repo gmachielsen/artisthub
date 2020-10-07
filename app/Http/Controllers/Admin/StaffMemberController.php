@@ -51,7 +51,7 @@ class StaffMemberController extends Controller
     {
         $staffmember = Staffmember::find($id);
 
-        return view('dashboard.staffmebers.edit', compact('staffmember'));
+        return view('dashboard.staffmembers.edit', compact('staffmember'));
     }
 
     public function update(Request $request, $id)

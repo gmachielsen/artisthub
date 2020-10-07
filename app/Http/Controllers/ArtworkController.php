@@ -30,7 +30,6 @@ class ArtworkController extends Controller
 
     public function allartworks(Request $request)
     {
-    
 
         $columns = [
             'category_id', 'style_id', 'technic_id', 'framed', 'orientation',
@@ -51,9 +50,9 @@ class ArtworkController extends Controller
         foreach ($queries as $query) {
                 $artworks  .=  "->where(".$query."," . request($query) . ")";
         }
-        dd(getType($artworks));
+        // dd(getType($artworks));
         // dd($artworks.$collection);
-        return view('index', compact('artworks'));
+        return view('frontend.index', compact('artworks'));
 
        
     }

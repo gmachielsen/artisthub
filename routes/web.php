@@ -69,3 +69,9 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('admin')->group(funct
     Route::get('/categories', 'AdminController@index')->name('admin.categories.index');
 });
 
+//frontend 
+Route::get('/medewerkers', 'FrontendController@staffmembers')->name('frontend.staffmembers');
+Route::get('/vacatures', 'FrontendController@vacancies')->name('frontend.vacancies');
+Route::get('/blog', 'FrontendController@blogindex')->name('blog.index');
+Route::get('/nieuws', 'FrontendController@newsindex')->name('news.index');
+Route::get('/contact', 'FrontendController@contact')->name('contact');
