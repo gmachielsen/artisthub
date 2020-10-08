@@ -1,5 +1,13 @@
 <footer class="footer">
     		<div class="container">
+            <div class="row">
+                <div class="info">
+                    <hr>
+                    <h2>Ihre Online-Kunstgalerie: Kaufen Sie Kunstwerke, i.e. Bilder, direkt von Künstler auf Singulart</h2>
+                    <p><strong>Ganz einfach Kunst online Kaufen</strong>: Singulart ist eine <strong>zeitgenössische Online-Kunstgalerie,</strong> welche es Kunstsammlern und Kunstliebhabern ermöglicht,<strong> Kunstwerke mit der Sicherheit zu kaufen</strong>, dass Sie von national anerkannten Künstlern kaufen: <a href="/de/malerei/abstrakt">abstrakte Gemälde</a> figurative Malerei, Zeichnungen oder sogar Street Art Graffiti-Kunst. Wir bieten Ihnen eine internationale Auswahl an Stilen und Techniken. Ebenfalls verhilft Singulart jungen, <a href="/de/sammlung/singularts-aufstrebende-künstler-40">aufstrebenden Künstlern</a> der ganzen Welt ihre Kunstwerke an Liebhaber zu verkaufen.</p><h2>Online Kunst kaufen: Kunstfotografien und Gemälde: Einfach und qualitativ hochwertig von unserer Kunstversandgalerie</h2><p>Warum Sie Gemälde oder Fotografien online kaufen sollten? Weil wir <strong>unsere Künstler aus der ganzen Welt nach strengen Kriterien auswählen</strong>: realisierte Ausstellungen, künstlerische Residenzen, gewonnene Preise und Beteiligungen an öffentlichen und privaten Sammlungen. Wir vereinfachen ebenfalls die Erfahrung des Kunstkaufs, indem wir uns um die Lieferung, den anfallenden Zoll und die Rahmung kümmern. Moderne Kunst kaufen mit Singulart ist einfach und schnell. Moderne Kunst kaufen muss definitiv einfach sein.</p><h2>Singulart, eine Online-Kunstgalerie, die zeitgenössische Kunstwerke an alle verkauft. Kunst kaufen ist für Alle.</h2><p>Singulart ist der Meinung, dass die Digitalisierung ein wunderbares Mittel ist, um Kunst zu kaufen und weltweit zu verbreiten und es Kunstsammlern erlaubt, Kunstwerke zu erwerben, sei es von einem jungen afrikanischen Künstler, einem mehr etablierten <a href="/de/zeitgenössische-künstler/maler/französische">französischen zeitgenössischen Maler</a> oder einem aktuell aufstrebenden Star in der <a href="/de/malerei/street-art">Street Art-Kunstszene</a>.</p>
+                </div>
+            </div>
+            </div>
 			<div class="row">
 				<div class="col-md-3">
 					<div class="f-logo hidden-xs hidden-sm">
@@ -51,11 +59,9 @@
                     </ul>
                     <div class="f-cat sm">Uitgelichte kunstenaars</div>
 					<ul class="f-links">
-                        <li><a href="/de/k%C3%BCnstler/anett-m%C3%BCnnich-680">Anett Münnich</a></li>
-                        <li><a href="/de/k%C3%BCnstler/alessandro-siviglia-1579">Alessandro Siviglia</a></li>
-                        <li><a href="/de/k%C3%BCnstler/kristin-kossi-1973">Kristin Kossi</a></li>
-                        <li><a href="/de/k%C3%BCnstler/peter-nottrott-2493">Peter Nottrott</a></li>
-                        <li><a href="/de/k%C3%BCnstler/carlos-martin-2627">Carlos Martin</a></li>
+
+
+
                     </ul>
 				</div>
                 <!-- <div class="col-md-3 col-sm-6 col-xs-6">

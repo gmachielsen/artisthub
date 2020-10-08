@@ -28,34 +28,15 @@ class ArtworkController extends Controller
         return view('welcome', compact('artworks', 'artists'));
     }
 
-    public function allartworks(Request $request)
+    public function landingpage()
     {
+        $artworks = Artwork::latest()->limit(12)->where('status', 1)->get();
+        $artists = Artist::latest()->limit(8)->get();
 
-        $columns = [
-            'category_id', 'style_id', 'technic_id', 'framed', 'orientation',
-        ];
-
-
-        $artworks = Artwork::get();
-        $queries = [];
-        // $collection = isset($collection);
-        foreach ($columns as $column)
-        {
-            if (request()->has($column)) {
-                $queries[$column] = $column;
-            }
-
-        }
-
-        foreach ($queries as $query) {
-                $artworks  .=  "->where(".$query."," . request($query) . ")";
-        }
-        // dd(getType($artworks));
-        // dd($artworks.$collection);
-        return view('frontend.index', compact('artworks'));
-
-       
+        return view('welcome', compact('artworks', 'artists'));
     }
+
+
 
     public function allartists()
     {

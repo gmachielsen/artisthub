@@ -7,7 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -22,7 +24,6 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('favourite-component', require('./components/FavouriteComponent.vue').default);
 Vue.component('search-component', require('./components/SearchComponent.vue').default);
-Vue.component('filter-component', require('/components/ArtworksFilterComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,8 +31,24 @@ Vue.component('filter-component', require('/components/ArtworksFilterComponent.v
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const ArtworkIndex = require('./components/artworks/Index.vue').default;
+
+const routes = [
+    {
+        path: '/kunstwerken',
+        name: 'kunstwerken.index',
+        component: ArtworkIndex
+    }
+];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes
+})
+
 const app = new Vue({
     el: '#app',
+    router
 });
 
 

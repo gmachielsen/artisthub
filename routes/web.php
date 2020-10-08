@@ -12,6 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['prefix' => '/api'], function () {
+    Route::get('/kunstwerken', 'Api\Artworkcontroller@index');
+});
+
+Route::get('/kunstwerken', function () {
+    return view('artworks.index');
+});
 
 // artworks
 Route::get('/', 'ArtworkController@index');
@@ -23,14 +36,15 @@ Route::get('/artworks/my-artworks', 'ArtworkController@myArtwork')->name('artwor
 Route::get('/kunstwerk/{id}/{artwork}', 'ArtworkController@show')->name('artworks.show');
 Route::get('/artworks/leads', 'ArtworkController@lead')->name('view.leads');
 Route::get('/artworks/messages', 'ArtworkController@messages')->name('view.messages');
-Route::get('/kunstwerken/index', 'ArtworkController@allartworks')->name('all.artworks');
+
+
+
+
 
 Route::post('/save/{id}', 'FavouriteController@saveArtwork')->name('save.artwork');
 Route::post('/unsave/{id}', 'FavouriteController@unSaveArtwork')->name('unsave.artwork');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 //artist 
@@ -75,3 +89,5 @@ Route::get('/vacatures', 'FrontendController@vacancies')->name('frontend.vacanci
 Route::get('/blog', 'FrontendController@blogindex')->name('blog.index');
 Route::get('/nieuws', 'FrontendController@newsindex')->name('news.index');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
+
+

@@ -14,10 +14,33 @@ li {
     list-style: none;
 }
 
+row {
+ margin: 0px;   
+}
 
 
 .footer .f-links a, .footer .f-links span {
     color: #9d9d9d;
     font-weight: 300;
     transition: all .3s ease;
+}
+
+.info {
+    background-color: #333333;
+}
+
+.info {
+    font-weight: 300;
+    font-size: 13px;
+    width: 70%;
+}
+
+.info h2 {
+    color: #fff;
+    font-size: 16px;
+}
+
+
+.info p {
+    color: #9d9d9d;
 }
