@@ -19,7 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['prefix' => '/api'], function () {
-    Route::get('/kunstwerken', 'Api\Artworkcontroller@index');
+    Route::get('/kunstwerken', 'Api\ArtworkController@index');
 });
 
 Route::get('/kunstwerken', function () {

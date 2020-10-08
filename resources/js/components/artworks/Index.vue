@@ -12,7 +12,9 @@
         mounted () {
             axios.get('/api/kunstwerken').then((response) => {
                 this.artworks = response.data.data
-            }).catch((error) => this.errors = error.response.data.errors)
+            }).catch(err=>{
+                console.log(err)
+            });
         }
     }
 </script>
