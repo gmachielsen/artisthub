@@ -141,13 +141,13 @@
         </nav>
 
 
-        <main class="py-4">
+        <main class="py-4" style="margin: 0;">
             <router-view></router-view>
 
             @yield('content')
+            @extends('footer')
 
         </main>
     </div>
-    @extends('footer')
 </body>
 </html>

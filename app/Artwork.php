@@ -15,6 +15,28 @@ class Artwork extends Model
 {
     protected $guarded = [];
     
+    public $appends = [
+        'formattedCategory',
+        'formattedStyle',
+        'formattedTechnic',
+    ];
+
+    public function getFormattedCategoryAttribute()
+    {
+        return ucfirst($this->category_id);
+    }
+
+    public function getFormattedStyleAttribute()
+    {
+        return ucfirst($this->style_id);
+    }
+
+    public function getFormattedTechnicAttribute()
+    {
+        return ucfirst($this->technic_id);
+    }
+
+
 
     public function getNameAttribute($value)
     {

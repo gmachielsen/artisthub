@@ -1,20 +1,52 @@
 <template>
-    <p>{{ artworks }}</p>
+    <div class="row">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12 _leftNav">
+            filters
+        </div>
+        <div class="col-xl-10 col-lg-9 col-md-8 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                            <artwork v-for="artwork in artworks" :artwork="artwork" :key="artwork.id"></artwork>
+                            <pagination :meta="meta" v-on:pagination:switched="getArtworks"></pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
+    import Artwork from './partials/Artwork.vue'
+    import Pagination from '../pagination/Pagination.vue'
+
     export default {
+        components: {
+            Artwork,
+            Pagination
+        },
         data () {
             return {
-                artworks: []
+                artworks: [],
+                meta: {}
             }
         },
         mounted () {
-            axios.get('/api/kunstwerken').then((response) => {
-                this.artworks = response.data.data
-            }).catch(err=>{
-                console.log(err)
-            });
+            this.getArtworks()
+        },
+        methods: {
+            getArtworks (page = 1) {
+                axios.get('/api/kunstwerken', {
+                    params: {
+                        page
+                    }
+                }).then((response) => {
+                    this.artworks = response.data.data
+                    this.meta = response.data.meta
+                }).catch(err=>{
+                    console.log(err)
+                });
+            }
         }
     }
 </script>
