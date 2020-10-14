@@ -6,6 +6,7 @@ use App\Artwork;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ArtworkResource;
+use App\Filters\Artwork\ArtworkFilters;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -16,5 +17,16 @@ class ArtworkController extends Controller
         return new ArtworkResource(
             Artwork::with(['category', 'style', 'technic'])->paginate(2)
         );
+    }
+
+    public function filters()
+    {
+        return response()->json([
+            'data' => ArtworkFilters::mappings()
+        ], 200);
+
+        $map = Category::get()->pluck('name', 'slug');
+
+        dd($map);
     }
 }

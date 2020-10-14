@@ -28,8 +28,20 @@ export default {
     ],
     methods: {
         switched (page) {
+            if (this.pageIsOutOfBounds(page)) {
+                return;
+            }
             this.$emit('pagination:switched', page)
+
+            this.$router.replace({
+                    query: {
+                        page
+                    }
+                })
+            },
+            pageIsOutOfBounds (page) {
+                return page <= 0 || page > this.meta.last_page;
+            }
         }
     }
-}
 </script>

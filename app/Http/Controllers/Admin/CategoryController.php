@@ -34,6 +34,7 @@ class CategoryController extends Controller
         
             Category::create([
                 'name' => request('name'),
+                'slug' => str_slug(request('title')),
                 'image'=> $filename,
             ]);
         }
@@ -54,7 +55,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         $category->name = request('name');
-
+        $category->slug = request('name');
 
         if($request->hasFile('image')){
             $file = $request->file('image');

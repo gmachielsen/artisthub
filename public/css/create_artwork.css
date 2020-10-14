@@ -14,7 +14,7 @@
     outline: 0;
 }
 .foo:hover:after {
-    background: green;
+    background: #00635a;;
 }
 .foo:after {
     border-style: dashed;
@@ -36,3 +36,8 @@
     line-height: 60px;
     border-radius: 5px;
 }
+
+
+
+
+

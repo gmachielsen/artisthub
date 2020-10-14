@@ -18,6 +18,11 @@ class CreateArtworksTable extends Migration
             $table->string('user_id');
             $table->string('artist_id');
             $table->string('picture');
+            $table->string('picturetwo');
+            $table->string('picturethree');
+            $table->string('picturefour');
+            $table->string('picturefive');
+            $table->string('picturesix');
             $table->string('title');
             $table->string('orientation');
             $table->string('width');

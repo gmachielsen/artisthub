@@ -1,5 +1,7 @@
 @extends('layouts.dashboard.app')
-
+@push('styles')
+    <link href="{{ asset('css/create_artwork.css') }}" rel="stylesheet">
+@endpush
 @section('content')
     <h2>Artworks</h2>
     <nav aria-label="breadcrumb">
@@ -137,30 +139,34 @@
                     <option value="0">Offline, niet actief op de website</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="photos">foto's</label>
+            <label for="photos">Voeg foto's toe</label>
+
+        <div class="pictures" style="display: flex; flex-direction: row; margin: 10px;">
+     
+            <div class="form-group photo" style="margin: 10px;">
+                <!-- <label for="photos"></label> -->
                 <div class="row profile_image_row" style="">
                 <div class="col-sm-12 col-md-3">
                     <div class="artwork_image">
                         
-                        <label style="margin-bottom: 0px;">Add Photo</label>
+                        <!-- <label style="margin-bottom: 0px;"></label> -->
                         <div class="">
                             <a class="addphoto" style="width: 50%;" >
                                 <!-- <i class="fas fa-plus fa-9x"></i> -->
-                                    <input id="" type="file" class="form-control foo {{ $errors->has('picture') ? ' is-invalid' : '' }}" 
-                                    value="{{ old('picture') }}" name="picture" onchange="readURL(this);" >
+                                    <input id="photo1" type="file" class="form-control foo {{ $errors->has('picture') ? ' is-invalid' : '' }}" 
+                                    value="{{ old('picture') }}" name="picture" onchange="readURL(#photo1);" >
                                     @if ($errors->has('picture'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('picture') }}</strong>
                                         </span>
                                     @endif
                                     <script>
-                                    function readURL(input) {
+                                    function readURL(#photo1) {
                                         if (input.files && input.files[0]) {
                                             var reader = new FileReader();
 
                                             reader.onload = function (e) {
-                                                $('#blah')
+                                                $('#photo1')
                                                     .attr('src', e.target.result)
                                                     .width(250)
                                                     .height(250)
@@ -178,9 +184,101 @@
                 </div>
 
                 </div>
+
+                <img id="photo1" src="#" alt="your image" />
+
+            </div>
+            <div class="form-group photo" style="margin: 10px;">
+                <!-- <label for="photos"></label> -->
+                <div class="row profile_image_row" style="">
+                <div class="col-sm-12 col-md-3">
+                    <div class="artwork_image">
+                        
+                        <!-- <label style="margin-bottom: 0px;"></label> -->
+                        <div class="">
+                            <a class="addphoto" style="width: 50%;" >
+                                <!-- <i class="fas fa-plus fa-9x"></i> -->
+                                    <input id="" type="file" class="form-control foo {{ $errors->has('picture') ? ' is-invalid' : '' }}" 
+                                    value="{{ old('picture') }}" name="picture" onchange="readURL(this);" >
+                                    @if ($errors->has('picture'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('picture') }}</strong>
+                                        </span>
+                                    @endif
+                                    <script>
+                                    function readURL(input) {
+                                        if (input.files && input.files[0]) {
+                                            var reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                $('#photo2')
+                                                    .attr('src', e.target.result)
+                                                    .width(250)
+                                                    .height(250)
+                                                    .css('object-fit', 'cover');
+                                            };
+
+                                            reader.readAsDataURL(input.files[0]);
+                                        }
+                                    }
+                                </script>                            
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                <img id="photo2" src="#" alt="your image" />
+
+            </div>
+            <div class="form-group photo" style="margin: 10px;">
+                <!-- <label for="photos"></label> -->
+                <div class="row profile_image_row" style="">
+                <div class="col-sm-12 col-md-3">
+                    <div class="artwork_image">
+                        
+                        <!-- <label style="margin-bottom: 0px;"></label> -->
+                        <div class="">
+                            <a class="addphoto" style="width: 50%;" >
+                                <!-- <i class="fas fa-plus fa-9x"></i> -->
+                                    <input id="one" type="file" class="form-control foo {{ $errors->has('picture') ? ' is-invalid' : '' }}" 
+                                    value="{{ old('picture') }}" name="picture" onchange="readURL(this);" >
+                                    @if ($errors->has('picture'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('picture') }}</strong>
+                                        </span>
+                                    @endif
+                                    <script>
+                                    function readURL(input) {
+                                        if (input.files && input.files[0]) {
+                                            var reader = new FileReader();
+
+                                            reader.onload = function (e) {
+                                                $('#photo3')
+                                                    .attr('src', e.target.result)
+                                                    .width(250)
+                                                    .height(250)
+                                                    .css('object-fit', 'cover');
+                                            };
+
+                                            reader.readAsDataURL(input.files[0]);
+                                        }
+                                    }
+                                </script>                            
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                <img id="photo3" src="#" alt="your image" />
+
+            </div>
             </div>
                 <br><br><br>
-                    <img id="blah" src="#" alt="your image" />
+
             <div class="form-group">
                 <button class="btn btn-success float-right" type="submit">Opslaan</button>
             </div>

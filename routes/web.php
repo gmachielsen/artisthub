@@ -16,15 +16,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
-Route::group(['prefix' => '/api'], function () {
-    Route::get('/kunstwerken', 'Api\ArtworkController@index');
-});
-
 Route::get('/kunstwerken', function () {
     return view('artworks.index');
 });
+
+Route::group(['prefix' => '/api'], function () {
+    Route::get('/kunstwerken', 'Api\ArtworkController@index');
+    Route::get('/kunstwerken/filters', 'Api\ArtworkController@filters');
+});
+
+
 
 // artworks
 Route::get('/', 'ArtworkController@index');
