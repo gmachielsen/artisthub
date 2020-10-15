@@ -27,7 +27,6 @@ class OrderController extends Controller
         $artwork = Artwork::find($id);
         $artwork->status = 0;
         $artwork->save();
-        dd($artwork);
 
         $this->validate($request,[
             'name'=>'required|min:2',
