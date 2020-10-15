@@ -29,6 +29,7 @@ Route::group(['prefix' => '/api'], function () {
 
 // artworks
 Route::get('/', 'ArtworkController@index');
+Route::get('/allworks', 'ArtworkController@allartworks')->name('all.artworks');
 Route::get('/artworks/create', 'ArtworkController@create')->name('create.artwork');
 Route::post('/artworks/store', 'ArtworkController@store')->name('artwork.store');
 Route::get('/artworks/{id}/edit', 'ArtworkController@edit')->name('artwork.edit');
@@ -45,6 +46,10 @@ Route::get('/artworks/messages', 'ArtworkController@messages')->name('view.messa
 Route::post('/save/{id}', 'FavouriteController@saveArtwork')->name('save.artwork');
 Route::post('/unsave/{id}', 'FavouriteController@unSaveArtwork')->name('unsave.artwork');
 
+Route::get('/kunstwerk./kopen/{id}', 'OrderController@buy_artwork')->name('buy.artwork');
+Route::get('/kunstobject/huren/{id}', 'OrderController@rent_artwork')->name('rent.artwork');
+Route::post('/koop/kunstwerk/{id}', 'OrderController@buy_artwork_order')->name('buy.it');
+Route::post('/huur/kunstwerk../{id}', 'OrderController@rent_artwork_oder')->name('rent.it');
 
 
 

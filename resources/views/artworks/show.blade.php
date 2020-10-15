@@ -33,6 +33,7 @@
                     </div>
                 </div>
                 <br>
+                  
 
                 @if(Auth::check()&&Auth::user()->user_type=='customer')
                     @if(!$artwork->checkApplication())
@@ -48,6 +49,14 @@
                     </form>
                     @endif
                 @endif
+                <div style="display: flex; flex-direction: column;">
+                    <a type="button" href="{{ route('rent.artwork', [$artwork->id])}}">Huur kunstwerk</a>
+                    <br>
+                    <a type="button" href="{{ route('buy.artwork', [$artwork->id])}}">Koop kunstwerk</a>
+                    <br>
+                </div>
+
+                   
                 @if(Auth::check()&&Auth::user()->user_type='customer')
                 <favourite-component :artworkid={{ $artwork->id }}
                 :favorited={{$artwork->checkSaved()?'true':'false'}}></favourite-component>

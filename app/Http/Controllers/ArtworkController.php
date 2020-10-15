@@ -46,6 +46,33 @@ class ArtworkController extends Controller
         
     }
 
+    public function allartworks(Request $request)
+    {
+
+        $columns = [
+            'category_id', 'style_id', 'technic_id', 'framed', 'orientation',
+        ];
+
+        $artists = Artist::get();
+        $artworks = Artwork::get();
+        $queries = [];
+        // $collection = isset($collection);
+        foreach ($columns as $column)
+        {
+            if (request()->has($column)) {
+                $queries[$column] = $column;
+            }
+
+        }
+
+        foreach ($queries as $query) {
+                $artworks  .=  "->where(".$query."," . request($query) . ")";
+        }
+        // dd(getType($artworks));
+        // dd($artworks.$collection);
+        return view('frontend.index', compact('artworks', 'artists'));
+    }
+
     public function show($id, Artwork $artwork)
     {
         return view('artworks.show', compact('artwork'));
@@ -272,4 +299,6 @@ class ArtworkController extends Controller
         $artwork = Artwork::where('title', 'like', '%'.$keyword.'%')->limit(5)->get();
         return response()->json($artwork);
     }
+
+
 }

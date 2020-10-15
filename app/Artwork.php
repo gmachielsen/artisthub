@@ -91,6 +91,11 @@ class Artwork extends Model
     {
         return $this->hasMany(Message::class);
     }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
     
 
     public function checkApplication()
