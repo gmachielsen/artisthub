@@ -75,7 +75,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Mobiel nummer</label>
+                        <label for="cell_phone">Mobiel nummer</label>
                             <input type="text" name="cell_phone" class="form-control
                             {{ $errors->has('cell_phone') ? ' is-invalid' : '' }}" 
                             value="{{ old('cell_phone', Auth::user()->profile->cell_phone) }}"
@@ -87,7 +87,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Telefoonnummer</label>
+                        <label for="phone">Telefoonnummer</label>
                             <input type="text" name="phone" class="form-control
                             {{ $errors->has('phone') ? ' is-invalid' : '' }}" 
                             value="{{ old('phone', Auth::user()->profile->phone) }}"
@@ -99,7 +99,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Straat</label>
+                        <label for="street">Straat</label>
                             <input type="text" name="street" class="form-control
                             {{ $errors->has('street') ? ' is-invalid' : '' }}" 
                             value="{{ old('street', Auth::user()->profile->street_name) }}"
@@ -111,7 +111,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Huisnummer</label>
+                        <label for="housenumber">Huisnummer</label>
                             <input type="text" name="housenumber" class="form-control
                             {{ $errors->has('housenumber') ? ' is-invalid' : '' }}" 
                             value="{{ old('housenumber', Auth::user()->profile->house_number ) }}"
@@ -123,7 +123,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Postcode</label>
+                        <label for="postal_code">Postcode</label>
                             <input type="text" name="postal_code" class="form-control
                             {{ $errors->has('postal_code') ? ' is-invalid' : '' }}" 
                             value="{{ old('postal_code', Auth::user()->profile->postal_code) }}"
@@ -135,7 +135,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Plaats</label>
+                        <label for="city">Plaats</label>
                             <input type="text" name="city" class="form-control
                             {{ $errors->has('city') ? ' is-invalid' : '' }}" 
                             value="{{ old('city', Auth::user()->profile->city) }}"
@@ -147,7 +147,7 @@
                             @endif
                         </div>
                         <div class="form-group">
-                        <label for="title">Land</label>
+                        <label for="country">Land</label>
                             <input type="text" name="country" class="form-control
                             {{ $errors->has('country') ? ' is-invalid' : '' }}" 
                             value="{{ old('country', Auth::user()->profile->country) }}"
