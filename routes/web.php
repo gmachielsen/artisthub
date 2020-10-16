@@ -49,7 +49,7 @@ Route::post('/unsave/{id}', 'FavouriteController@unSaveArtwork')->name('unsave.a
 Route::get('/kunstwerk./kopen/{id}', 'OrderController@buy_artwork')->name('buy.artwork');
 Route::get('/kunstobject/huren/{id}', 'OrderController@rent_artwork')->name('rent.artwork');
 Route::post('/koop/{id}', 'OrderController@buy_artwork_order')->name('buy.it');
-Route::post('/huur/{id}', 'OrderController@rent_artwork_oder')->name('rent.it');
+Route::post('/huur/{id}', 'OrderController@rent_artwork_order')->name('rent.it');
 
 
 

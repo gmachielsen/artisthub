@@ -56,18 +56,25 @@ class ArtworkController extends Controller
         $artists = Artist::get();
         $artworks = Artwork::get();
         $queries = [];
-        // $collection = isset($collection);
+        
+        $collection = isset($collection);
         foreach ($columns as $column)
         {
-            if (request()->has($column)) {
-                $queries[$column] = $column;
+                // if( request()->category_id)
+                // {
+                //     dd('yes');
+                // }
+            if (request()->$column) {
+                $queries[$column] = request($column);
             }
 
         }
 
         foreach ($queries as $query) {
-                $artworks  .=  "->where(".$query."," . request($query) . ")";
+                $collection  .=  "->where(".array_search($query, $queries)."," . $query . ")";
         }
+        $miep = Artwork::where($collection)->get();
+        dd($miep);
         // dd(getType($artworks));
         // dd($artworks.$collection);
         return view('frontend.index', compact('artworks', 'artists'));

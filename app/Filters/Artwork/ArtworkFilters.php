@@ -12,6 +12,8 @@ use App\Filters\Artwork\{
     CategoryFilter,
     TypeFilter,
     TechnicFilter,
+    Ordering\ViewsOrder,
+
 };
 
 class ArtwrokFilters extends FiltersAbstract
@@ -23,7 +25,7 @@ class ArtwrokFilters extends FiltersAbstract
      */
     protected $filters = [
         'category' => CategoryFilter::class,
-        'type' => TypeFilter::class,
+        'style' => StyleFilter::class,
         'technic' => TechnicFilter::class
     ];
 
@@ -36,11 +38,10 @@ class ArtwrokFilters extends FiltersAbstract
     {
         $map = [
             'category' => Category::get()->pluck('name', 'slug')->toArray(),
-            'type' => Type::get()->pluck('name')->toArray(),
+            'style' => Style::get()->pluck('name')->toArray(),
             'technic' => Technic::get()->pluck('name')->toArray(),
         ];
-
-        dd($map);
+dd($map);
 
         return $map;
     }

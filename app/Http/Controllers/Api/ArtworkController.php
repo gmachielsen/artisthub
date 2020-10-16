@@ -25,8 +25,9 @@ class ArtworkController extends Controller
             'data' => ArtworkFilters::mappings()
         ], 200);
 
-        $map = Category::get()->pluck('name', 'slug');
 
-        dd($map);
+        // $map = Category::get()->pluck('name', 'slug');
+
+        // dd($map);
     }
 }

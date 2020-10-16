@@ -50,6 +50,7 @@
                 <div class="content">
                     @if(Auth::check()&&Auth::user()->user_type=='customer')
                     <form action="{{ route('rent.it', [$artwork->id])}}" method="post">
+                    @csrf
                         <div class="form-group">
                         <label for="title">name</label>
                             <input type="text" name="name" class="form-control
@@ -179,6 +180,7 @@
 
 
                     <form action="{{ route('rent.it', [$artwork->id])}}" method="post">
+                        @csrf
                         <div class="form-group">
                         <label for="title">name</label>
                             <input type="text" name="name" class="form-control

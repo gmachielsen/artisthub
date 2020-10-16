@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12 _leftNav">
 
-                    <div class="card leftNav cate-sect">
+                    <!-- <div class="card leftNav cate-sect">
                         <h3>Refine By:<span class="_t-item">(0 items)</span></h3>
                         <div class="col-12 p-0" id="catFilters"></div>
-                    </div>
+                    </div> -->
 
-                    <div class="card leftNav cate-sect">
+                    <!-- <div class="card leftNav cate-sect">
 
                         <div class="accordion" id="accordionExample">
                             <div class="card-header" id="headingTwo">
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -113,7 +113,7 @@
                 <div class="form-group">
                     <label for="framed">Ingelijst</label>
                     <select name="framed" class="form-control">
-                        <option value="choose">selecteer optie</option>
+                        <option value="">selecteer optie</option>
                         <option value="yes">Ja, met lijst</option>
                         <option value="no">Nee, zonder lijst</option>
                     </select>

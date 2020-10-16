@@ -10,13 +10,13 @@
                 </ul>
                 <ul>
                     <li>
- {{ artwork.formattedCategory }}  
+                        {{ artwork.formattedCategory }}  
                     </li>
                     <li>
-{{ artwork.formattedType }}
+                        {{ artwork.formattedStyle }}
                     </li>
                     <li>
-{{ artwork.formattedTechnic }}
+                        {{ artwork.formattedTechnic }}
                     </li>
                 </ul>
             </div>
