@@ -34,7 +34,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="f-cat">Wie zijn we?</div>
 					<ul class="f-links de">
-						<li><a href="{{ route('frontend.staffmembers')}}">Over ons</a></li>
+						<li><a href="{{ route('frontend.about')}}">Over ons</a></li>
 						<li><a href="{{ route('all.artists')}}">Onze kunstenaars</a></li>
                         <li><a href="{{ route('news.index')}}" rel="noopener">Nieuws</a></li>
                         <li><a href="{{ route('blog.index')}}" rel="noopener">Onze blog</a></li>

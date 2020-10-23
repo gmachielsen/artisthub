@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Artist;
+use App\Staffmember;
 class FrontendController extends Controller
 {
+    public function aboutUs()
+    {
+        $staffmembers = Staffmember::get();
+        return view('frontend.aboutUs', compact('staffmembers'));
+    }
+
     public function staffmembers()
     {
-        return view('frontend.aboutUs');
+        return view('frontend.staffmembers');
     }
 
     public function vacancies()
@@ -29,5 +36,12 @@ class FrontendController extends Controller
     public function contact()
     {
         return view('frontend.contact');
+    }
+
+    public function allartists()
+    {
+
+        $artists = Artist::paginate(50);
+        return view('frontend.artists', compact('artists'));
     }
 }

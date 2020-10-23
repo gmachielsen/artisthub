@@ -70,18 +70,58 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
         'picture' => 'artworks/Paard.jpg',
         'status' => rand(0, 1),
         'style_id' => rand(1,5),
-        'category_id' => rand(1,8),
-        'technic_id' => rand(1,5),
+        'category_id' => rand(1,4),
+        'technic_id' => rand(1,6),
         'rent' => rand(10, 250),
         'price' => rand(10, 20000),
         'title' => $title = $faker->text,
         'slug' => str_slug($title),
         'width' => rand(10, 200),
         'height' => rand(10, 200), 
-        'orientation' => 'staand', 
+        'orientation' => 'horizontal', 
         'description' => $faker->paragraph(rand(2, 10)),
         'framed' => 'yes',
         'year' => rand(1600, 2020),
     ];
 });
+
+$factory->define(App\Staffmember::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'slug' => str_slug($faker->name),
+        'image' => 'avatar/Gijs.jpg', 
+        'phone' => $faker->phoneNumber,
+        'phone2' => $faker->phoneNumber,
+        'function' => $faker->jobTitle,
+        'description' => $faker->paragraph(rand(2, 10)),
+    ];
+});
+
+
+$factory->define(App\Blog::class, function (Faker $faker) {
+    return [
+        'title' => $faker->text,
+        'image' => 'avatar/Gijs.jpg', 
+        'content' => $faker->paragraph(rand(2, 10)),
+    ];
+});
+
+$factory->define(App\News::class, function (Faker $faker) {
+    return [
+        'title' => $faker->text,
+        'image' => 'avatar/Gijs.jpg', 
+        'content' => $faker->paragraph(rand(2, 10)),
+    ];
+});
+
+$factory->define(App\Vacancy::class, function (Faker $faker) {
+    return [
+        'jobtitle' => $faker->text,
+        'jobdescription' => $faker->text,
+        'slug' => str_slug($faker->title), 
+        'type' => 'fulltime',
+        'hours' => '38',
+    ];
+});
+
 

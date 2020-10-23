@@ -110,7 +110,7 @@
         </div>
         <hr>
         <div class="col-xs-12 text-center">
-            <a type="button" href="{{ route('artist.index', [$artwork->artist->id, $artwork->artist->slug])}}">Meer over {{  $artwork->artist->artist_name }}</a>
+            <a type="button" href="{{ route('artist.show', [$artwork->artist->id, $artwork->artist->slug])}}">Meer over {{  $artwork->artist->artist_name }}</a>
         </div>
     </div>
 </div>

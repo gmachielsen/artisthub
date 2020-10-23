@@ -8,12 +8,12 @@ class ArtistController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('artist', ['except'=>array('index')]);
+        $this->middleware('artist', ['except'=>array('show')]);
     }
 
-    public function index($id, Artist $artist)
+    public function show($id, Artist $artist)
     {
-        return view('artist.index', compact('artist'));
+        return view('artist.show', compact('artist'));
     }
 
     public function create()

@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
         factory('App\User', 20)->create();
         factory('App\Artist', 20)->create();
         factory('App\Artwork', 60)->create();
+        factory('App\Staffmember', 4)->create();
+        factory('App\Blog', 10)->create();
+        factory('App\News', 8)->create();
+        factory('App\Vacancy', 3)->create();
 
         $categories = [
             'Architectuur',

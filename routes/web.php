@@ -56,7 +56,7 @@ Route::post('/huur/{id}', 'OrderController@rent_artwork_order')->name('rent.it')
 //artist 
 Route::view('artist/register', 'auth.artist-register')->name('register.as.artist');
 Route::post('artist/register', 'ArtistRegisterController@artistRegister')->name('artist.register');
-Route::get('/artist/{id}/{artist}', 'ArtistController@index')->name('artist.index');
+Route::get('/artist/{id}/{artist}', 'ArtistController@show')->name('artist.show');
 Route::get('artist/create', 'ArtistController@create')->name('artist.dashboard');
 Route::post('artist/createpersonalinformation', 'ArtistController@savePersonalInformation')->name('create.personal.information');
 Route::post('artist/createcompanyinformation', 'ArtistController@saveCompanyInformation')->name('create.company.information');
@@ -65,7 +65,7 @@ Route::post('artist/profilephoto', 'ArtistController@profilePhoto')->name('profi
 Route::post('/lead/destroy', 'ArtworkController@destroylead')->name('lead.delete');
 Route::post('/message/destroy', 'ArtworkController@deletemessage')->name('message.delete');
 
-Route::get('/kunstenaars/index', 'ArtworkController@allartists')->name('all.artists');
+Route::get('/kunstenaars/index', 'FrontendController@allartists')->name('all.artists');
 
 //user
 Route::get('user/profile', 'UserController@index')->name('profile.index');
@@ -90,6 +90,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('admin')->group(funct
 });
 
 //frontend 
+Route::get('/over-ons', 'FrontendController@aboutUs')->name('frontend.about');
 Route::get('/medewerkers', 'FrontendController@staffmembers')->name('frontend.staffmembers');
 Route::get('/vacatures', 'FrontendController@vacancies')->name('frontend.vacancies');
 Route::get('/blog', 'FrontendController@blogindex')->name('blog.index');

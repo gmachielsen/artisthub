@@ -3,10 +3,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
-            <search-component></search-component>
-            <br>
-        </div>
         @foreach($artworks as $artwork)
         <div class="col-6 col-md-4 col-lg-3 col-xl-2">
             <a href="{{ route('artworks.show', [$artwork->id, $artwork->slug])}}">
@@ -32,13 +28,18 @@
 <div class="container-fluid">
     <div class="row">
         @foreach($artists as $artist)
-        <div class="col-sm-12 col-md-4 col-lg-3">
-        <p>{{ $artist->artist_name }} </p>
-            {{ $artist->profile_photo }}
-            <div>
-            <img src="{{ asset('uploads/profilephoto') }}/{{$artist->profile_photo }}" width="100" style="width: 100%; border-radius: 50% 50% 50% 50%;" alt="" data-toggle="modal" data-target="#changeProfileImage">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <a type="button" href="{{ route('artist.show', [$artist->id, $artist->slug])}}">
+
+                    <div class="card" style="">
+                        <img src="{{ asset('uploads/profilephoto') }}/{{ $artist->profile_photo }}" width="100px" artwork="width: 100px" alt="">
+                        <div class="card-body">
+                            <p>{{ $artist->artist_name }}</p>
+                        </div>
+                    </div>
+                </a>
+                <br>
             </div>
-        </div>
         @endforeach
     </div>
     <div class="row justify-content-center">
