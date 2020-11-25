@@ -1,182 +1,143 @@
-<footer class="footer">
-    	<div class="container">
-            <!-- <div class="row">
-                <div class="info">
-                    <hr>
-                    <h2>Ihre Online-Kunstgalerie: Kaufen Sie Kunstwerke, i.e. Bilder, direkt von Künstler auf Singulart</h2>
-                    <p><strong>Ganz einfach Kunst online Kaufen</strong>: Singulart ist eine <strong>zeitgenössische Online-Kunstgalerie,</strong> welche es Kunstsammlern und Kunstliebhabern ermöglicht,<strong> Kunstwerke mit der Sicherheit zu kaufen</strong>, dass Sie von national anerkannten Künstlern kaufen: <a href="/de/malerei/abstrakt">abstrakte Gemälde</a> figurative Malerei, Zeichnungen oder sogar Street Art Graffiti-Kunst. Wir bieten Ihnen eine internationale Auswahl an Stilen und Techniken. Ebenfalls verhilft Singulart jungen, <a href="/de/sammlung/singularts-aufstrebende-künstler-40">aufstrebenden Künstlern</a> der ganzen Welt ihre Kunstwerke an Liebhaber zu verkaufen.</p><h2>Online Kunst kaufen: Kunstfotografien und Gemälde: Einfach und qualitativ hochwertig von unserer Kunstversandgalerie</h2><p>Warum Sie Gemälde oder Fotografien online kaufen sollten? Weil wir <strong>unsere Künstler aus der ganzen Welt nach strengen Kriterien auswählen</strong>: realisierte Ausstellungen, künstlerische Residenzen, gewonnene Preise und Beteiligungen an öffentlichen und privaten Sammlungen. Wir vereinfachen ebenfalls die Erfahrung des Kunstkaufs, indem wir uns um die Lieferung, den anfallenden Zoll und die Rahmung kümmern. Moderne Kunst kaufen mit Singulart ist einfach und schnell. Moderne Kunst kaufen muss definitiv einfach sein.</p><h2>Singulart, eine Online-Kunstgalerie, die zeitgenössische Kunstwerke an alle verkauft. Kunst kaufen ist für Alle.</h2><p>Singulart ist der Meinung, dass die Digitalisierung ein wunderbares Mittel ist, um Kunst zu kaufen und weltweit zu verbreiten und es Kunstsammlern erlaubt, Kunstwerke zu erwerben, sei es von einem jungen afrikanischen Künstler, einem mehr etablierten <a href="/de/zeitgenössische-künstler/maler/französische">französischen zeitgenössischen Maler</a> oder einem aktuell aufstrebenden Star in der <a href="/de/malerei/street-art">Street Art-Kunstszene</a>.</p>
-                </div>
-            </div> -->
-			<div class="row">
-				<div class="col-md-3">
-					<div class="f-logo hidden-xs hidden-sm">
-                        <a href="/">
-                            <img src="https://fontmeme.com/permalink/201001/176021b0c6f1e7bc1e3722a9f61be964.png" alt="lettertypes-voor-handtekeningen" border="0" width="100%">
-                        </a>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="f-cat">Klantenservice</div>
-					<ul class="f-links de">
-						<li><a href="{{ route('contact')}}" class="gen-contact">Contacteer ons</a></li>
-						<!-- <li><a href="https://d17h7hjnfv5s46.cloudfront.net/assets/build/docs/cgu_de.c7176699.pdf" target="_blank" rel="noopener">Impressum &amp; Nutzungbedigungen</a></li> -->
-						<li><a href="https://d17h7hjnfv5s46.cloudfront.net/assets/build/docs/cgv_de.caf4aa23.pdf" target="_blank" rel="noopener">Algemene voorwaarden</a></li>
-                        <li><a href="/de/kundenbewertungen">Klantbeoordelingen</a></li>
-                        <li><a href="/de/geschenkgutschein">Een cadeaubon cadeau doen</a></li>
-                        <li><a href="/de/kunstberatung">Gratis advies</a></li>
-                        <li><a href="/de/account/profile">Mijn Profiel</a></li>
-                        <li><a href="/de/privacy/cookies" class="cta">Cookies-instellingen</a></li>                        
-                        <li><a href="/de/b2b/Kunst-f%C3%BCr-Ihr-B%C3%BCro">Kunst voor bedrijven</a></li>
-                        <li><a href="/de/b2b/Kunst-f%C3%BCr-Innenarchitekten-Dekorateure">Kunst binnenhuisarchitecten</a></li>
-                        <li class="phone"><a href="tel:+493031196995"><i class="icon icon-ico-phone"></i> +31 (0)76-5410378</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="f-cat">Wie zijn we?</div>
-					<ul class="f-links de">
-						<li><a href="{{ route('frontend.about')}}">Over ons</a></li>
-						<li><a href="{{ route('all.artists')}}">Onze kunstenaars</a></li>
-                        <li><a href="{{ route('news.index')}}" rel="noopener">Nieuws</a></li>
-                        <li><a href="{{ route('blog.index')}}" rel="noopener">Onze blog</a></li>
-
-						<li><a href="{{ route('frontend.staffmembers')}}">Ons team</a></li>
-						<li><a href="/de/selection">Selectieprocedure</a></li>
-						<li><a href="/de/faq">FAQ</a></li>
-                        <li><a href="{{ route('frontend.vacancies')}}" rel="noopener">Vacatures</a></li>						
-                        <li><a href="{{ route('contact')}}" class="gen-contact">Contact</a></li>
-					</ul>
-				</div>
-                
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="f-cat">Bent u een kunstenaar/kunstenares?</div>
-					<ul class="f-links de">
-						<li>
-                            <a href="/de/bewerbung">Hoe ook toetreden als kunstenaar op deze website?</a>
-                        </li>
-                        <li><a href="/my-singulart/account/login">Aanmelden (Alleen voor kunstenaars)</a></li>
-                                                <!-- <li><a href="/de/kunstgalerie/deutschland">Kunstgaleries</a></li> -->
-                    </ul>
-                    <div class="f-cat sm">Uitgelichte kunstenaars</div>
-					<ul class="f-links">
+@push('styles')
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+@endpush
 
 
 
-                    </ul>
-				</div>
-                <!-- <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="f-cat sm">Uitgelichte kunstenaars</div>
-					<ul class="f-links">
-                        <li><a href="/de/k%C3%BCnstler/anett-m%C3%BCnnich-680">Anett Münnich</a></li>
-                        <li><a href="/de/k%C3%BCnstler/alessandro-siviglia-1579">Alessandro Siviglia</a></li>
-                        <li><a href="/de/k%C3%BCnstler/kristin-kossi-1973">Kristin Kossi</a></li>
-                        <li><a href="/de/k%C3%BCnstler/peter-nottrott-2493">Peter Nottrott</a></li>
-                        <li><a href="/de/k%C3%BCnstler/carlos-martin-2627">Carlos Martin</a></li>
-                    </ul>
-				</div> -->
-                <div class="col-sm-6 col-xs-6 hidden-md hidden-lg">
-                    <div class="f-cat sm">Volg ons</div>
-                    <ul class="f-socials">
-						<li class="f-soc"><a href="https://www.facebook.com/WeSingulart/" target="_blank" rel="noopener" aria-label="Facebook"><i class="icon icon-ico-facebook"></i></a></li>
-						<li class="f-soc"><a href="https://www.instagram.com/wesingulart/" target="_blank" rel="noopener" aria-label="Instagram"><i class="icon icon-ico-instagram"></i></a></li>
-                        <li class="f-soc"><a href="https://www.pinterest.fr/singulart0774/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="icon icon-ico-pinterest"></i></a></li>
-                        					</ul>
-                </div>
-			</div>
-			<!-- <div class="row">
-				<div class="col-md-3 col-md-offset-3 hidden-xs hidden-sm">
-					<ul class="f-socials">
-						<li>Volg ons</li>
-						<li class="f-soc"><a href="https://www.facebook.com/WeSingulart/" target="_blank" rel="noopener" aria-label="Facebook"><span class="sr-only">Facebook</span><i class="icon icon-ico-facebook"></i></a></li>
-						<li class="f-soc"><a href="https://www.instagram.com/wesingulart/" target="_blank" rel="noopener" aria-label="Instagram"><span class="sr-only">Instagram</span><i class="icon icon-ico-instagram"></i></a></li>
-                        <li class="f-soc"><a href="https://www.pinterest.fr/singulart0774/" target="_blank" rel="noopener" aria-label="Pinterest"><span class="sr-only">Pinterest</span><i class="icon icon-ico-pinterest"></i></a></li>
-                        					</ul>
-				</div>
-				<div class="col-md-3">
-                    <div class="currency">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">EUR
-                            <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu"><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=AED" rel="nofollow">AED</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=ARS" rel="nofollow">ARS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=AUD" rel="nofollow">AUD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=BGN" rel="nofollow">BGN</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=BRL" rel="nofollow">BRL</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=BTC" rel="nofollow">BTC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=CAD" rel="nofollow">CAD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=CHF" rel="nofollow">CHF</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=CLP" rel="nofollow">CLP</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=CNY" rel="nofollow">CNY</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=COP" rel="nofollow">COP</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=CRC" rel="nofollow">CRC</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=CZK" rel="nofollow">CZK</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=DKK" rel="nofollow">DKK</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=EUR" rel="nofollow">EUR</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=GBP" rel="nofollow">GBP</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=HKD" rel="nofollow">HKD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=HRK" rel="nofollow">HRK</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=HUF" rel="nofollow">HUF</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=IDR" rel="nofollow">IDR</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=ILS" rel="nofollow">ILS</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=INR" rel="nofollow">INR</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=JPY" rel="nofollow">JPY</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=KRW" rel="nofollow">KRW</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=MAD" rel="nofollow">MAD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=MXN" rel="nofollow">MXN</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=MYR" rel="nofollow">MYR</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=NOK" rel="nofollow">NOK</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=NZD" rel="nofollow">NZD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=PEN" rel="nofollow">PEN</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=PHP" rel="nofollow">PHP</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=PLN" rel="nofollow">PLN</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=RON" rel="nofollow">RON</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=RUB" rel="nofollow">RUB</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=RSD" rel="nofollow">RSD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=SAR" rel="nofollow">SAR</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=SEK" rel="nofollow">SEK</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=SGD" rel="nofollow">SGD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=THB" rel="nofollow">THB</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=TRY" rel="nofollow">TRY</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=TWD" rel="nofollow">TWD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=UAH" rel="nofollow">UAH</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=USD" rel="nofollow">USD</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=UYU" rel="nofollow">UYU</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=VND" rel="nofollow">VND</a></li><li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-href="https://www.singulart.com/de/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;currency=ZAR" rel="nofollow">ZAR</a></li></ul>
+
+<footer class="page-footer font-small black" style="background-color: black; font-family: proxima-nova,sans-serif;">
+    <section class="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="content">
+                        <h2>Blijf op de hoogte</h2>
+                        <p>Schrijf je in voor onze nieuwsbrief en volg ons op social media</p>
+                        <div class="subscribe input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Uw emailadres" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Button</button>
+                            </div>
                         </div>
                     </div>
-                </div>        
-            </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Footer Links -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight">
+          <a href="{{ route('frontend.about')}}">Over ons</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight">
+          <a href="#!">Kunstwerken</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight">
+          <a href="#!">Voor bedrijven</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight">
+          <a href="#!">Voor kunstenaars</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight">
+          <a href="{{ route('contact')}}">Contact</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <!-- <div class="row d-flex text-center justify-content-center mb-md-0 mb-4"> -->
+
+      <!-- Grid column -->
+      <!-- <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem">Alle rechten voorbehouden.
+
+Algemene voorwaarden
+Privacy & Cookies</p>
+      </div> -->
+      <!-- Grid column -->
+
+    <!-- </div> -->
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12 text-center">
+
+        <div class="mb-5 social flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text"> </i>
+          </a>
+
         </div>
 
-    <!-- <div class="languages">
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">de            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu"><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/en/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        English
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/fr/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        Français
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/es/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        Español
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/it/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        Italiano
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/zh/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        简体中文
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/cn/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        繁體中文
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/ja/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        日本語
-                    </a>
-                </li><li role="presentation">
-                    <a role="menuitem" tabindex="-1" href="#" data-href="/ko/?campaign_id=3&amp;keyword=singulart&amp;matchtype=e&amp;gclid=CjwKCAjw_NX7BRA1EiwA2dpg0iyWKbSDyqTQ0nylvFjBbj5ZPdzwcEf6rh4mfFD5foAnFPjsIb7A-xoCbVsQAvD_BwE&amp;setlocale=1" rel="nofollow">
-                        한국어
-                    </a>
-                </li></ul>
+      </div>
+      <!-- Grid column -->
+
     </div>
-</div>
-        
-				</div>
-			</div>
-		</div> -->
-		<!-- <div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<hr>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-8 md-rating">
-                    <div itemscope="" itemtype="http://schema.org/LocalBusiness">
-                        <div itemprop="name" class="hide">Singulart</div>
-	                    <div itemprop="image" class="hide">https://d17h7hjnfv5s46.cloudfront.net/assets/build/images/elements/singulart_appletouch.8a06c12f.png</div>
-                        <div class="review">Basierend auf 1660 Rezensionen hat Singulart eine Bewertung von 9.8/10 erhalten.</div>
-                    </div>
-                    <div class="stars">
-                        <ul>
-                            <li><img src="https://d17h7hjnfv5s46.cloudfront.net/assets/build/images/testimony/ico_star_yellow_full.47315447.svg" alt="Star"></li>
-                            <li><img src="https://d17h7hjnfv5s46.cloudfront.net/assets/build/images/testimony/ico_star_yellow_full.47315447.svg" alt="Star"></li>
-                            <li><img src="https://d17h7hjnfv5s46.cloudfront.net/assets/build/images/testimony/ico_star_yellow_full.47315447.svg" alt="Star"></li>
-                            <li><img src="https://d17h7hjnfv5s46.cloudfront.net/assets/build/images/testimony/ico_star_yellow_full.47315447.svg" alt="Star"></li>
-                            <li><img src="https://d17h7hjnfv5s46.cloudfront.net/assets/build/images/testimony/ico_star_yellow_full.47315447.svg" alt="Star"></li>
-                        </ul>
-                    </div>
-                </div>
-				<div class="col-md-4">
-					<div class="copyright">© 2020 Singulart</div>
-				</div>
-                <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">
-                    <div class="f-logo">
-						<a href="/de/" title="Singulart | Kunst online kaufen"><i class="icon icon-logo-symbole"></i></a>
-					</div>
-                </div>
-			</div>
-		</div> -->
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> Artisthub</a>
+  </div>
+  <!-- Copyright -->
+
 </footer>

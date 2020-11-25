@@ -58,7 +58,7 @@
             <img id="blah" src="#" alt="your image" />
             <br><br>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>Add</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>Create</button>
             </div>
         </form>
     </div> <!-- end of tile -->

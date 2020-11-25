@@ -22,7 +22,7 @@
         <li><a class="app-menu__item" href="{{ route('admin.styles.index')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Styles</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.techniques.index')}}"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Techniques</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.blogs.index')}}"><i class="app-menu__icon fa fa-blog"></i><span class="app-menu__label">Blogs</span></a></li>
-        <li><a class="app-menu__item" href="{{ route('admin.news.index')}}"><i class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">News</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('admin.news.index')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label">News</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.vacancies.index')}}"><i class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Vacancies</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.staffmembers.index')}}"><i class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Staff Members</span></a></li>
 

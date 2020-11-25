@@ -329,6 +329,4 @@ class ArtworkController extends Controller
         $artwork = Artwork::where('title', 'like', '%'.$keyword.'%')->limit(5)->get();
         return response()->json($artwork);
     }
-
-
 }

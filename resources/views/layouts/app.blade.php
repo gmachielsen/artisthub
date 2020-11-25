@@ -31,32 +31,121 @@
 
 </head>
 <body>
-                    <!-- <div class="topBar">
-                        <div class="logoContainer">
-                            <a href="{{ url('/') }}">
-                                <img src="https://fontmeme.com/permalink/200603/ff9080b74f4b97ae1ff7f2dc64f2f765.png" title="logo" alt="site-logo" />
-                            </a>
-                            </div>
-                            <ul class="navLinks">
-                                <li><a href="index.php">Home</a></li>
-                                <li><a href="shows.php">TV Shows</a></li>
-                                <li><a href="movies.php">Movies</a></li>
-                            </ul>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+<header id="header">
+    <div class="header">
+    <section>
+      <div>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-                            <div class="rightItems">
-                            <a href="search.php">
-                                <i class="fas fa-search"></i>
-                            </a>
-                            <a href="profile.php">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <a href="logout.php">
-                                <i class="fas fa-sign-out-alt"></i>
-                            </a>
-                        </div>
-                    </div> -->
+        <p>MENU</p>
+        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+<div>
+    	<h1>
+        PURE LUXE
+      </h1>
+</div>
 
-    <div id="app">
+        
+      <div>
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registeer als kunstliefhebber') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register.as.artist') }}">{{ __('Registreer als kunstenaar') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if(Auth::user()->user_type=='artist')
+                                        {{ Auth::user()->artist->artist_name }}
+                                    @else 
+                                        {{ Auth::user()->name }} 
+                                    @endif
+                                    <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->user_type==='customer')
+                                        <a class="dropdown-item" href="{{ route('profile.index')}}">
+                                            {{ __('Profiel') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('favourites')}}">
+                                            {{ __('Favorieten') }}
+                                        </a>
+                                        <p>{{ (Auth::user()->user_type==='customer') }}</p>
+                                    @elseif(Auth::user()->user_type==='artist') 
+                                        <a class="dropdown-item" href="{{ route('artist.dashboard') }}">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('create.artwork') }}">Voeg kunstwerk toe</a>
+                                        <a class="dropdown-item" href="{{ route('artwork.overview') }}">Uw kunstwerken</a>
+                                        <a class="dropdown-item" href="{{ route('view.leads') }}">Leads</a>
+                                        <a class="dropdown-item" href="{{ route('view.messages') }}">Bekijk uw berichten</a>
+
+                                    @else
+                                        <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+      </div>
+    </section>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="">CARS & YACHTS</a>
+        </li>
+        <li>
+          <a href="">LIVING</a>
+        </li>
+        <li>
+          <a href="">JEWELS & WATCHES</a>
+        </li>
+        <li>
+          <a href="">DESIGN & STYLE</a>
+        </li>
+        <li>
+          <a href="">FOOD & DRINKS</a>
+        </li>
+        <li>
+          <a href="">TRAVEL</a>
+        </li>
+        <li>
+          <a href="">BUSINESS & SOCIETY</a>
+        </li>
+        <li>
+          <a href="">GEAR</a>
+        </li>
+      </ul>
+    </nav>
+    </div>
+</header>
+
+    <!-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand logoContainer" href="{{ url('/') }}">
@@ -67,7 +156,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
@@ -76,9 +164,7 @@
 
                     
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -138,7 +224,8 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
+
 
 
         <main class="py-4" style="margin: 0;">
