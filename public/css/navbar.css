@@ -1,3 +1,9 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 /* html,
  body {
     height: 100%;
@@ -51,7 +57,9 @@
 } */
 
 
-header{
+
+
+header {
     background-color: transparent;
     padding: 20px;
     width: 100%;
@@ -76,7 +84,7 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 0px 0;
   }
   
   header section div{
@@ -111,7 +119,9 @@ header{
       z-index: -1;
   }
 
-
+  #mySidenav {
+    z-index: 99;
+  }
 
   .sidenav {
     height: 100%;
@@ -146,8 +156,28 @@ header{
     font-size: 36px;
     margin-left: 50px;
   }
+
+  .search {
+    background-color: transparent;
+    border: transparent;
+  }
+
+  .search i {
+    size: 30px;
+  }
   
+
+  .nav-item .nav-link {
+    padding-top: 10px;
+  }
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
+  @media screen and (max-width: 1000px) {
+    #menu-items {
+      display: none;
+    }
+  }
+

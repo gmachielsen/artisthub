@@ -44,14 +44,14 @@
       <div>
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-        <p>MENU</p>
-        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+        <!-- <p>MENU</p> -->
+            <!-- <button class="search"><i class="fa fa-search" aria-hidden="true"></i></button> -->
       </div>
-<div>
-    	<h1>
-        PURE LUXE
-      </h1>
-</div>
+                <div>
+                        <h1>
+                        Artisthub
+                    </h1>
+                </div>
 
         
       <div>
@@ -61,10 +61,10 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registeer als kunstliefhebber') }}</a>
+                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Registeer als kunstliefhebber') }}</a> -->
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register.as.artist') }}">{{ __('Registreer als kunstenaar') }}</a>
+                                    <!-- <a class="nav-link" href="{{ route('register.as.artist') }}">{{ __('Registreer als kunstenaar') }}</a> -->
                                 </li>
                             @endif
                         @else
@@ -114,7 +114,7 @@
       </div>
     </section>
 
-    <nav>
+    <nav id="menu-items">
       <ul>
         <li>
           <a href="">CARS & YACHTS</a>
@@ -228,13 +228,12 @@
 
 
 
-        <main class="py-4" style="margin: 0;">
+        <main class="py-4" style="margin: 0; padding:0!important;">
             <router-view></router-view>
 
             @yield('content')
             @extends('footer')
 
         </main>
-    </div>
 </body>
 </html>
