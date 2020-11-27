@@ -9,6 +9,7 @@ use App\User;
 use App\Profile;
 use Auth;
 use DB;
+use App\Category;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
@@ -24,8 +25,9 @@ class ArtworkController extends Controller
     {
         $artworks = Artwork::latest()->limit(12)->where('status', 1)->get();
         $artists = Artist::latest()->limit(8)->get();
+        $categories = Category::all();
 
-        return view('welcome', compact('artworks', 'artists'));
+        return view('welcome', compact('artworks', 'artists', 'categories'));
     }
 
     public function landingpage()

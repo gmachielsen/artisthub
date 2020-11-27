@@ -38,8 +38,8 @@
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
-<header id="header">
-    <div class="header">
+<header id="header" class="{{ Request::is('/')?'header':'header fixed'}}">
+    <div class="">
     <section>
       <div>
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -228,7 +228,7 @@
 
 
 
-        <main class="py-4" style="margin: 0; padding:0!important;">
+        <main class="{{ Request::is('/')?'welcome':'notwelcome'}}">
             <router-view></router-view>
 
             @yield('content')

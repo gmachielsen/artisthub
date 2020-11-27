@@ -18,14 +18,11 @@ document.getElementsByTagName('body')[0].onscroll = () => {
   }
 
   if(window.scrollY > 0) {
-    document.querySelector("#menu-items").style.display = "none";
+    document.querySelector("#menu-items").classList.add("visible");
     document.querySelector('#header').style.paddingTop = "10px";
     document.querySelector('#header').style.paddingBottom = "10px";
-
-
   } else {
-
-    document.querySelector("#menu-items").style.display = "block";
+    document.querySelector("#menu-items").classList.remove("block");
     document.querySelector('#header').style.paddingTop = "20px";
     document.querySelector('#header').style.paddingBottom = "20px";
   }

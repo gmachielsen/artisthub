@@ -6,22 +6,39 @@
     <script src="{{ asset('js/navbar.js') }}"></script>
 @endpush
 @section('content')
-<img name="slide" alt="" style="height: 100vh; width: 100%; object-fit: cover;">
 
-<div class="container-fluid" style="padding: 0 margin:0;">
+<div class="container-fluid" style="padding: 0; margin:0;">
     <div class="cover">
-        <!-- <img src="{{ asset('cover/deanna-j-3GZlhROZIQg-unsplash.jpg')}}" class="nature" style="height: 100vh; width: 100vw; object-fit: cover;" alt="">
-        <img src="{{ asset('cover/kevin-laminto-iRZQjV--Z_4-unsplash.jpg')}}" class="nature" style="height: 100vh; width: 100vw; object-fit: cover;" alt="">
-        <img src="{{ asset('cover/pexels-andrew-neel-2123337.jpg')}}" style="height: 100vh; width: 100vw; object-fit: cover;" alt="">
-        <img src="{{ asset('cover/pexels-leah-kelley-952588.jpg')}}" style="height: 100vh; width: 100vw; object-fit: cover;" alt="">
-        <img src="{{ asset('cover/pexels-pixabay-460736.jpg')}}" style="height: 100vh; width: 100vw; object-fit: cover;" alt="">
-        <img src="{{ asset('cover/pexels-tiff-ng-2711718.jpg')}}" style="height: 100vh; width: 100vw; object-fit: cover;" alt=""> -->
+    <img name="slide" alt="" style="height: 100vh; width: 100%; object-fit: cover;">
+
         <div class="covertext">
             <h1></h1>
             <p></p>
         </div>
     </div>
 </div>
+
+<div class="site-section">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+        <h2 class="mb-5">Populaire Categorieën</h2>
+        </div>
+    </div>
+    <div class="row">
+        @foreach($categories as $category)
+        <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="800">
+        <a href="{{ route('category.index', [$category->id])}}" class="h-100 feature-item">
+            <span class="mb-3 text-primary"></span>
+            <h2>{{$category->name}}</h2>
+        </a>
+        </div>
+        @endforeach
+    </div>
+    </div>
+</div>
+
+<!-- route('category.index', [$category->id]) -->
 <!-- <div class="container-fluid">
     <div class="row">
         @foreach($artworks as $artwork)

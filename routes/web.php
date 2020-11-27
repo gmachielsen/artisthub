@@ -98,3 +98,5 @@ Route::get('/nieuws', 'FrontendController@newsindex')->name('news.index');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 
 
+//category 
+Route::get('/category/{id}', 'CategoryController@index')->name('category.index');
