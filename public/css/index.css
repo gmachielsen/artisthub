@@ -1,0 +1,13 @@
+select {
+    width: 100% !important;
+}
+
+.filterbuttons {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.filterbuttons .btn {
+    width: 100px;    
+}

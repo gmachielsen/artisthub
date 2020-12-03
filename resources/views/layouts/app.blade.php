@@ -33,10 +33,11 @@
 <body>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+    <a href="/"> Home</a>
+    <a href="{{ route('all.artworks')}}">Kunstwerken</a>
+    <a href="{{ route('all.artists')}}">Kunstenaars</a>
+    <a href="{{ route('frontend.about')}}">Over ons</a>
+    <a href="{{ route('contact')}}">Contact</a>
 </div>
 <header id="header" class="{{ Request::is('/')?'header':'header fixed'}}">
     <div class="">
@@ -117,28 +118,16 @@
     <nav id="menu-items">
       <ul>
         <li>
-          <a href="">CARS & YACHTS</a>
+        <a href="{{ route('all.artworks')}}"> Kunstwerken</a>
         </li>
         <li>
-          <a href="">LIVING</a>
+        <a href="{{ route('all.artists')}}"> Kunstenaars</a>
         </li>
         <li>
-          <a href="">JEWELS & WATCHES</a>
+        <a href="{{ route('frontend.about')}}"> Over ons</a>
         </li>
         <li>
-          <a href="">DESIGN & STYLE</a>
-        </li>
-        <li>
-          <a href="">FOOD & DRINKS</a>
-        </li>
-        <li>
-          <a href="">TRAVEL</a>
-        </li>
-        <li>
-          <a href="">BUSINESS & SOCIETY</a>
-        </li>
-        <li>
-          <a href="">GEAR</a>
+        <a href="{{ route('contact')}}"> Contact</a>
         </li>
       </ul>
     </nav>

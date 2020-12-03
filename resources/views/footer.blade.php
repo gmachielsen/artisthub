@@ -41,7 +41,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight">
-          <a href="#!">Kunstwerken</a>
+          <a href="{{ route('all.artworks')}}">Kunstwerken</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -53,7 +53,12 @@
         </h6>
       </div>
       <!-- Grid column -->
-
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight">
+          <a href="{{ route('all.artists')}}">Kunstenaars</a>
+        </h6>
+      </div>
+      
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight">

@@ -41,67 +41,58 @@ class ArtworkController extends Controller
 
     public function allartworks(Request $request)
     {
+        if($request->has('category_id') || $request->has('style_id') || $request->has('technic_id')) {
+                if(request()->category_id != "0") {
+                    $category = request()->category_id;
+                    $categorycomparison = "=";
+                } else {
+                    $category = 0;
+                    $categorycomparison = "!=";
+                }
 
 
- 
+
+                if(request()->style_id != "0") {
+                    $style = request()->style_id;
+                    $stylecomparison = "=";
+                } else {
+                    $style = 0;
+                    $stylecomparison = "!=";
+                }
+
+                if(request()->technic_id != 0) {
+                    $technic = request()->technic_id;
+                    $technic_comparison = "=";
+                } else {
+                    $technic = 0;
+                    $technic_comparison = "!=";
+                }
 
 
-            if(request()->category_id != "0") {
-                $category = request()->category_id;
-                $categorycomparison = "=";
+                if (request()->orientation_id == 'vertical') {
+                    $orientation = 'vertical';
+                } else if (request()->orientation_id == 'horizontal') {
+                    $orientation = 'horizontal';
+                } else {
+                    $orientation = '%';
+                }
+
+
+                if (request()->framed_id == 'yes') {
+                    $framed = 'yes';
+                } else if (request()->framed_id == 'no') {
+                    $framed = 'no';
+                } else {
+                    $framed = '0';
+                }
+
+                $artworks = Artwork::get()->where('category_id', $categorycomparison, $category)->where('style_id', $stylecomparison, $style)->where('technic_id', $technic_comparison, 'technic')->sortBy('price'); 
+                
             } else {
-                $category = 0;
-                $categorycomparison = "!=";
+                $artworks = Artwork::all();
             }
 
-            if(request()->style_id != "0") {
-                $style = request()->style_id;
-                $stylecomparison = "=";
-            } else {
-                $style = 0;
-                $stylecomparison = "!=";
-            }
-
-            // if(request()->technic_id != 0) {
-            //     $technic = request()->technic_id;
-            //     $comparison = "=";
-            // } else {
-            //     $technic = 0;
-            //     $comparison = "!=";
-            // }
-
-
-
-            if (request()->orientation_id == 'vertical') {
-                $orientation = 'vertical';
-            } else if (request()->orientation_id == 'horizontal') {
-                $orientation = 'horizontal';
-            } else {
-                $orientation = '%';
-            }
-
-
-            if (request()->framed_id == 'yes') {
-                $framed = 'yes';
-            } else if (request()->framed_id == 'no') {
-                $framed = 'no';
-            } else {
-                $framed = '0';
-            }
-
-    
-
-            $columns = [
-                'category_id', 'style_id', 'technic_id', 'framed', 'orientation',
-            ];
-
-            $artists = Artist::get();
-            $artworks = DB::table('artworks')->get()->where('category_id', $categorycomparison, $category)->where('style_id', $stylecomparison, $style); 
-
-            // $artworks = DB::table('artworks')->where('category_id', $comparison, $category)->where('style_id', $comparison, $style)->get(); 
-            // $artworks = DB::table('artworks')->where('category_id', $comparison, $category)->where('style_id', $comparison, $style)->where('technic_id', $comparison, $technic)->get(); 
-
-            return view('frontend.index', compact('artworks', 'artists'));
+            return view('frontend.index', compact('artworks'));
 
     }
 

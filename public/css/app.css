@@ -10920,3 +10920,10 @@ a.text-dark:focus {
   }
 }
 
+body {
+  overflow-x: hidden!important;
+}
+
+.category {
+  text-align: center;
+}

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Artist;
 use App\Staffmember;
+
+use Mail;
+
+
 class FrontendController extends Controller
 {
     public function aboutUs()
@@ -38,6 +42,7 @@ class FrontendController extends Controller
         return view('frontend.contact');
     }
 
+  
     public function allartists()
     {
 

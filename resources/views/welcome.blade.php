@@ -7,27 +7,27 @@
 @endpush
 @section('content')
 
-<div class="container-fluid" style="padding: 0; margin:0;">
-    <div class="cover">
+<div class="container-fluid cover" style="padding: 0; margin:0;">
+    <!-- <div class="cover"> -->
     <img name="slide" alt="" style="height: 100vh; width: 100%; object-fit: cover;">
 
         <div class="covertext">
-            <h1></h1>
+            <h1>Artisthub </h1>
             <p></p>
         </div>
-    </div>
+    <!-- </div> -->
 </div>
 
-<div class="site-section">
-    <div class="container">
+    <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 mx-auto text-center mb-5 section-heading">
         <h2 class="mb-5">Populaire Categorieën</h2>
+
         </div>
     </div>
     <div class="row">
         @foreach($categories as $category)
-        <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="800">
+        <div class="col-sm-6 col-md-4 category" data-aos="fade-up" data-aos-delay="800">
         <a href="{{ route('category.index', [$category->id])}}" class="h-100 feature-item">
             <span class="mb-3 text-primary"></span>
             <h2>{{$category->name}}</h2>
@@ -35,8 +35,8 @@
         </div>
         @endforeach
     </div>
+    <br><br><br>
     </div>
-</div>
 
 <!-- route('category.index', [$category->id]) -->
 <!-- <div class="container-fluid">
@@ -119,8 +119,10 @@
     <!-- vvvv -->
 
 
-
-    <div class="row-fluid my-5">
+    <div class="row-fluid">
+        <div class="collection">
+            <h5>Een greep uit onze collectie</h5>
+        </div>
     <div id="productSlider" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner row w-100 mx-auto" style="padding: 0 margin:0;">
@@ -183,14 +185,14 @@
         <a href="{{ route('all.artworks')}}"><button>Browse door onze kunstwerken</button></a>
         <br><br>
     </div>
+<br><br>
 
 
 
 
 
 
-
-    <div class="row-fluid my-5">
+    <div class="row-fluid">
     <div id="productSlider" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner row w-100 mx-auto" style="padding: 0 margin:0;">
@@ -229,10 +231,9 @@
 </div>
 </div>
 <div class="row justify-content-center">
-        <br><br>
         <a  href="{{ route('all.artists')}}"><button>Browse door onze kunstenaars</button></a>
-        <br><br>
     </div>
+    <br><br><br>
 
 <!-- <div class="container-fluid" style="padding: 0 margin:0;">
     <div class="row" style="padding: 0 margin:0;">
