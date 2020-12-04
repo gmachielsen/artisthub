@@ -101,3 +101,6 @@ Route::post('/contact/send', 'EmailController@contactPost')->name('send.post');
 
 //category 
 Route::get('/category/{id}', 'CategoryController@index')->name('category.index');
+
+//style
+Route::get('/style/{id}', 'StyleController@index')->name('style.index');

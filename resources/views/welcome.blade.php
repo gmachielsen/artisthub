@@ -7,30 +7,53 @@
 @endpush
 @section('content')
 
-<div class="container-fluid cover" style="padding: 0; margin:0;">
-    <!-- <div class="cover"> -->
+<div class="container-fluid" style="padding: 0; margin:0;">
     <img name="slide" alt="" style="height: 100vh; width: 100%; object-fit: cover;">
-
-        <div class="covertext">
-            <h1>Artisthub </h1>
-            <p></p>
+        <div class="coverup">
+            <div class="covertitle">
+                <h1>Artisthub </h1>
+            </div>
+            <div class="covertext text">
+                <p>De plek om kunst op te doen</p>
+            </div>
         </div>
-    <!-- </div> -->
 </div>
-
+<br><br>
     <div class="container-fluid">
     <div class="row">
         <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-        <h2 class="mb-5">Populaire Categorieën</h2>
+        <h2 class="mb-5">Populaire Stijlen</h2>
 
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         @foreach($categories as $category)
-        <div class="col-sm-6 col-md-4 category" data-aos="fade-up" data-aos-delay="800">
+        <div class="col-6 col-md-4 category" data-aos="fade-up" data-aos-delay="800">
         <a href="{{ route('category.index', [$category->id])}}" class="h-100 feature-item">
-            <span class="mb-3 text-primary"></span>
-            <h2>{{$category->name}}</h2>
+            <div class="card" style="">
+                <img src="{{ asset('uploads/categoryImages') }}/{{ $category->image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">{{$category->name}}</h2>
+
+                </div>
+            </div>
+            <br>
+        </a>
+        </div>
+        @endforeach
+    </div> -->
+    <div class="row">
+        @foreach($styles as $style)
+        <div class="col-12 col-md-6 category" data-aos="fade-up" data-aos-delay="800">
+        <a href="{{ route('style.index', [$style->id])}}" class="h-100 feature-item">
+            <div class="card" style="">
+                <img src="{{ asset('uploads/styleImages') }}/{{ $style->image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">{{$style->name}}</h2>
+
+                </div>
+            </div>
+            <br>
         </a>
         </div>
         @endforeach
@@ -118,10 +141,11 @@
 
     <!-- vvvv -->
 
-
+  
     <div class="row-fluid">
+
         <div class="collection">
-            <h5>Een greep uit onze collectie</h5>
+            <h2>Een greep uit onze collectie</h2>
         </div>
     <div id="productSlider" class="carousel slide" data-ride="carousel">
 
@@ -191,8 +215,11 @@
 
 
 
-
+<br><br>
     <div class="row-fluid">
+    <div class="collection">
+            <h2>Onze kunstenaars</h2>
+        </div>
     <div id="productSlider" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner row w-100 mx-auto" style="padding: 0 margin:0;">

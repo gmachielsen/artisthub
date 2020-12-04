@@ -1,0 +1,19 @@
+h1 {
+    font-family: "Domaine Display", serif;
+}
+
+h5 {
+    font-family: proxima-nova,sans-serif;
+    letter-spacing: 3px;
+}
+
+.specificaties {
+    display: center;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}

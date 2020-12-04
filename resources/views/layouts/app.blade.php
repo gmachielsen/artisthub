@@ -41,15 +41,15 @@
 </div>
 <header id="header" class="{{ Request::is('/')?'header':'header fixed'}}">
     <div class="">
-    <section>
-      <div>
+    <section id="section">
+      <div class="top">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
         <!-- <p>MENU</p> -->
             <!-- <button class="search"><i class="fa fa-search" aria-hidden="true"></i></button> -->
       </div>
-                <div>
-                        <h1>
+                <div class="title">
+                    <h1>
                         Artisthub
                     </h1>
                 </div>
@@ -118,7 +118,7 @@
     <nav id="menu-items">
       <ul>
         <li>
-        <a href="{{ route('all.artworks')}}"> Kunstwerken</a>
+        <a href="{{ route('all.artworks')}}"> Kunstwerken <br></a>
         </li>
         <li>
         <a href="{{ route('all.artists')}}"> Kunstenaars</a>
@@ -126,8 +126,9 @@
         <li>
         <a href="{{ route('frontend.about')}}"> Over ons</a>
         </li>
+        <br>
         <li>
-        <a href="{{ route('contact')}}"> Contact</a>
+        <a href="{{ route('contact')}}"> Contact </a>
         </li>
       </ul>
     </nav>

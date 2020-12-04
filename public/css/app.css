@@ -10927,3 +10927,17 @@ body {
 .category {
   text-align: center;
 }
+
+#section {
+  position: relative;
+}
+
+.header section .title {
+  justify-content: center;
+}
+.title {
+  position: absolute!important;
+  right: 48%!important;
+  left: 48%!important;
+  margin: auto!important;
+}

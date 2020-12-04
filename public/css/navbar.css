@@ -67,6 +67,9 @@ html, body {
     position: fixed;
     color: white;
     transition: 0.3s;
+    font-family: proxima-nova,sans-serif;
+    letter-spacing: 3px;
+
   }
   
   .header.visible{
@@ -175,6 +178,15 @@ html, body {
 
   .nav-item .nav-link {
     padding-top: 10px;
+  }
+
+  li {
+    padding: 10px;
+    letter-spacing: 5px;
+  }
+
+  .header .menu-items ul li {
+    margin: 3px!important;
   }
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}

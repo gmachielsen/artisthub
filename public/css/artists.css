@@ -1,0 +1,17 @@
+.picture {
+    position: relative;
+    border-radius: 50%!important;
+    text-align: center;
+}
+
+.picture img {
+    width: 100%;
+    border-radius: 50%!important;
+}
+
+.picture p {
+    position: absolute;
+    top: 50%;
+    color: white;
+    left: 20%;
+}
