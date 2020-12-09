@@ -8,7 +8,7 @@ class ArtistController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('artist', ['except'=>array('show')]);
+        $this->middleware(['artist', 'verified'], ['except'=>array('show')]);
     }
 
     public function show($id, Artist $artist)

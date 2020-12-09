@@ -12,11 +12,11 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="desktop col-sm-12 col-md-4 col-lg-3">
 
 
             <form action="{{route('all.artworks')}}" method="GET">
-            <div class="form-inline">
+            <div class="form-inline filter">
                 <div class="form-group col-md-12">
                 <label for="category">Categorie</label>
                     <!-- @foreach(App\Category::all() as $cat)
@@ -26,27 +26,8 @@
                     <option value="0">Selecteer categorie</option>
 
                     @foreach(App\Category::all() as $cat)
+                    <option value=" {{ $cat->id }} " {{ old('category_id') == $cat->id ? 'selected' : '' }}>{{ $cat->name }}</option>
 
-                    <option value="{{ old($cat->id) ?? ($cat->id)}}">{{ $cat->name }}</option>
-                    <!-- <option value="{{ $cat->id }}" {{ ($cat->id == $cat->id) ? 'selected' : '' }} >{{ $cat->name }}</option> -->
-                    <!-- <option value='{{$cat->id }}'"; if (isset($_GET['category_id'])) { if ($_GET['category_id'] == $cat->id) { echo 'selected'; } } echo ">{{ $cat->name }}</option>";    -->
-                        <!-- <option value="{{ $cat->id }}" <?php echo (isset($_POST['category_id']) && $_POST['category_id'] == "architectuur") ? 'selected="selected"' : ''; ?>>{{ $cat->name }}</option> -->
-                    <!-- <option  @if(old('category_id') == $cat->id) selected="selected" @endif value="{{ $cat->id }}">{{ $cat->name }}</option> -->
-                                <!-- @if (old('category_id'))
-                                    <option
-                                        value="{{ $key }}" {{ old('category_id') == $key ? 'selected' : '' }}>
-                                        {{ ucfirst($cat->name) }}
-                                    </option>
-                                @else 
-                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                @endif -->
-                    <!-- <option value="{{ $cat->id }}" @if(old('category_id') == $cat->id) selected @endif>{{ $cat->name }}</option> -->
-                        <!-- <option value="{{ $cat->id }}" old('category_id') == {{$cat->id}}? 'selected': ''> {{ $cat->name }} </option> -->
-
-                        <!-- <option value="{{ $cat->id }}" {{ (collect(old('category_id'))->contains($cat->id)) ? 'selected':'' }}>{{ $cat->name }}</option> -->
-                    <!-- <option value="{{ $cat->id }}" old("{{ $cat->id }}")== {{$cat->id}}? 'selected':''>{{ $cat->name }}</option> -->
-
-                        <!-- <option value="{{ $cat->id }}" {{ (collect(old('category_id'))->contains($cat->id)) ? 'selected':'' }}> {{ $cat->name }}</option> -->
                     @endforeach
                 </select>
                 </div>
@@ -55,7 +36,7 @@
                     <select name="style_id" class="form-control" id="">
                         <option value="0">Selecteer stijl</option>
                         @foreach(App\Style::all() as $style)
-                            <option value="{{$style->id}}">{{$style->name}}</option>
+                            <option value="{{$style->id}}" {{ old('style_id') == $style->id ? 'selected' : '' }}>{{$style->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -64,28 +45,26 @@
                     <select name="technic_id" class="form-control" id="">
                     <option value="0">Selecteer techniek</option>
                         @foreach(App\Technic::all() as $technic)
-                            <option value="{{$technic->id}}">{{$technic->name}}</option>
+                            <option value="{{$technic->id}}" {{ old('technic_id') == $technic->id ? 'selected' : '' }}>{{$technic->name}}</option>
                         @endforeach
                     </select>
-                    <br>
-
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="orientation">Oriëntatie</label>
                     <select name="orientation" class="form-control">
-                        <option value="">Selecteer Oriëntatie</option>
-                        <option value="horizontal">Liggend / horizontaal</option>
-                        <option value="vertical">Staand / verticaal</option>
+                        <option value="0" {{ old('orientation') == 0 ? 'selected' : '' }}>Selecteer Oriëntatie</option>
+                        <option value="1" {{ old('orientation') == 1 ? 'selected' : '' }}>Liggend / horizontaal</option>
+                        <option value="2" {{ old('orientation') == 2 ? 'selected' : '' }}>Staand / verticaal</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="framed">Ingelijst</label>
                     <select name="framed" class="form-control">
-                        <option value="">selecteer optie</option>
-                        <option value="yes">Ja, met lijst</option>
-                        <option value="no">Nee, zonder lijst</option>
+                        <option value="0" {{ old('framed') == 0 ? 'selected' : '' }}>selecteer optie</option>
+                        <option value="1" {{ old('framed') == 1 ? 'selected' : '' }}>Ja, met lijst</option>
+                        <option value="2" {{ old('framed') == 2 ? 'selected' : '' }}>Nee, zonder lijst</option>
                     </select>
-                </div> -->
+                </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="filterbuttons">
@@ -98,9 +77,97 @@
                         </div>
                     </div>
                 </div>
+                <search-component></search-component>
+
             </div>    
             <br>
             </form>
+        </div>
+        <div class="mobile col-12" style="padding: 0px;">
+
+            <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Filter
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      <form action="{{route('all.artworks')}}" method="GET">
+            <div class="form-inline filter">
+                <div class="form-group col-md-12">
+                <label for="category">Categorie</label>
+                    <!-- @foreach(App\Category::all() as $cat)
+                        <input type="checkbox" name="pattern[]" id="{{ $cat->id }}" value="{{$cat->id}}">{{$cat->name}}</option>
+                    @endforeach -->
+                <select name="category_id" id="category_id" class="form-control" id="">
+                    <option value="0">Selecteer categorie</option>
+
+                    @foreach(App\Category::all() as $cat)
+                    <option value=" {{ $cat->id }} " {{ old('category_id') == $cat->id ? 'selected' : '' }}>{{ $cat->name }}</option>
+
+                    @endforeach
+                </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="style">Stijl</label>
+                    <select name="style_id" class="form-control" id="">
+                        <option value="0">Selecteer stijl</option>
+                        @foreach(App\Style::all() as $style)
+                            <option value="{{$style->id}}" {{ old('style_id') == $style->id ? 'selected' : '' }}>{{$style->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="style">Techniek</label>
+                    <select name="technic_id" class="form-control" id="">
+                    <option value="0">Selecteer techniek</option>
+                        @foreach(App\Technic::all() as $technic)
+                            <option value="{{$technic->id}}" {{ old('technic_id') == $technic->id ? 'selected' : '' }}>{{$technic->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="orientation">Oriëntatie</label>
+                    <select name="orientation" class="form-control">
+                        <option value="0" {{ old('orientation') == 0 ? 'selected' : '' }}>Selecteer Oriëntatie</option>
+                        <option value="1" {{ old('orientation') == 1 ? 'selected' : '' }}>Liggend / horizontaal</option>
+                        <option value="2" {{ old('orientation') == 2 ? 'selected' : '' }}>Staand / verticaal</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="framed">Ingelijst</label>
+                    <select name="framed" class="form-control">
+                        <option value="0" {{ old('framed') == 0 ? 'selected' : '' }}>selecteer optie</option>
+                        <option value="1" {{ old('framed') == 1 ? 'selected' : '' }}>Ja, met lijst</option>
+                        <option value="2" {{ old('framed') == 2 ? 'selected' : '' }}>Nee, zonder lijst</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="filterbuttons">
+                        <div class="col-6">
+                            <input type="submit" class="btn btn-search btn-primary btn-block" value="Search">
+                        </div>
+                        <div class="col-6">
+                            <a type="button" class="btn btn-primary" href="{{ route('all.artworks')}}">Reset</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <search-component></search-component>
+
+            </div>    
+            <br>
+            </form>      </div>
+    </div>
+  </div>
+
+</div>
         </div>
         <div class="col-sm-12 col-md-8 col-lg-9">
             <div class="row">

@@ -98,17 +98,17 @@
             <div class="form-group">
                 <label for="orientation">Orientatie</label>
                 <select name="orientation" class="form-control">
-                    <option value="choose"{{$artwork->orientation=='choose'?'selected':''}}>kies optie...</option>
-                    <option value="horizontal"{{$artwork->orientation=='horizontal'?'selected':''}}>Liggend / horizontaal</option>
-                    <option value="vertical"{{$artwork->orientation=='vertical'?'selected':''}}>Staand / verticaal</option>
+                    <option value="0"{{$artwork->orientation=='choose'?'selected':''}}>kies optie...</option>
+                    <option value="1"{{$artwork->orientation=='horizontal'?'selected':''}}>Liggend / horizontaal</option>
+                    <option value="2"{{$artwork->orientation=='vertical'?'selected':''}}>Staand / verticaal</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="framed">Ingelijst</label>
                 <select name="framed" class="form-control">
-                    <option value="choose"{{$artwork->framed=='choose'?'selected':''}}>kies optie...</option>
-                    <option value="yes"{{$artwork->framed=='yes'?'selected':''}}>Ja, met lijst</option>
-                    <option value="no"{{$artwork->framed=='no'?'selected':''}}>Nee, zonder lijst</option>
+                    <option value="0"{{$artwork->framed=='choose'?'selected':''}}>kies optie...</option>
+                    <option value="1"{{$artwork->framed=='yes'?'selected':''}}>Ja, met lijst</option>
+                    <option value="2"{{$artwork->framed=='no'?'selected':''}}>Nee, zonder lijst</option>
                 </select>
             </div>
             <div class="form-group">

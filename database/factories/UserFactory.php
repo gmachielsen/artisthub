@@ -78,9 +78,9 @@ $factory->define(App\Artwork::class, function (Faker $faker) {
         'slug' => str_slug($title),
         'width' => rand(10, 200),
         'height' => rand(10, 200), 
-        'orientation' => 'horizontal', 
+        'orientation' => rand(1,2), 
         'description' => $faker->paragraph(rand(2, 10)),
-        'framed' => 'yes',
+        'framed' => rand(1,2),
         'year' => rand(1600, 2020),
     ];
 });

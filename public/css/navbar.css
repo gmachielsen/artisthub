@@ -96,10 +96,10 @@ html, body {
     margin: 0px 0;
   }
   
-  .header section div{
+  /* .header section div{
     display: flex;
     flex-direction: row;
-  }
+  } */
   
   .header nav{
     margin: 10px 0;
@@ -205,3 +205,8 @@ html, body {
     }
   }
 
+
+.title {
+  display: flex;
+}
+ 

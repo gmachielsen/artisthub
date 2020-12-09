@@ -10941,3 +10941,7 @@ body {
   left: 48%!important;
   margin: auto!important;
 }
+
+.filter .form-group {
+  padding: 5px;
+}

@@ -65,13 +65,13 @@
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </button>
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Neem contact op
+      </button>
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
       @if(Auth::check()&&Auth::user()->user_type=='customer')
                     <form action="{{ route('send.message.profile', [$artwork->id])}}" method="POST">
@@ -88,10 +88,7 @@
                         <button type="submit" class="btn btn-success" style="width: 100%;">Vestuur bericht</button>
                     </form>
 
-                    <form action="{{ route('save.artwork', [$artwork->id])}}" method="POST">
-                        @csrf
-                        <button type="submit">test</button>
-                    </form>
+
 
                 @else
                     <form action="{{ route('send.message', [$artwork->id])}}" method="POST">
@@ -120,9 +117,13 @@
 
 
 </div>
-              
-
-                @if(Auth::check()&&Auth::user()->user_type=='customer')
+              <br>
+                    <form action="{{ route('save.artwork', [$artwork->id])}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Sla op als favoriet</button>
+                    </form>
+              <br>
+                <!-- @if(Auth::check()&&Auth::user()->user_type=='customer')
                     @if(!$artwork->checkApplication())
                     <form action="{{ route('artwork.request', [$artwork->id, $artwork->user_id])}}" method="POST">
 
@@ -135,7 +136,7 @@
                         <button type="submit" class="btn btn-danger" style="width: 100%;">Ik heb geen interesse meer</button>
                     </form>
                     @endif
-                @endif
+                @endif -->
                 <!-- <div style="display: flex; flex-direction: column;">
                     <a type="button" href="{{ route('rent.artwork', [$artwork->id])}}">Huur kunstwerk</a>
                     <br>

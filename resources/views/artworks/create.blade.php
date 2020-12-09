@@ -99,17 +99,17 @@
             <div class="form-group">
                 <label for="orientation">Orientatie</label>
                 <select name="orientation" class="form-control">
-                    <option value="choose">kies optie...</option>
-                    <option value="horizontal">Liggend / horizontaal</option>
-                    <option value="vertical">Staand / verticaal</option>
+                    <option value="0":>kies optie...</option>
+                    <option value="1">Liggend / horizontaal</option>
+                    <option value="2">Staand / verticaal</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="framed">Ingelijst</label>
                 <select name="framed" class="form-control">
-                    <option value="choose">kies optie...</option>
-                    <option value="yes">Ja, met lijst</option>
-                    <option value="no">Nee, zonder lijst</option>
+                    <option value="0">kies optie...</option>
+                    <option value="1">Ja, met lijst</option>
+                    <option value="2">Nee, zonder lijst</option>
                 </select>
             </div>
             <div class="form-group">

@@ -4,6 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    {{ Session::get('message')}}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -62,9 +68,16 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <a class="btn btn-link" href="{{ route('register') }}">{{ __('Registeer') }}</a>
+
                             </div>
                         </div>
                     </form>
+                    <!-- <div>
+                        <h1>Nog geen account?</h1>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registeer') }}</a>
+
+                    </div> -->
                 </div>
             </div>
         </div>

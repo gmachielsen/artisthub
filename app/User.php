@@ -12,7 +12,7 @@ use App\Artworkrequest;
 use App\Message;
 use App\Role;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 

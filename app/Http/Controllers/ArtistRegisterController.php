@@ -9,7 +9,7 @@ use Hash;
 
 class ArtistRegisterController extends Controller
 {
-    public function artistRegister()
+    public function artistRegister(Request $request)
     {
         $user = User::create([
             'name' => request('name'),
@@ -24,6 +24,8 @@ class ArtistRegisterController extends Controller
             'slug' => str_slug(request('name')),
             'email' => request('email'),
         ]);
-        return redirect()->to('login');
+        $user->sendEmailVerificationNotification();
+        
+        return redirect()->to('login')->with('message', 'Bevestig uw emailadres er is een email verzonden naar uw emailadres');
     }
 }

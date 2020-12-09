@@ -44,6 +44,9 @@ class ArtworkController extends Controller
     public function allartworks(Request $request)
     {
         if($request->has('category_id') || $request->has('style_id') || $request->has('technic_id')) {
+
+                $request->flash();
+
                 if(request()->category_id != "0") {
                     $category = request()->category_id;
                     $categorycomparison = "=";
@@ -53,6 +56,7 @@ class ArtworkController extends Controller
                 }
 
 
+                $request->flash();
 
                 if(request()->style_id != "0") {
                     $style = request()->style_id;
@@ -62,6 +66,8 @@ class ArtworkController extends Controller
                     $stylecomparison = "!=";
                 }
 
+                $request->flash();
+
                 if(request()->technic_id != 0) {
                     $technic = request()->technic_id;
                     $technic_comparison = "=";
@@ -70,25 +76,45 @@ class ArtworkController extends Controller
                     $technic_comparison = "!=";
                 }
 
+                $request->flash();
 
-                if (request()->orientation_id == 'vertical') {
-                    $orientation = 'vertical';
-                } else if (request()->orientation_id == 'horizontal') {
-                    $orientation = 'horizontal';
+                if(request()->orientation != "0") {
+                    $orientation = request()->orientation;
+                    $orientation_comparison = "=";
                 } else {
-                    $orientation = '%';
+                    $orientation = 0;
+                    $orientation_comparison = "!=";
                 }
 
 
-                if (request()->framed_id == 'yes') {
-                    $framed = 'yes';
-                } else if (request()->framed_id == 'no') {
-                    $framed = 'no';
+                $request->flash();
+
+                if(request()->framed != "0") {
+                    $framed = request()->framed;
+                    $framed_comparison = "=";
                 } else {
-                    $framed = '0';
+                    $framed = 0;
+                    $framed_comparison = "!=";
                 }
 
-                $artworks = Artwork::get()->where('category_id', $categorycomparison, $category)->where('style_id', $stylecomparison, $style)->where('technic_id', $technic_comparison, 'technic')->sortBy('price'); 
+                // if (request()->orientation == 1) {
+                //     $orientation = 1;
+                // } else if (request()->orientation == 2) {
+                //     $orientation = 2;
+                // } else {
+                //     $orientation = 0;
+                // }
+
+
+                // if (request()->framed == 1) {
+                //     $framed = 1;
+                // } else if (request()->framed == 2) {
+                //     $framed = 2;
+                // } else {
+                //     $framed = 0;
+                // }
+
+                $artworks = Artwork::get()->where('category_id', $categorycomparison, $category)->where('style_id', $stylecomparison, $style)->where('technic_id', $technic_comparison, $technic)->where('framed', $framed_comparison, $framed)->where('orientation', $orientation_comparison, $orientation)->sortBy('price'); 
                 
             } else {
                 $artworks = Artwork::all();

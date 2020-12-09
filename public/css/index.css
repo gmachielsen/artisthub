@@ -11,3 +11,18 @@ select {
 .filterbuttons .btn {
     width: 100px;    
 }
+
+@media(max-width: 800px) {
+    .desktop {
+        display:none;
+      }
+     }
+
+
+@media(min-width: 800px) {
+.mobile {
+    display:none;
+    padding: 0!important;
+    margin: 0;
+    }
+}

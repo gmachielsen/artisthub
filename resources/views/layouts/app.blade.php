@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/navbar.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -28,6 +28,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+
+    
 
 </head>
 <body>
@@ -78,16 +80,17 @@
                                     @endif
                                     <span class="caret"></span>
                                 </a>
-
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->user_type==='customer')
-                                        <a class="dropdown-item" href="{{ route('profile.index')}}">
+                                        <a  class="dropdown-item" href="{{ route('profile.index')}}">
                                             {{ __('Profiel') }}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('favourites')}}">
-                                            {{ __('Favorieten') }}
+                                            {{ __('Favorieten')}}
                                         </a>
-                                        <p>{{ (Auth::user()->user_type==='customer') }}</p>
+                                        <p>{{ (Auth::user()->user_type==='artist')}}</p>
+
                                     @elseif(Auth::user()->user_type==='artist') 
                                         <a class="dropdown-item" href="{{ route('artist.dashboard') }}">
                                             {{ __('Dashboard') }}
@@ -111,6 +114,7 @@
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
       </div>
     </section>
@@ -130,91 +134,12 @@
         <li>
         <a href="{{ route('contact')}}"> Contact </a>
         </li>
-      </ul>
+      </ul>      
     </nav>
     </div>
 </header>
 
-    <!-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand logoContainer" href="{{ url('/') }}">
-                    <img src="https://fontmeme.com/permalink/201001/176021b0c6f1e7bc1e3722a9f61be964.png" alt="lettertypes-voor-handtekeningen" border="0">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-
-
-                    
-
-                    <ul class="navbar-nav ml-auto">
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registeer als kunstliefhebber') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register.as.artist') }}">{{ __('Registreer als kunstenaar') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if(Auth::user()->user_type=='artist')
-                                        {{ Auth::user()->artist->artist_name }}
-                                    @else 
-                                        {{ Auth::user()->name }} 
-                                    @endif
-                                    <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @if(Auth::user()->user_type==='customer')
-                                        <a class="dropdown-item" href="{{ route('profile.index')}}">
-                                            {{ __('Profiel') }}
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('favourites')}}">
-                                            {{ __('Favorieten') }}
-                                        </a>
-                                        <p>{{ (Auth::user()->user_type==='customer') }}</p>
-                                    @elseif(Auth::user()->user_type==='artist') 
-                                        <a class="dropdown-item" href="{{ route('artist.dashboard') }}">
-                                            {{ __('Dashboard') }}
-                                        </a>
-                                        <a class="dropdown-item" href="{{ route('create.artwork') }}">Voeg kunstwerk toe</a>
-                                        <a class="dropdown-item" href="{{ route('artwork.overview') }}">Uw kunstwerken</a>
-                                        <a class="dropdown-item" href="{{ route('view.leads') }}">Leads</a>
-                                        <a class="dropdown-item" href="{{ route('view.messages') }}">Bekijk uw berichten</a>
-
-                                    @else
-                                        <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
 
 
 
