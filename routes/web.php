@@ -98,6 +98,7 @@ Route::get('/blog', 'FrontendController@blogindex')->name('blog.index');
 Route::get('/nieuws', 'FrontendController@newsindex')->name('news.index');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 Route::post('/contact/send', 'EmailController@contactPost')->name('send.post');
+Route::post('', 'FrontendController@subscribe')->name('subscribers.store');
 
 
 //category 

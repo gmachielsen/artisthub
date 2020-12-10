@@ -56,7 +56,31 @@ html, body {
     height: 100%;
 } */
 
+body {
+  overflow-x: hidden!important;
+}
 
+.category {
+  text-align: center;
+}
+
+#section {
+  position: relative;
+}
+
+.header section .title {
+  justify-content: center;
+}
+.title {
+  position: absolute!important;
+  right: 48%!important;
+  left: 48%!important;
+  margin: auto!important;
+}
+
+.filter .form-group {
+  padding: 5px;
+}
 
 
 .header {
@@ -209,4 +233,49 @@ html, body {
 .title {
   display: flex;
 }
- 
+
+.welcome {
+  margin: 0; 
+  padding: 0 !important;
+}
+
+.notwelcome {
+  padding-top: 170px;
+  padding-bottom: 40px;
+}
+@media screen and (max-width: 1000px) {
+  .notwelcome {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+  }
+}
+
+body {
+  overflow-x: hidden!important;
+}
+
+.category {
+  text-align: center;
+}
+
+#section {
+  position: relative;
+}
+
+.header section .title {
+  justify-content: center;
+}
+.title {
+  position: absolute!important;
+  right: 48%!important;
+  left: 48%!important;
+  margin: auto!important;
+}
+
+.filter .form-group {
+  padding: 5px;
+}
+

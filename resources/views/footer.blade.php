@@ -13,11 +13,15 @@
                     <div class="content">
                         <h2>Blijf op de hoogte</h2>
                         <p>Schrijf je in voor onze nieuwsbrief en volg ons op social media</p>
-                        <div class="subscribe input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Uw emailadres" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="subscribe input-group mb-3" style="justify-content: center;">
+                          <form action="{{ route('subscribers.store')}}" method="post" style="display: flex;">
+                            @csrf
+                            <input type="text" name="email" class="form-control col-12" placeholder="Uw emailadres" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Button</button>
+                                <button class="btn btn-outline-secondary col-12" type="submit">Button</button>
                             </div>
+                          </form>
+
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@
     <div class="row">
         <div class="desktop col-sm-12 col-md-4 col-lg-3">
 
-
+                <h1 class="text-center">Filter</h1>
             <form action="{{route('all.artworks')}}" method="GET">
             <div class="form-inline filter">
                 <div class="form-group col-md-12">
@@ -163,7 +163,8 @@
 
             </div>    
             <br>
-            </form>      </div>
+            </form>      
+            </div>
     </div>
   </div>
 
@@ -188,8 +189,15 @@
             @foreach($artworks as $artwork)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                     <a href="{{ route('artworks.show', [$artwork->id, $artwork->slug])}}">
+
                         <div class="card" style="">
-                            <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">
+                        @if(!empty($artwork->picture))
+                        <img src="{{ asset('uploads/artworks') }}/{{ $artwork->picture }}" class="card-img-top" alt="...">
+
+                        @else 
+                        <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">
+
+                        @endif
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
                                 <p>€ {{ $artwork->price }} / € {{ $artwork->rent }}</p>

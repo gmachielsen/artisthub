@@ -159,8 +159,13 @@
                          <div class="col mx-1 my-5">
                          <a href="{{ route('artworks.show', [$artwork->id, $artwork->slug])}}">
                             <div class="card" style="">
-                                <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">
-                                <div class="card-body">
+                            @if(!empty($artwork->picture))
+                            <img src="{{ asset('uploads/artworks') }}/{{ $artwork->picture }}" class="card-img-top" alt="...">
+
+                            @else 
+                            <img src="{{ asset('artworks/Paard.jpg')}}" class="card-img-top" alt="...">
+
+                            @endif                                <div class="card-body">
                                     <h5 class="card-title">{{ $artwork->artist->artist_name }}</h5>
                                     <p>€ {{ $artwork->price }} / € {{ $artwork->rent }}</p>
 

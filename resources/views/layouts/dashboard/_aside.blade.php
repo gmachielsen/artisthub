@@ -25,6 +25,7 @@
         <li><a class="app-menu__item" href="{{ route('admin.news.index')}}"><i class="app-menu__icon fa fa-newspaper-o"></i><span class="app-menu__label">News</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.vacancies.index')}}"><i class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Vacancies</span></a></li>
         <li><a class="app-menu__item" href="{{ route('admin.staffmembers.index')}}"><i class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Staff Members</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('admin.subscribers.index')}}"><i class="app-menu__icon fa fa-news"></i><span class="app-menu__label">Subscribers</span></a></li>
 
       </ul>
     </aside>

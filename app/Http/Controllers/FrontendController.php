@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Artist;
 use App\Staffmember;
+use App\Subscriber;
+use App\Artwork;
+use App\Style;
+use App\Category;
 
 use Mail;
 
@@ -40,6 +44,22 @@ class FrontendController extends Controller
     public function contact()
     {
         return view('frontend.contact');
+    }
+
+    public function subscribe(Request $request)
+    {
+        $this->validate($request,[
+            'email'=>'required|min:2',
+        ]);
+        Subscriber::create([
+            'email' => request('email'),
+        ]);
+        $artworks = Artwork::latest()->limit(12)->where('status', 1)->get();
+        $artists = Artist::latest()->limit(8)->get();
+        $categories = Category::all();
+        $styles = Style::all();
+
+        return view('welcome', compact('artworks', 'artists', 'categories', 'styles'));
     }
 
   

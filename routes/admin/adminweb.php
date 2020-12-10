@@ -97,6 +97,13 @@ Route::prefix('dashboard')->name('admin.')->middleware('admin')->group(function(
     Route::post('/staffmembers/{id}/update', 'StaffMemberController@update')->name('staffmembers.update');
     Route::post('/staffmembers/{id}/delete', 'StaffMemberController@delete')->name('staffmembers.delete');
 
+    Route::get('/subscribers', 'SubscriberController@index')->name('subscribers.index');
+    Route::get('/subscribers/create', 'SubscriberController@create')->name('subscribers.create');
+    Route::post('/subscribers/store', 'SubscriberController@store')->name('subscribers.store');
+    Route::get('/subscribers/{id}/edit', 'SubscriberController@edit')->name('subscribers.edit');
+    Route::post('/subscribers/{id}/update', 'SubscriberController@update')->name('subscribers.update');
+    Route::post('/subscribers/{id}/delete', 'SubscriberController@delete')->name('subscribers.delete');
+
     Route::get('/analytics', 'AnalyticsController@index')->name('analytics.index');
 
 });
